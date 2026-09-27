@@ -1023,7 +1023,7 @@ const COMBAT_CARD_ART={"sword":"Textures/UI/Combat/sword.png","bow":"Textures/UI
       const action=status==='active'&&ready?button('quest-complete','Complete Quest',`data-fixed-index="${i}"`):'';
       return `<article class="fixed-quest-row ${status}"><div><h3>${i+1}. ${safe(q[0])}</h3><p>${safe(q[1])}<br><b>Reward:</b> ${safe(q[2])}</p></div><div class="fixed-quest-meta">${badge}${action}</div></article>`;
     }).join('');
-    setPanel(type,'quest',`<h2>${PEOPLE[type][0]} · Quest Board</h2><p class="compact-copy">Quest status is synced across this interior and your save in real time.</p><div class="fixed-quest-board">${rows}</div><div class="compact-options">${button('back','Back')}</div>`);
+    setPanel(type,'quest',`<h2>${PEOPLE[type][0]} · Quests</h2><div class="fixed-quest-board">${rows}</div><div class="compact-options">${button('back','Back')}</div>`);
     questRenderSignature=questSignature(type);
   }
   let openToken=0;
@@ -1032,7 +1032,7 @@ const COMBAT_CARD_ART={"sword":"Textures/UI/Combat/sword.png","bow":"Textures/UI
   const safe=(v)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const button=(action,label,extra='')=>`<button type="button" data-fixed-action="${action}" ${extra}>${label}</button>`;
   function stats(type){
-    let html=`<div class="compact-stats">Coins: ◈ ${state.coins} &nbsp;·&nbsp; HP: ❤ ${state.hp}/${state.maxHp}</div>`;
+    let html=`<div class="compact-stats"><span><small>COINS</small><b>◈ ${state.coins}</b></span><span><small>HEALTH</small><b>❤ ${state.hp}/${state.maxHp}</b></span></div>`;
     if(type==='blacksmith') html+=`<div class="compact-materials"><span>Leather: ${state.materials?.leather||0}</span><span>Bones: ${state.materials?.bones||0}</span><span>Demon steel: ${state.materials?.steel||0}</span><span>${state.gear==='magic'?'Magic':'Weapon'} Lv: ${state.gear==='magic'?state.magicLevel||0:state.weaponLevel||0}</span><span>Armor Lv: ${state.armorLevel||0}</span></div>`;
     return html;
   }
@@ -1041,6 +1041,7 @@ const COMBAT_CARD_ART={"sword":"Textures/UI/Combat/sword.png","bow":"Textures/UI
     p.dataset.fixedFacility=type;
     p.dataset.fixedView=view;
     p.dataset.compact=view==='intro'?'talk':view;
+    p.parentElement?.classList.toggle('quest-board-layout',view==='quest');
     p.innerHTML=html;
   }
   function main(type){

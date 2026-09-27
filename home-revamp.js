@@ -121,9 +121,10 @@
   let houseAssetsWarm=false;
   setInterval(()=>{
     const active=room.classList.contains('active')&&state._building==='home';
-    room.classList.toggle('house-revamp',active);
+    const departing=room.classList.contains('transition-old')&&state._building==='home';
+    room.classList.toggle('house-revamp',active||departing);
     if(active&&!houseAssetsWarm){houseAssetsWarm=true;['Textures/Buildings/house-night.png','Textures/UI/House/armor-doll.png',...trophies.map(t=>t.src)].forEach(src=>window.ensureSceneImage?.(src))}
-    if(!active&&viewer){viewer.remove();viewer=null;curtain.classList.remove('cover');transitioning=false}
+    if(!active&&!departing&&viewer){viewer.remove();viewer=null;curtain.classList.remove('cover');transitioning=false}
   },150);
   window.homeRevamp={openArmor,openTrophies,reconcileTrophies};
 })();

@@ -22,3 +22,22 @@
 @keyframes armorLightPulse{from{opacity:.65;scale:.92}to{opacity:1;scale:1.08}}
 @keyframes armorLightTurn{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.side-armor-unlock,.side-armor-unlock-glow,.side-armor-unlock-glow::before,.side-armor-unlock-glow::after,.side-armor-unlock-art{animation:none}}
+
+/* Quest boards keep their milestone and navigation visible while quests scroll. */
+#interior .interior-panel.quest-board-layout{top:17%;bottom:4%;height:auto;max-height:none;overflow:hidden;display:flex;flex-direction:column;box-sizing:border-box}
+#interior .quest-board-layout #interiorContent{display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden;gap:0}
+#interior .quest-board-layout #interiorContent>h2{flex:none;margin:0 0 8px;font-size:clamp(19px,2.4vw,28px);line-height:1.08}
+#interior .quest-board-layout .fixed-quest-board{flex:1 1 auto;min-height:0;height:auto;max-height:none;overflow-y:auto;overflow-x:hidden;align-content:start;display:grid;grid-auto-rows:max-content;gap:5px}
+#interior .quest-board-layout .fixed-quest-row{padding:6px 8px;min-height:0}
+#interior .quest-board-layout .fixed-quest-row h3{font-size:11px;margin:0 0 2px}
+#interior .quest-board-layout .fixed-quest-row p{font-size:9px;line-height:1.22}
+#interior .quest-board-layout .fixed-quest-meta{min-width:110px}
+#interior .quest-board-layout .side-armor-section{order:1;flex:none;margin:7px 0 0;padding-top:7px;gap:3px}
+#interior .quest-board-layout .side-armor-section h3{font-size:12px;margin:0}
+#interior .quest-board-layout .side-armor-row{padding:5px 8px;gap:7px}
+#interior .quest-board-layout .side-armor-row strong{font-size:11px}
+#interior .quest-board-layout .side-armor-row small{font-size:9px;margin-top:1px;line-height:1.2}
+#interior .quest-board-layout .side-armor-row button{min-height:28px}
+#interior .quest-board-layout .compact-options{order:2;flex:none;margin:7px 0 0}
+#interior .quest-board-layout .compact-options button{min-height:31px}
+@media(max-width:700px){#interior .interior-panel.quest-board-layout{top:14%;bottom:2%;height:auto;max-height:none!important;padding:7px!important}#interior .quest-board-layout .fixed-quest-row{grid-template-columns:minmax(0,1fr) auto;gap:4px}#interior .quest-board-layout .fixed-quest-meta{min-width:0;max-width:95px;justify-items:end}#interior .quest-board-layout .fixed-quest-meta button{min-height:30px;padding:4px;font-size:9px}#interior .quest-board-layout .side-armor-row small{font-size:8px}}

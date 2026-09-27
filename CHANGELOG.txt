@@ -1,7 +1,5 @@
-Combat upgrade, armor defense, and house sprite patch
+House exit flicker patch
 
-- game.js: Blacksmith magic levels now add +2 damage per level to spells; weapon levels continue adding +2 to sword and bow hits. Existing magic saves retain previously earned weapon-level damage. Magic battle damage rewards now advance magicLevel. Armor levels reduce incoming direct damage by 2% per level, capped at 30%, in addition to their HP increase. Updated upgrade/reward descriptions and reset magic level on new games.
-- home-revamp.js: Armor preview attack numbers include magic upgrades.
-- home-revamp.css: House player sprite matches the size and placement of characters in other interiors.
-- index.html: Updated asset cache versions for the changed files.
-- No textures were changed.
+- home-revamp.js: Keep the House visual class and open viewer intact while the interior remains visible as the outgoing transition screen. Clean up only after the fade finishes.
+- index.html: Updated the home-revamp.js cache version.
+- No textures or other game systems changed.
