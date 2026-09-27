@@ -1,5 +1,5 @@
-House exit flicker patch
+Crownhold Level 3 pair scale patch
 
-- home-revamp.js: Keep the House visual class and open viewer intact while the interior remains visible as the outgoing transition screen. Clean up only after the fade finishes.
-- index.html: Updated the home-revamp.js cache version.
-- No textures or other game systems changed.
+- alive-systems.css: Render the rear Level 3 sprite in the same height and width box as the front sprite; retain its lower position and background layer.
+- index.html: Refresh the alive-systems.css cache version.
+- No monster textures or combat logic changed.

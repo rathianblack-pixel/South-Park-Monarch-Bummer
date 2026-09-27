@@ -122,9 +122,10 @@
   setInterval(()=>{
     const active=room.classList.contains('active')&&state._building==='home';
     const departing=room.classList.contains('transition-old')&&state._building==='home';
-    room.classList.toggle('house-revamp',active||departing);
+    const entering=room.dataset.facilityType==='home'&&state._building==='home'&&document.querySelector('#fadeTransition')?.classList.contains('active');
+    room.classList.toggle('house-revamp',active||departing||entering);
     if(active&&!houseAssetsWarm){houseAssetsWarm=true;['Textures/Buildings/house-night.png','Textures/UI/House/armor-doll.png',...trophies.map(t=>t.src)].forEach(src=>window.ensureSceneImage?.(src))}
-    if(!active&&!departing&&viewer){viewer.remove();viewer=null;curtain.classList.remove('cover');transitioning=false}
+    if(!active&&!departing&&!entering&&viewer){viewer.remove();viewer=null;curtain.classList.remove('cover');transitioning=false}
   },150);
   window.homeRevamp={openArmor,openTrophies,reconcileTrophies};
 })();

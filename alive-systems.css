@@ -170,5 +170,5 @@
 #enemyArt.crownhold-pair .crownhold-pair-sprites{display:block;position:relative;width:100%;height:100%;overflow:visible;isolation:isolate}
 #enemyArt.crownhold-pair .crownhold-pair-sprites>.monster-sprite{position:absolute!important;display:block!important;max-width:none!important;object-fit:contain!important;object-position:center bottom!important;mix-blend-mode:normal!important}
 #enemyArt.crownhold-pair .crownhold-pair-sprites>.monster-sprite:first-child{left:0!important;bottom:0!important;width:72%!important;height:100%!important;z-index:2}
-#enemyArt.crownhold-pair .crownhold-pair-sprites>.monster-sprite:nth-child(2){left:27%!important;bottom:-9%!important;width:72%!important;height:82%!important;z-index:1}
+#enemyArt.crownhold-pair .crownhold-pair-sprites>.monster-sprite:nth-child(2){left:27%!important;bottom:-9%!important;width:72%!important;height:100%!important;z-index:1}
 #map .hud .controls #legacyBtn,#village .hud .controls #legacyBtn{white-space:nowrap}

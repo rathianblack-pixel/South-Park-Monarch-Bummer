@@ -350,7 +350,7 @@
     if(hub===1&&['charge','heavy'].includes(combat.intentType)&&cycle%3===0){combat.intentType='fast';return 'Bramble catches the approach and shortens the attack.'}
     if(hub===2&&cycle%3===0){combat.intentType='status';return 'Grave mist thickens around the next attack.'}
     if(hub===3){combat.intentType=cycle%2===0?'dodge':'fast';return 'The shifting floor changes the angle of the exchange.'}
-    if(hub===4&&combat.boss&&Number(combat.reactivityPhase||1)>=3){combat.intentType='charge';return 'Fortress pressure turns the final phase into a direct assault.'}
+    if(hub===4&&combat.boss&&Number(combat.reactivityPhase||1)>=3&&cycle%3===0){combat.intentType='charge';return 'Fortress pressure turns the final phase into a direct assault.'}
     return '';
   }
   function applyEnvironmentCounterEffect(){
@@ -420,13 +420,13 @@
     if(!combat?.boss)return;
     if(phase===2){
       if(combat.enemy==='Sir Barnaby'||combat.enemy==='Gloomfang')combat.enemyDodgeBonus=Math.max(Number(combat.enemyDodgeBonus||0),.10);
-      if(combat.enemy==='Minotaur with Anxiety')combat.intentType='dodge';
-      if(combat.enemy==='Monarch Lucien')combat.intentType='status';
+      if(combat.enemy==='Minotaur with Anxiety'&&combat._reactivityIntentCycle%3===0)combat.intentType='dodge';
+      if(combat.enemy==='Monarch Lucien'&&combat._reactivityIntentCycle%3===0)combat.intentType='status';
     }
     if(phase===3){
       qs('#enemyArt')?.classList.add('reactivity-phase-three');
-      if(['Sir Barnaby','Gloomfang','Minotaur with Anxiety','Monarch Lucien'].includes(combat.enemy))combat.intentType='charge';
-      if(combat.enemy==='Lich King Timmy')combat.intentType='status';
+      if(['Sir Barnaby','Gloomfang','Minotaur with Anxiety','Monarch Lucien'].includes(combat.enemy)&&combat._reactivityIntentCycle%3===0)combat.intentType='charge';
+      if(combat.enemy==='Lich King Timmy'&&combat._reactivityIntentCycle%3===0)combat.intentType='status';
     }
   }
   function monitorBossPhase(){
@@ -441,18 +441,32 @@
     combat._reactivityIntentSeed=seed;
     const kind=combat.reactivityPersonality||personalityFor(combat.enemy),ratio=combat.enemyHp/Math.max(1,combat.enemyMax),burning=combat.targetStatuses?.includes('Burning');
     combat._reactivityIntentCycle=Number(combat._reactivityIntentCycle||0)+1;
-    if(kind==='Aggressive')combat.intentType=ratio<.48?'charge':'heavy';
-    else if(kind==='Defensive'){combat.intentType=burning?'heavy':'dodge';combat.enemyDodgeBonus=burning?0:Math.max(Number(combat.enemyDodgeBonus||0),.16)}
-    else if(kind==='Cowardly'){combat.intentType=ratio<.55?'dodge':'fast';combat.enemyDodgeBonus=burning?0:Math.max(Number(combat.enemyDodgeBonus||0),ratio<.55?.19:.09)}
-    else if(kind==='Berserk')combat.intentType=ratio<.62?'charge':'heavy';
-    else if(kind==='Trickster'){const cycle=combat._reactivityIntentCycle%3;combat.intentType=cycle===0?'status':cycle===1?'dodge':'fast';combat.enemyDodgeBonus=combat.intentType==='dodge'&&!burning?Math.max(Number(combat.enemyDodgeBonus||0),.16):0}
-    else if(kind==='Protector'){combat.intentType=ratio<.4?'heavy':(combat._reactivityIntentCycle%3===0?'status':'heavy');combat.enemyDodgeBonus=Math.max(Number(combat.enemyDodgeBonus||0),.05)}
+    const cycle=combat._reactivityIntentCycle;
+    const pools={
+      Aggressive:ratio<.48?['charge','heavy','status']:['heavy','fast','charge'],
+      Defensive:burning?['heavy','fast','status']:['dodge','heavy','status'],
+      Cowardly:ratio<.55?['dodge','fast','status']:['fast','dodge','status'],
+      Berserk:ratio<.62?['charge','heavy','fast']:['heavy','charge','fast'],
+      Trickster:['dodge','fast','status'],
+      Protector:ratio<.4?['heavy','status','charge']:['heavy','status','dodge']
+    };
+    const pool=pools[kind]||['heavy','fast','status'];
+    combat.intentType=pool[(cycle-1)%pool.length];
+    combat.enemyDodgeBonus=0;
     applyEnvironmentIntentEffect();
     if(combat.boss)applyBossPhaseBehavior(Number(combat.reactivityPhase||phaseFromHp()));
+    // Phase and area effects can override the personality. Keep the final
+    // telegraph from repeating when another appropriate move is available.
+    if(combat.intentType===combat._reactivityPreviousIntent){
+      combat.intentType=pool.find(move=>move!==combat._reactivityPreviousIntent)||combat.intentType;
+    }
+    if(combat.intentType==='dodge'&&!burning)combat.enemyDodgeBonus=Math.max(combat.enemyDodgeBonus,kind==='Cowardly'&&ratio<.55?.19:combat.boss?.17:.16);
+    if(kind==='Protector')combat.enemyDodgeBonus=Math.max(combat.enemyDodgeBonus,.05);
     const lines=ENEMY_WARNING_LINES[combat.enemy]||['The enemy shifts its weight.','The enemy moves through the edge of your vision.','The enemy studies your stance in silence.','The enemy settles into a guarded posture.','The enemy prepares something difficult to identify.'];
     const intentIndex=WARNING_TYPES.indexOf(combat.intentType);
     combat.intentText=lines[intentIndex]||lines[0];
     combat.lastIntentType=combat.intentType;
+    combat._reactivityPreviousIntent=combat.intentType;
     const prompt=qs('#battlePrompt'),detail=qs('#battleDetail');
     if(prompt?.textContent==='Enemy movement'&&detail)detail.textContent=combat.intentText;
   }
