@@ -1,0 +1,14 @@
+/* Quiet, distinct damage-over-time numbers. Other hit numbers keep their existing motion. */
+#combat .damage-number.alive-number.status-number.status-burning,
+#combat .damage-number.alive-number.status-number.status-bleeding{font-size:clamp(15px,1.7vw,23px);min-width:24px;letter-spacing:0;animation-duration:.7s;animation-timing-function:ease-out;isolation:isolate}
+#combat .damage-number.alive-number.status-number.status-burning{color:#ffc075;text-shadow:0 1px 3px #3b190d,0 0 7px #db6d28;animation-name:statusBurnFloat}
+#combat .damage-number.alive-number.status-number.status-bleeding{color:#e6818e;text-shadow:0 1px 3px #330d18,0 0 6px #ab3a50;animation-name:statusBleedFloat}
+#combat .damage-number.status-burning::before,#combat .damage-number.status-burning::after{content:"";position:absolute;bottom:1px;width:4px;height:5px;border-radius:50% 50% 35% 35%;background:#ffb15f;box-shadow:0 0 5px #ff732e;pointer-events:none;animation:statusEmber .65s ease-out forwards}
+#combat .damage-number.status-burning::before{left:15%;--ember-x:-9px;animation-delay:.05s}
+#combat .damage-number.status-burning::after{right:12%;--ember-x:7px;animation-delay:.13s}
+#combat .damage-number.status-bleeding::after{content:"";position:absolute;top:70%;left:50%;width:4px;height:7px;border-radius:70% 70% 85% 85%;background:#da6177;box-shadow:0 0 4px #b83251;pointer-events:none;animation:statusDrop .62s ease-in forwards}
+@keyframes statusBurnFloat{0%{opacity:0;transform:translate(-50%,8px) scale(.75)}22%{opacity:1;transform:translate(-50%,-5px) scale(1.08) rotate(-3deg)}55%{opacity:1;transform:translate(-50%,-15px) rotate(3deg)}100%{opacity:0;transform:translate(-50%,-35px) rotate(-2deg)}}
+@keyframes statusBleedFloat{0%{opacity:0;transform:translate(-50%,-5px) scale(.8)}22%{opacity:1;transform:translate(-50%,5px) scale(1.05)}58%{opacity:1;transform:translate(-50%,10px)}100%{opacity:0;transform:translate(-50%,24px)}}
+@keyframes statusEmber{0%{opacity:0;transform:translate(0,0) scale(.5)}25%{opacity:1}100%{opacity:0;transform:translate(var(--ember-x),-25px) scale(.4)}}
+@keyframes statusDrop{0%{opacity:0;transform:translate(-50%,0) scale(.5)}25%{opacity:1}100%{opacity:0;transform:translate(-50%,21px) scale(.65)}}
+@media(prefers-reduced-motion:reduce){#combat .damage-number.alive-number.status-number.status-burning,#combat .damage-number.alive-number.status-number.status-bleeding{animation:statusQuietFade .7s ease-out forwards}#combat .damage-number.status-burning::before,#combat .damage-number.status-burning::after,#combat .damage-number.status-bleeding::after{animation:none;display:none}@keyframes statusQuietFade{0%{opacity:0;transform:translate(-50%,0)}20%{opacity:1}100%{opacity:0;transform:translate(-50%,0)}}}

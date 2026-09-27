@@ -1,4 +1,5 @@
 Changed files:
-- game.js: The periodic combat background refresh now keeps the selected village raid image while a raid is active. Normal area and postgame combat backgrounds retain their existing selection.
-
-The raid scene chooser already selects randomly among the three supplied village scenes and uses their -night variants at night; no texture files changed.
+- alive-systems.js: Burning and Bleeding damage floats now show only the small negative number and receive effect-specific animation classes.
+- status-damage-minimal.css: animated rising amber number with two embers for Burning; falling crimson number with one drop for Bleeding. Reduced-motion fade included.
+- game.js: removes the extra four-drop burst from Burning/Bleeding turn ticks, including the older Bleeding tick. Application effects and ordinary hit numbers remain.
+- index.html: loads the new stylesheet and updates JS URL versions for deployed browsers.

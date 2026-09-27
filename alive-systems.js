@@ -219,8 +219,10 @@
     recoilActor(target,{heavy,guarded:!!options.guarded});
     if(heavy&&!options.guarded)camera('heavy',280);
     if(isEnemy&&combat?.boss&&combat.enemyHp<=0)camera('boss-final',650);
-    const text=options.status?`${String(options.status).toUpperCase()} ${amount}`:(options.critical?`${amount}!`:`-${amount}`);
-    window.floatCombatText(target,text,{status:!!options.status,critical:!!options.critical});
+    const dot=options.status==='Burning'?'burning':options.status==='Bleeding'?'bleeding':'';
+    const text=dot?`-${amount}`:options.status?`${String(options.status).toUpperCase()} ${amount}`:(options.critical?`${amount}!`:`-${amount}`);
+    const number=window.floatCombatText(target,text,{status:!!options.status,critical:!!options.critical});
+    if(dot)number?.classList.add('status-'+dot);
   };
 
   window.floatHealNumber=function(target,amount){
