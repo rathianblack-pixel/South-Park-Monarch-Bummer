@@ -1,4 +1,4 @@
-Village Raid chance: increased the eligible village-entry trigger from 8% to 10%.
-
 Changed files:
-- village-raid.js
+- game.js: The periodic combat background refresh now keeps the selected village raid image while a raid is active. Normal area and postgame combat backgrounds retain their existing selection.
+
+The raid scene chooser already selects randomly among the three supplied village scenes and uses their -night variants at night; no texture files changed.
