@@ -1,5 +1,5 @@
-Crownhold Level 3 pair scale patch
+Remove legacy armor unlock window
 
-- alive-systems.css: Render the rear Level 3 sprite in the same height and width box as the front sprite; retain its lower position and background layer.
-- index.html: Refresh the alive-systems.css cache version.
-- No monster textures or combat logic changed.
+- game.js: Removed the obsolete boss armor notification window shown in the screenshot, including its Continue button and pending timer. Cleared stale pending flags from older saves. Boss armor unlocks and the separate modern reveal flow remain.
+- index.html: Removed the obsolete window's CSS and refreshed the game.js cache version.
+- No textures changed.
