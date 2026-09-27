@@ -1,6 +1,18 @@
-Changed files:
-- reactivity-systems.js: regular enemies remain on their damaged sprite at zero HP; exposes the sprite refresh to the death animation.
-- alive-systems.js: refreshes the enemy sprite immediately before the death motion starts.
-- index.html: updates JS URL versions for deployed browser caches.
+Armor reveal and bonuses patch
 
-Crownhold sprite handling stays as before.
+Changed files: game.js, side-armor.js, side-armor.css, index.html.
+No textures were changed in this patch; install over the previous side armor milestone patch, which contains the side armor PNGs.
+
+Newly earned area armor and claimed side armor now open a centered reveal with a blurred backdrop, animated light and gentle armor sway, the set name, and a Continue button. Area armor appears after the battle reward is claimed.
+
+Unique side armor bonuses apply while equipped:
+- Choirguard Vestments: healing items and spells restore 2 extra HP.
+- Forgeheart Plate: Guard reduces incoming damage by another 10%.
+- Gilded Bargainer: combat coin rewards increase by 20% (rounded up).
+- Roadkeeper's Cloak: reduces enemy signature ailment chance by 20% and incidental Bleeding chance from 50% to 40%.
+- Village Defender: village raid attacks deal 10% less damage.
+- Grave Lantern Keeper: Burning and Bleeding deal 1 less damage per turn (minimum 1).
+- Maze Cartographer: attack accuracy gains 5 percentage points.
+- Thronebreaker Regalia: damaging hits and Sword counters deal 2 extra damage to bosses.
+
+Updated HTML asset versions to refresh cached game, side armor JS, and CSS.

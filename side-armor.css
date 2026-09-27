@@ -1,0 +1,24 @@
+.side-armor-section{margin:15px 0 5px;padding-top:12px;border-top:1px solid rgba(231,185,74,.32);display:grid;gap:7px}
+.side-armor-section h3{margin:0 0 3px;color:#e9d7ae;font-size:14px;letter-spacing:.03em}
+.side-armor-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border:1px solid rgba(227,212,184,.22);border-radius:8px;background:rgba(22,31,41,.55);color:#f4e9d2}
+.side-armor-row strong{display:block;font-size:12px}.side-armor-row small{display:block;margin-top:3px;font-size:10px;line-height:1.35;opacity:.8}
+.side-armor-row .side-armor-bonus{color:#e5c997;opacity:1}
+.side-armor-row button{flex:none;min-height:29px;padding:4px 8px;border:1px solid rgba(223,193,131,.5);border-radius:5px;background:rgba(221,179,107,.17);color:#fff0d0;box-shadow:none;font-size:10px}
+.side-armor-row.locked{filter:grayscale(1);opacity:.55}.side-armor-row.obtained{opacity:.65}.side-armor-row.obtained button{background:rgba(116,180,132,.15);color:#bbdfc4}
+.side-armor-row button:disabled{cursor:default;transform:none;filter:none}
+@media(max-width:600px){.side-armor-row{align-items:flex-start}.side-armor-row button{max-width:95px;white-space:normal}}
+.side-armor-unlock{position:absolute;inset:0;z-index:120;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:4% 6%;background:rgba(7,12,22,.63);backdrop-filter:blur(11px) brightness(.65);-webkit-backdrop-filter:blur(11px) brightness(.65);color:#f8eedb;text-align:center;animation:armorRevealIn .45s ease-out both}
+.side-armor-unlock-glow{position:absolute;width:min(58%,560px);aspect-ratio:1;left:50%;top:48%;z-index:0;border-radius:50%;background:radial-gradient(circle,#fff7d777 0,#f0c66b40 22%,#b28dd125 43%,transparent 69%);transform:translate(-50%,-50%);filter:blur(8px);animation:armorLightPulse 3.6s ease-in-out infinite alternate;pointer-events:none}
+.side-armor-unlock-glow::before,.side-armor-unlock-glow::after{content:"";position:absolute;inset:6%;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 26%,#fff1be3d 31%,transparent 36% 60%,#fff1be32 65%,transparent 70%);animation:armorLightTurn 13s linear infinite}
+.side-armor-unlock-glow::after{inset:17%;animation-direction:reverse;animation-duration:18s;opacity:.55}
+.side-armor-unlock-title{position:relative;z-index:2;margin:0 0 1%;text-shadow:0 3px 15px #000}
+.side-armor-unlock-title span{display:block;font:800 clamp(9px,1vw,13px)/1.2 Arial,sans-serif;letter-spacing:.27em;color:#dfc486}
+.side-armor-unlock-title h2{margin:5px 0 0;font:700 clamp(24px,3.5vw,46px)/1.05 Georgia,serif;letter-spacing:.015em;color:#fff5de}
+.side-armor-unlock-art{position:relative;z-index:1;display:block;height:min(51%,380px);max-width:min(48%,420px);object-fit:contain;object-position:center bottom;filter:drop-shadow(0 16px 15px #000a) drop-shadow(0 0 18px #ffe7ad55);animation:armorHeroSway 3.6s ease-in-out infinite alternate}
+.side-armor-unlock p{position:relative;z-index:2;margin:6px 0 12px;max-width:410px;font:600 clamp(11px,1.1vw,14px)/1.4 Arial,sans-serif;color:#f1dfbd;text-shadow:0 2px 5px #000}
+.side-armor-unlock button{position:relative;z-index:2;min-height:36px;padding:7px 20px;border:1px solid #d6bc84;border-radius:7px;background:rgba(27,39,53,.82);color:#fff1d2;box-shadow:0 8px 20px #0008;font-size:12px}
+@keyframes armorRevealIn{from{opacity:0}to{opacity:1}}
+@keyframes armorHeroSway{from{transform:translateY(2px) rotate(-1deg)}to{transform:translateY(-6px) rotate(1deg)}}
+@keyframes armorLightPulse{from{opacity:.65;scale:.92}to{opacity:1;scale:1.08}}
+@keyframes armorLightTurn{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.side-armor-unlock,.side-armor-unlock-glow,.side-armor-unlock-glow::before,.side-armor-unlock-glow::after,.side-armor-unlock-art{animation:none}}

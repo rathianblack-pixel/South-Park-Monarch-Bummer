@@ -30,7 +30,7 @@
     }
     return out;
   };
-  const restore=()=>{state.hub=raid.previousHub;state.stage=raid.previousStage;raid.active=false;raid.backdrop=null;document.querySelector('#combat')?.classList.remove('village-raid')};
+  const restore=()=>{state.hub=raid.previousHub;state.stage=raid.previousStage;raid.active=false;raid.backdrop=null;document.querySelector('#combat')?.classList.remove('village-raid');document.querySelector('#combat .village-raid-scene')?.remove()};
   const blocked=()=>raid.active||raid.announcing||document.querySelector('#rewardOverlay.open,#levelModal.open,#utilityModal.open,#noticeOverlay,.road-event,.facility-modal.open,.death-modal,#endgameOverlay.open');
   raid.trigger=async debug=>{
     if(blocked())return false;
@@ -47,6 +47,11 @@
     raid.backdrop=`${root}${place}${night?'-night':''}.png`;
     raid.previousHub=state.hub;raid.previousStage=state.stage;
     raid.active=true;raid.enemy=chosen.enemy;
+    const combatScreen=document.querySelector('#combat');
+    combatScreen?.querySelector('.village-raid-scene')?.remove();
+    const scene=document.createElement('div');scene.className='village-raid-scene';scene.setAttribute('aria-hidden','true');
+    scene.style.backgroundImage=`linear-gradient(rgba(12,15,20,.16),rgba(12,15,20,.22)),url("${raid.backdrop}")`;
+    combatScreen?.prepend(scene);
     const banner=document.createElement('div');banner.className='village-raid-announcement';banner.innerHTML='<strong>VILLAGE RAIDED</strong>';document.querySelector('.game')?.appendChild(banner);
     await (window.ensureSceneImage?.(raid.backdrop)||Promise.resolve()).catch(()=>{});
     setTimeout(()=>{
@@ -62,6 +67,7 @@
   };
   raid.onVictory=()=>{
     state.hp=Math.max(1,combat.playerHp);
+    state.meta.villageRaidWins=(Number(state.meta.villageRaidWins)||0)+1;
     state.meta.battleWonPending=false;
     save();
     document.querySelector('#battlePrompt').textContent='Village defended!';
