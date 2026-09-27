@@ -1429,9 +1429,12 @@ window.getNgPlusVisuals=window.getNgPlusVisuals||function(){
     const active=$('#combat')?.classList.contains('active');
     return !active||!combat||window.__battleNoticeOpen||window.__combatPreAction||window.__combatEnemyTurn||!!combat.turnActionUsed||combat.playerHp<=0||combat.enemyHp<=0||!!document.querySelector('.death-modal');
   };
-  const syncCardState=()=>document.querySelectorAll('#combat .card').forEach(card=>{
-    const locked=cardsLocked();card.classList.toggle('is-locked',locked);card.setAttribute('aria-disabled',String(locked));card.tabIndex=locked?-1:0;
-  });
+  const syncCardState=()=>{
+    const locked=cardsLocked();
+    document.querySelectorAll('#combat .card').forEach(card=>{card.classList.toggle('is-locked',locked);card.setAttribute('aria-disabled',String(locked));card.tabIndex=locked?-1:0});
+    const retreat=$('#retreatBtn');if(retreat){retreat.disabled=locked;retreat.title=locked?'Retreat on your turn':'Retreat to the overworld'}
+  };
+  const retreat=$('#retreatBtn');if(retreat)retreat.onclick=()=>{if(cardsLocked())return;window.renderMap();show('map')};
   setInterval(syncCardState,40);
   document.addEventListener('keydown',e=>{if(!['1','2','3'].includes(e.key)||!cardsLocked())return;e.preventDefault()},true);
 })();

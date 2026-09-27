@@ -104,6 +104,7 @@
   font:800 10px Arial,sans-serif;box-shadow:0 3px 8px #0008;
 }
 #combat .battle-bottom .cards.card-deck-enemy-turn .card{opacity:.55}
+#combat #retreatBtn:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.65);transform:none}
 @media(max-width:900px){
   #combat .battle-bottom .cards{width:min(65%,340px)!important;height:125px!important;bottom:7px!important;gap:5px!important}
   #combat .battle-bottom .cards .card{height:125px!important;flex-basis:clamp(75px,10vw,95px)!important;width:clamp(75px,10vw,95px)!important;transform:translateY(calc(100% - 45px)) rotate(0deg)!important}

@@ -1,5 +1,5 @@
-Remove legacy armor unlock window
+Retreat turn lock patch
 
-- game.js: Removed the obsolete boss armor notification window shown in the screenshot, including its Continue button and pending timer. Cleared stale pending flags from older saves. Boss armor unlocks and the separate modern reveal flow remain.
-- index.html: Removed the obsolete window's CSS and refreshed the game.js cache version.
-- No textures changed.
+- game.js: Keep Retreat disabled outside the player's actionable turn and guard the click handler against timing gaps.
+- reactivity-systems.css: Visually dim the disabled Retreat button.
+- index.html: Updated game.js and reactivity-systems.css cache versions.
