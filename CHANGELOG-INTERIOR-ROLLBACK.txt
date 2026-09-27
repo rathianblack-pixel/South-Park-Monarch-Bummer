@@ -1,0 +1,5 @@
+Interior conversation rollback
+
+index.html: stopped loading interior-dialogue.css and interior-dialogue.js. The existing Cathedral, Blacksmith, Merchant, and House menus in game.js are active again. Boss entry conversations and the recent dialogue rewrite remain loaded.
+
+The two unused interior-dialogue files may remain on disk; they have no effect when this index.html is used. No gameplay state or save migration is needed.

@@ -90,7 +90,11 @@
     const id=visitor.dataset.visitor,data=meta();data.sideArmorVisitors=Array.isArray(data.sideArmorVisitors)?data.sideArmorVisitors:[];
     if(id&&!data.sideArmorVisitors.includes(id)){data.sideArmorVisitors.push(id);save()}
   },true);
-  window.sideArmor={recordVictory(){if(window.villageRaid?.active||state.hub!==2||!combat||combat.healingItemUsed)return;
+  window.sideArmor={catalog:()=>milestones.map(m=>({...m,...progress(m),obtained:!!obtained(m),bonus:bonuses[m.index]})),claimAtHome(index){
+    const m=milestones.find(entry=>entry.index===Number(index));
+    if(!m||m.place!=='home'||state._building!=='home'||!document.querySelector('#interior.active')||obtained(m)||!progress(m).ready)return false;
+    claim(m);return true;
+  },recordVictory(){if(window.villageRaid?.active||state.hub!==2||!combat||combat.healingItemUsed)return;
     if(Number(state.progress?.[2])>=5||Number(combat.level)===5){meta().sideArmorGraveCleanWin=true;save()}},render,showPending,showReveal};
   reconcile();setInterval(()=>{reconcile();render()},400);
 })();

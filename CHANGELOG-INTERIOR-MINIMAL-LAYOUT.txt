@@ -1,0 +1,8 @@
+Apply over interior-visual-flicker-fix.zip.
+
+interior-dialogue.js: show only a centered control dock when nobody is speaking in cathedral, blacksmith, merchant, and house. Dialogue frame returns for actual spoken lines. Quest panel now shows all ten quests on one page; tapping a compact row opens its full objective/reward and available completion action. Update the house conversation player image when equipped armor or health changes.
+interior-dialogue.css: transparent idle dock; larger blurred two-column, five-row quest board with no paging/board scrolling; compact detail view for quest text, including small viewports.
+home-revamp.js: request immediate conversation sprite refresh when an armor set is equipped.
+index.html: refresh cache versions of the edited scripts and styles.
+
+No quest progress, rewards, equipment bonuses, save keys, or textures changed. All edited JS passed node --check. This patch contains only changed files. A complete visual playthrough needs the game's texture assets.

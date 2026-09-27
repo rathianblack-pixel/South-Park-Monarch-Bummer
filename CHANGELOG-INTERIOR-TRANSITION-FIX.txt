@@ -1,0 +1,9 @@
+Apply over the previously delivered interior-dialogue-ui-fix.zip.
+
+Changed game.js: notify the interior dialogue scene before switching away from an interior.
+Changed interior-dialogue.js: keep the scene until the exit fade covers it, then remove it; remove the hidden-panel MutationObserver that repeatedly rebuilt hovered buttons; refresh service/shop/upgrade/quest panels after their actual actions; clear pending Continue callbacks before opening the Armor Doll, Trophy Wall, or Codex, so returning shows the house menu instead of reopening the viewer.
+Changed interior-dialogue.css: position the shared fade above the interior dialogue scene during transitions.
+Changed index.html: update cache query strings for these three assets.
+
+No gameplay economy, quests, save keys, or dialogue text changed in this patch.
+Validation: game.js and interior-dialogue.js passed node --check; focused static checks confirmed the observer was removed, viewer callbacks reset, and fade/exit hooks are present. Full visual testing requires the complete game assets.

@@ -1,0 +1,115 @@
+/* Shared conversation stage over the existing interior service handlers. */
+.interior-dialogue-scene{position:absolute;inset:0;z-index:92;overflow:hidden;opacity:0;transition:opacity .45s ease;isolation:isolate;background:#111923}
+.interior-dialogue-scene.open{opacity:1}
+.interior-dialogue-scene[hidden]{display:none!important}
+.interior-dialogue-backdrop,.interior-dialogue-night,.interior-dialogue-shade{position:absolute;inset:0;pointer-events:none;background-size:cover;background-position:center}
+.interior-dialogue-shade{background:linear-gradient(0deg,#080d17a6,transparent 55%),linear-gradient(90deg,#080d1690,transparent 42%,#080d1690)}
+.interior-dialogue-actor{position:absolute;bottom:18%;height:71%;width:37%;display:flex;justify-content:center;align-items:flex-end;transition:transform .32s ease,filter .32s ease;pointer-events:none}
+.interior-dialogue-actor img{max-width:100%;max-height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 10px 14px #000b)}
+.interior-dialogue-player{left:3%;transform:translateY(9px) scale(.94);filter:brightness(.58)}
+.interior-dialogue-player img{transform:scaleX(-1)}
+.interior-dialogue-npc{right:3%;transform:translateY(-8px) scale(1.05)}
+.interior-dialogue-scene.player-speaking .interior-dialogue-player{transform:translateY(-8px) scale(1.05);filter:brightness(1)}
+.interior-dialogue-scene.player-speaking .interior-dialogue-npc{transform:translateY(9px) scale(.94);filter:brightness(.58)}
+.interior-dialogue-scene.home-thought .interior-dialogue-player{left:auto;right:8%;filter:brightness(1);transform:scale(1)}
+.interior-dialogue-scene.home-thought .interior-dialogue-player img{transform:none}
+.interior-dialogue-panel{position:absolute;left:50%;bottom:8%;z-index:4;transform:translateX(-50%);width:min(800px,84%);max-height:63%;min-height:110px;overflow:auto;padding:14px 18px;border:1px solid #e5d3aa66;border-radius:11px;background:rgba(11,17,24,.85);color:#f6e9d2;box-shadow:0 18px 50px #000b;backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px)}
+.interior-dialogue-speaker{font-size:clamp(14px,1.55vw,19px);font-weight:900;color:#f0dba9;letter-spacing:.05em;text-transform:uppercase}
+.interior-dialogue-text{min-height:2.5em;margin:8px 0 12px;font-size:clamp(14px,1.5vw,19px);line-height:1.36}
+.interior-dialogue-controls,.interior-dialogue-menu .compact-options,.interior-dialogue-menu .compact-menu{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.interior-dialogue-controls button,.interior-dialogue-menu button{min-height:32px;padding:6px 12px;border:1px solid #eed6a577;border-radius:7px;background:#ffffff17;color:#f8edda;font-size:12px;font-weight:700;box-shadow:none;cursor:pointer}
+.interior-dialogue-controls button:hover,.interior-dialogue-menu button:hover,.interior-dialogue-controls button:focus-visible,.interior-dialogue-menu button:focus-visible{background:#eed6a533;outline:2px solid #eed6a599;outline-offset:1px}
+.interior-dialogue-menu h2{margin:3px 0 9px;color:#f8edda;font:600 20px Georgia,serif}
+.interior-dialogue-menu p{color:#e0d6c4;font-size:12px;line-height:1.3}
+.interior-dialogue-menu .compact-stats,.interior-dialogue-menu .compact-materials{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.interior-dialogue-menu .compact-stats span,.interior-dialogue-menu .compact-materials span{display:flex;gap:5px;align-items:center;padding:5px 8px;border:1px solid #e5d3aa44;border-radius:5px;background:#0b111a88;font-size:11px;color:#f4e4c5}
+.interior-dialogue-menu .fixed-quest-board{max-height:33vh;overflow:auto;display:grid;gap:7px;margin:0 0 8px}
+.interior-dialogue-menu .fixed-quest-row{padding:8px;border:1px solid #e5d3aa44;border-radius:6px;background:#0b111aa6;color:#f5e9d6}
+.interior-dialogue-menu .fixed-quest-row h3{font-size:12px;margin:0 0 3px}.interior-dialogue-menu .fixed-quest-row p{margin:0 0 5px}
+.interior-dialogue-menu button[disabled]{opacity:.45;cursor:default}
+.game:has(#interiorDialogueScene) #noticeOverlay{z-index:160!important}
+@media(max-width:700px){.interior-dialogue-actor{height:55%;width:50%;bottom:34%}.interior-dialogue-player{left:-7%}.interior-dialogue-npc{right:-7%}.interior-dialogue-panel{bottom:7%;width:94%;max-height:52%;min-height:0;padding:9px 11px}.interior-dialogue-text{font-size:13px;min-height:2em;margin:5px 0 7px}.interior-dialogue-controls button,.interior-dialogue-menu button{font-size:10px;min-height:28px;padding:5px 8px}}
+@media(max-height:480px){.interior-dialogue-actor{bottom:20%;height:69%}.interior-dialogue-panel{bottom:4%;max-height:50%;padding:6px 10px}.interior-dialogue-text{min-height:0}}
+@media(prefers-reduced-motion:reduce){.interior-dialogue-scene,.interior-dialogue-actor{transition:none}}
+.interior-dialogue-controls .interior-home-resources{display:flex;flex:1;gap:7px;align-items:center;align-self:center;margin-right:auto}
+.interior-home-resources span{display:inline-flex;align-items:center;gap:5px;padding:4px 8px;border:1px solid #e5d3aa55;border-radius:6px;background:#0b111a88;color:#f4e4c5;white-space:nowrap}
+.interior-home-resources small{font:700 9px Arial,sans-serif;letter-spacing:.1em;color:#c6b797}.interior-home-resources b{font:700 11px Arial,sans-serif}
+@media(max-width:700px){.interior-dialogue-controls .interior-home-resources{flex-basis:100%}}
+/* Compact control panels: speaker/text are reserved for spoken dialogue only. */
+.interior-dialogue-scene.showing-menu .interior-dialogue-panel{width:min(640px,84%);min-height:0;max-height:60%;bottom:6%;padding:12px 14px;overflow:auto}
+.interior-dialogue-scene.showing-menu .interior-dialogue-speaker,.interior-dialogue-scene.showing-menu .interior-dialogue-text{display:none}
+.interior-dialogue-scene.showing-menu .interior-dialogue-menu h2{font:700 clamp(15px,1.5vw,19px)/1.15 Arial,Helvetica,sans-serif;margin:0 0 8px}
+.interior-dialogue-scene.showing-menu .interior-dialogue-menu .compact-copy{margin:2px 0 9px;font:400 11px/1.35 Arial,Helvetica,sans-serif;color:#e0d6c4}
+.interior-dialogue-scene.showing-menu .interior-dialogue-menu .compact-options,.interior-dialogue-scene.showing-menu .interior-dialogue-menu .compact-menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.interior-dialogue-scene.showing-menu .interior-dialogue-menu button{min-height:36px;line-height:1.25;text-align:center}
+.interior-dialogue-scene.showing-menu .interior-dialogue-menu .compact-options button[data-dialogue-action="back"]{grid-column:1/-1;min-height:30px}
+.interior-dialogue-scene.showing-menu .fixed-quest-board{height:auto;max-height:none;overflow:visible;display:grid;gap:5px;margin:0}
+.interior-dialogue-scene.showing-menu .fixed-quest-row{padding:6px 8px;min-height:0}
+.interior-dialogue-scene.showing-menu .fixed-quest-row[hidden]{display:none!important}
+.interior-dialogue-scene.showing-menu .fixed-quest-row h3{font-size:11px}
+.interior-dialogue-scene.showing-menu .fixed-quest-row p{font-size:10px;line-height:1.25}
+.interior-dialogue-scene.showing-menu .fixed-quest-meta{min-width:90px}
+.interior-dialogue-scene.showing-menu .dialogue-quest-pages{display:flex;align-items:center;justify-content:space-between;gap:7px;margin:8px 0;color:#d8c7a6;font:700 10px Arial,Helvetica,sans-serif}
+.interior-dialogue-scene.showing-menu .dialogue-quest-pages button{min-height:28px;padding:3px 8px}
+@media(max-width:700px){.interior-dialogue-scene.showing-menu .interior-dialogue-panel{width:94%;max-height:65%;bottom:3%;padding:8px}.interior-dialogue-scene.showing-menu .fixed-quest-row{grid-template-columns:1fr}.interior-dialogue-scene.showing-menu .fixed-quest-meta{display:flex;justify-content:space-between;align-items:center}}
+
+/* Keep the dialogue stage behind the shared fade during interior changes. */
+.game:has(#interiorDialogueScene) #fadeTransition{z-index:130}
+
+/* The first visible interior frame already contains its dialogue scene. */
+.interior-dialogue-scene.entering{opacity:1;transition:none}
+/* House curtain and Codex cover the dialogue stage; the old facility layout never peeks through. */
+.game:has(#interiorDialogueScene) .home-scene-curtain{z-index:112}
+.game:has(#interiorDialogueScene) .home-viewer{z-index:111}
+.game:has(#interiorDialogueScene) #codexOverlay{z-index:111}
+.game:has(.home-viewer) #interiorDialogueScene{visibility:hidden}
+.game:has(.home-viewer) #interior .interior-panel,.game:has(.home-viewer) #interiorCharacter{visibility:hidden}
+/* Between spoken lines, present only a centered control dock. */
+.interior-dialogue-scene.idle-menu .interior-dialogue-panel{width:min(980px,94%);bottom:8%;min-height:0;max-height:none;overflow:visible;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+.interior-dialogue-scene.idle-menu .interior-dialogue-speaker,.interior-dialogue-scene.idle-menu .interior-dialogue-text{display:none}
+.interior-dialogue-scene.idle-menu .interior-dialogue-controls{display:flex;justify-content:center;align-items:center;gap:8px}
+.interior-dialogue-scene.idle-menu .interior-dialogue-controls button{min-width:84px;min-height:36px;padding:7px 12px;background:rgba(10,15,23,.78);border:1px solid rgba(238,214,165,.58);border-radius:8px;backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);box-shadow:0 5px 14px #0008}
+.interior-dialogue-scene.idle-menu .interior-dialogue-controls .interior-home-resources{flex:0 0 100%;justify-content:center;margin:0 0 3px}
+/* One screen contains all ten quests; the rows summarize the full quest text. */
+.interior-dialogue-scene.quest-view:before{content:"";position:absolute;inset:0;z-index:3;background:rgba(3,6,11,.36);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);pointer-events:none}
+.interior-dialogue-scene.showing-menu.quest-view .interior-dialogue-panel{width:min(1060px,96%);height:88%;max-height:88%;bottom:6%;padding:12px 16px;overflow:hidden;display:flex;flex-direction:column}
+.interior-dialogue-scene.quest-view .interior-dialogue-menu{display:flex;flex-direction:column;min-height:0;flex:1}
+.interior-dialogue-scene.quest-view .interior-dialogue-menu h2{flex:none;margin:0 0 7px}
+.interior-dialogue-scene.showing-menu.quest-view .fixed-quest-board{height:auto;max-height:none;min-height:0;flex:1;overflow:hidden;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:6px;margin:0;padding:0}
+.interior-dialogue-scene.showing-menu.quest-view .fixed-quest-row{min-width:0;min-height:0;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:5px;padding:5px 8px}
+.interior-dialogue-scene.showing-menu.quest-view .fixed-quest-row h3{font:700 clamp(10px,1vw,12px)/1.15 Arial,Helvetica,sans-serif;margin:0 0 3px}
+.interior-dialogue-scene.showing-menu.quest-view .fixed-quest-row p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;font:400 clamp(9px,.82vw,10px)/1.2 Arial,Helvetica,sans-serif;margin:0}
+.interior-dialogue-scene.showing-menu.quest-view .fixed-quest-meta{min-width:88px;gap:3px}
+.interior-dialogue-scene.showing-menu.quest-view .quest-status{font-size:8px}
+.interior-dialogue-scene.showing-menu.quest-view .fixed-quest-meta button{min-height:26px;padding:3px 5px;font-size:9px}
+.interior-dialogue-scene.showing-menu.quest-view .compact-options{display:flex;flex:none;justify-content:center;margin-top:7px}
+.interior-dialogue-scene.showing-menu.quest-view .compact-options button[data-dialogue-action="back"]{grid-column:auto;min-width:98px}
+@media(max-width:700px){.interior-dialogue-scene.idle-menu .interior-dialogue-panel{bottom:5%}.interior-dialogue-scene.idle-menu .interior-dialogue-controls button{min-width:64px;font-size:10px;padding:5px 8px}.interior-dialogue-scene.showing-menu.quest-view .interior-dialogue-panel{width:98%;height:94%;max-height:94%;bottom:3%;padding:7px}.interior-dialogue-scene.showing-menu.quest-view .fixed-quest-board{gap:3px}.interior-dialogue-scene.showing-menu.quest-view .fixed-quest-row{grid-template-columns:1fr;padding:3px 5px;gap:1px}.interior-dialogue-scene.showing-menu.quest-view .fixed-quest-row p{display:none}.interior-dialogue-scene.showing-menu.quest-view .fixed-quest-meta{display:flex;justify-content:space-between;align-items:center;min-width:0}.interior-dialogue-scene.showing-menu.quest-view .fixed-quest-meta button{min-height:23px}}
+.interior-dialogue-scene .dialogue-quest-detail{position:absolute;inset:9% 11%;z-index:8;overflow:auto;display:block;padding:22px;background:rgba(12,17,25,.97);border:1px solid #e5d3aa88;border-radius:10px;box-shadow:0 15px 45px #000d;color:#f6e9d2;backdrop-filter:blur(12px)}
+.interior-dialogue-scene .dialogue-quest-detail h3{font:700 18px Arial,sans-serif;margin:0 0 12px;color:#f4dda9}
+.interior-dialogue-scene .dialogue-quest-detail p{font:400 14px/1.5 Arial,sans-serif;margin:0 0 14px}
+.interior-dialogue-scene .dialogue-quest-detail .fixed-quest-meta{display:flex;align-items:center;gap:12px}
+.interior-dialogue-scene .dialogue-quest-detail .dialogue-quest-close{float:right;font-size:20px;min-width:32px;min-height:32px}
+@media(max-width:700px){.interior-dialogue-scene .dialogue-quest-detail{inset:5%;padding:13px}.interior-dialogue-scene .dialogue-quest-detail p{font-size:12px}}
+.interior-dialogue-scene .dialogue-quest-detail button[data-dialogue-action]{min-height:32px;padding:5px 10px;border:1px solid #eed6a577;border-radius:7px;background:#ffffff17;color:#f8edda;font:700 11px Arial,sans-serif;cursor:pointer}
+/* Armor quest milestone stays visible above the ten ordinary quests. */
+.interior-dialogue-scene.quest-view .side-armor-section{flex:none;display:block;margin:0 0 7px;padding:0;border:0}
+.interior-dialogue-scene.quest-view .side-armor-section>h3{display:none}
+.interior-dialogue-scene.quest-view .side-armor-row{display:flex;align-items:center;gap:9px;min-height:38px;padding:5px 10px;background:rgba(51,57,65,.65);border:1px solid rgba(229,211,170,.48);border-radius:7px}
+.interior-dialogue-scene.quest-view .side-armor-row>div{display:flex;align-items:center;flex-wrap:wrap;gap:3px 10px;min-width:0;flex:1}
+.interior-dialogue-scene.quest-view .side-armor-row strong{font:700 11px Arial,sans-serif;color:#f4e3b7}
+.interior-dialogue-scene.quest-view .side-armor-row small{display:inline;margin:0;font:400 10px Arial,sans-serif}
+.interior-dialogue-scene.quest-view .side-armor-row .side-armor-bonus{display:none}
+.interior-dialogue-scene.quest-view .side-armor-row button{min-height:27px;padding:4px 9px;font:700 10px Arial,sans-serif;flex:none}
+@media(max-width:700px){.interior-dialogue-scene.quest-view .side-armor-row{min-height:32px;padding:3px 6px}.interior-dialogue-scene.quest-view .side-armor-row strong{font-size:10px}.interior-dialogue-scene.quest-view .side-armor-row small{font-size:9px}}
+/* The house scene owns the illustrated doll and trophy hotspots while visible. */
+#interiorDialogueScene.home-thought .house-doll-hotspot,#interiorDialogueScene.home-thought .house-wall-hotspot{display:block;z-index:3}
+/* House: stand beside the doll, centered over the rug, below every control. */
+#interiorDialogueScene.home-thought .interior-dialogue-player{
+  left:45%;right:auto;bottom:16%;width:18%;height:49%;z-index:1;
+  transform:none;filter:brightness(1)
+}
+#interiorDialogueScene.home-thought.player-speaking .interior-dialogue-player{transform:none}
+#interiorDialogueScene.home-thought .interior-dialogue-player img{
+  width:100%;height:100%;object-fit:contain;object-position:center bottom
+}

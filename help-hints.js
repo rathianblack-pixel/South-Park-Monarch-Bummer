@@ -5,23 +5,23 @@
   if(!game)return;
   window.__helpHintsInstalled=true;
   const hints=[
-    ['create','Getting started','Choose your character and weapon, then enter the village.'],
-    ['village','Village','Visit buildings to heal, shop, upgrade gear, and manage your house.'],
-    ['map','Overworld','Choose an unlocked area, then pick a level. Clearing levels opens the next.'],
+    ['create','Getting started','Pick a character and weapon. The village will be waiting, whether it likes it or not.'],
+    ['village','Village','The church heals, the merchant sells, the smith upgrades, and your house lets you rest.'],
+    ['map','Overworld','Pick an unlocked area and level. Win to open the next one. The map insists on order.'],
     ['clock','Day & night','Day: 6 AM–7 PM. Night: 7 PM–6 AM. The world changes with the in-game clock.'],
-    ['level','Levels','You can replay cleared levels for more rewards.'],
+    ['level','Levels','Cleared a level? You can revisit it for more rewards. The enemies object.'],
     ['combat','Battle cards','Hover to raise a card, then click to act. Keys 1–3 work too.'],
     ['enemyTurn','Enemy turn','After your action, the enemy takes its turn. Watch your HP.'],
     ['guard','Guard','Guard reduces the next hit. Magic users also recover mana.'],
     ['items','Items & spells','Open this card to use supplies or support spells.'],
-    ['lowHp','Low health','Low health changes your armor sprite. Heal at the church or rest at home.'],
+    ['lowHp','Low health','Your armor looks as hurt as you do. Heal at church or rest at home.'],
     ['church','Church','Restore HP here, or pray for a smaller free heal.'],
     ['merchant','Merchant','Buy supplies here. Magic users can unlock spellbooks.'],
     ['blacksmith','Blacksmith','Upgrade your weapon, magic, or armor when you have enough materials.'],
     ['house','House','Rest for free, change unlocked armor, and check your Codex.'],
     ['codex','Codex','Defeat monsters to reveal their lore and field observations.'],
     ['status','Status effects','Status effects can linger. Check your status icons and seek a cure.'],
-    ['boss','Area boss','Level 5 is the area boss. Defeating it opens the way forward.'],
+    ['boss','Area boss','Level 5 has the boss. Beat it to open the next area; expect a speech first.'],
     ['ngplus','New Game+','NG+ follows your chosen route, with its own areas, encounters, and story.']
   ];
   const seen=()=>{state.meta=state.meta||{};return state.meta.helpHints=state.meta.helpHints||{}};

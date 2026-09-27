@@ -1,0 +1,30 @@
+/* First-entry boss preview: keep the battlefield and both combat sprites visible. */
+.game.boss-intro-pending #combat .hud,
+.game.boss-intro-pending #combat .battle-bottom,
+.game.boss-intro-pending #combat .battle-foe-card,
+.game.boss-intro-pending #combat .battle-player-card,
+.game.boss-intro-pending #combat .reactivity-phase-banner,
+.game.boss-intro-pending #combat .reactivity-environment-badge,
+.game.boss-intro-pending #combat .reactivity-personality-badge{visibility:hidden!important;pointer-events:none!important}
+.game.boss-intro-pending #combat .card{pointer-events:none!important}
+.boss-intro-scene{position:absolute;inset:0;z-index:95;overflow:hidden;isolation:isolate;opacity:0;transition:opacity .9s ease;pointer-events:auto;background:#0e151a}
+.boss-intro-scene.open{opacity:1}
+.boss-intro-scene.closing{opacity:0;pointer-events:none}
+.boss-intro-backdrop,.boss-intro-night,.boss-intro-dim{position:absolute;inset:0;background-size:cover;background-position:center;pointer-events:none}
+.boss-intro-dim{background:linear-gradient(0deg,#090d17b8,transparent 55%),linear-gradient(90deg,#080d1680,transparent 45%,#080d1680)}
+.boss-intro-actor{position:absolute;bottom:18%;height:70%;width:39%;display:flex;align-items:flex-end;justify-content:center;transition:transform .36s ease,filter .36s ease;pointer-events:none}
+.boss-intro-actor img{max-height:100%;max-width:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 10px 14px #000b)}
+.boss-intro-player{left:2%;transform:translateY(9px) scale(.94);filter:brightness(.54)}
+.boss-intro-player img{transform:scaleX(-1)}
+.boss-intro-enemy{right:2%;transform:translateY(-9px) scale(1.05);filter:brightness(1)}
+.boss-intro-player-speaking .boss-intro-player{transform:translateY(-9px) scale(1.05);filter:brightness(1)}
+.boss-intro-player-speaking .boss-intro-enemy{transform:translateY(9px) scale(.94);filter:brightness(.54)}
+.boss-intro-panel{position:absolute;z-index:3;left:50%;bottom:8%;transform:translateX(-50%);width:min(800px,84%);min-height:120px;max-height:42%;overflow:auto;padding:14px 19px 16px;border:1px solid #e4d2a277;border-radius:11px;background:rgba(11,17,24,.85);backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px);box-shadow:0 18px 44px #000a;color:#f8f0df}
+.boss-intro-label{font-size:clamp(14px,1.6vw,19px);font-weight:900;color:#f1d89c;letter-spacing:.06em;text-transform:uppercase}
+.boss-intro-text{min-height:2.5em;margin:7px 0 12px;font-size:clamp(14px,1.5vw,19px);line-height:1.38}
+.boss-intro-choices{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:8px}
+.boss-intro-choices button{min-height:32px;padding:6px 13px;border:1px solid #f1d89c77;border-radius:7px;background:#ffffff17;color:#fff4dd;font-size:12px;font-weight:700;box-shadow:none}
+.boss-intro-choices button:hover,.boss-intro-choices button:focus-visible{background:#f1d89c33;outline:2px solid #f1d89c99;outline-offset:1px}
+@media(max-width:700px){.boss-intro-actor{bottom:31%;height:57%;width:51%}.boss-intro-player{left:-7%}.boss-intro-enemy{right:-7%}.boss-intro-panel{bottom:7%;width:94%;min-height:0;max-height:48%;padding:9px 11px}.boss-intro-text{font-size:13px;margin:5px 0 7px}.boss-intro-choices button{font-size:10px;min-height:28px;padding:5px 8px}}
+@media(max-height:480px){.boss-intro-actor{bottom:17%;height:72%}.boss-intro-panel{bottom:4%;max-height:48%;padding:6px 11px}.boss-intro-text{min-height:0}}
+@media(prefers-reduced-motion:reduce){.boss-intro-scene,.boss-intro-actor{transition:none}}

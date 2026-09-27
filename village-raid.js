@@ -5,16 +5,16 @@
   const assets=scenes.flatMap(name=>[`${root}${name}.png`,`${root}${name}-night.png`]);
   assets.forEach(src=>window.ensureSceneImage?.(src));
   const thanks=[
-    name=>`The villagers thank ${name} for saving the square. Someone even promises to stop calling it “mostly safe.”`,
-    name=>`A cheer rises for ${name}. The blacksmith insists the applause was perfectly on beat.`,
-    name=>`The priest thanks ${name} and offers a blessing that sounds suspiciously like relief.`,
-    name=>`The market stalls reopen. Their owners thank ${name} with heartfelt words and guarded prices.`,
-    name=>`The village thanks ${name}. A goose takes credit, but nobody believes it.`,
-    name=>`A guard salutes ${name}. The villagers join in after checking that the danger is truly gone.`,
-    name=>`The children chant ${name}'s name. The adults pretend they weren't about to do the same.`,
-    name=>`The villagers thank ${name} for standing between them and a very inconvenient visitor.`,
-    name=>`A relieved crowd thanks ${name}. Someone offers a heroic title; nobody can agree on the spelling.`,
-    name=>`The village thanks ${name}. For once, the road is quiet for a good reason.`
+    name=>`The mayor thanks ${name} for saving the square. She asks the crowd to wait until morning before arguing about who pays for repairs.`,
+    name=>`The blacksmith shakes ${name}'s hand, then asks for the damaged armor. Apparently gratitude and inspection share a schedule.`,
+    name=>`The priest thanks ${name}. The choir starts a hymn; he quietly asks them to let the wounded sit down first.`,
+    name=>`The merchant reopens the stall for ${name}. The prices stay the same. The free water is his idea of a grand gesture.`,
+    name=>`A villager thanks ${name} for driving off the raider. The goose tries to take credit until someone mentions the actual fight.`,
+    name=>`The guard salutes ${name}, then admits the village drill never covered a monster coming in through the vegetable cart.`,
+    name=>`The children chant ${name}'s name. Their parents ask them to stop only because the injured are trying to sleep.`,
+    name=>`An exhausted carpenter thanks ${name} for saving his house. He immediately measures the broken gate and says he can manage that part.`,
+    name=>`The council offers ${name} a title. Nobody agrees on its spelling, so the village settles on another round of supper.`,
+    name=>`The village thanks ${name} at the reopened bridge. For one evening, nobody tries to collect a toll on the way home.`
   ];
   const raid={active:false,backdrop:null,previousHub:0,previousStage:0,visits:Number(state.meta?.villageRaidVisits||0),lastRaidVisit:Number(state.meta?.villageRaidLastVisit??-100),announcing:false};
   window.villageRaid=raid;

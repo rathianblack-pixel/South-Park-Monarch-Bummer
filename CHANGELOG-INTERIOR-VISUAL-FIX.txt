@@ -1,0 +1,9 @@
+Apply over interior-transition-blacksmith-house-fix.zip.
+
+Changed game.js: create the interior conversation scene synchronously after the loaded interior becomes active and before uncovering the entry fade.
+Changed interior-dialogue.js: make that first scene frame fully opaque while the shared fade opens; keep the house dialogue scene in place beneath Armor Doll, Trophy Wall, and Codex views instead of hiding it early.
+Changed interior-dialogue.css: put the house curtain/viewer and Codex above the dialogue scene; conceal the legacy house panel and sprite while a house viewer is open.
+Changed index.html: refresh cache versions for these assets.
+
+Quest pagination and the current menu layout remain unchanged pending the requested design decision. No game logic, save data, rewards, or dialogue text changed.
+Validation: both changed JS files pass node --check and transition ordering/stacking checks. A full visual browser playthrough requires the complete game assets.

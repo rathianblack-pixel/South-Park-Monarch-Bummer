@@ -1,5 +1,6 @@
-Retreat turn lock patch
+House player sprite position
 
-- game.js: Keep Retreat disabled outside the player's actionable turn and guard the click handler against timing gaps.
-- reactivity-systems.css: Visually dim the disabled Retreat button.
-- index.html: Updated game.js and reactivity-systems.css cache versions.
+- interior-dialogue.css: Place the house player sprite on the rug beside the armor doll at comparable height, behind the house menu and dialogue panels.
+- index.html: Refresh the stylesheet version for deployed builds.
+
+Extract over the latest build after house-armor-claim-hotspots.zip.

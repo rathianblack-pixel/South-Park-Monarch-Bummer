@@ -53,7 +53,9 @@
   backdrop.append(doll,wall);
   doll.onclick=()=>openArmor();wall.onclick=()=>openTrophies();
   const curtain=document.createElement('div');curtain.className='home-scene-curtain';curtain.setAttribute('aria-hidden','true');game.appendChild(curtain);
-  let viewer=null,transitioning=false,preview=0;
+  let viewer=null,transitioning=false,preview=0,armorSignature='';
+  const milestone=i=>window.sideArmor?.catalog?.().find(m=>m.index===i);
+  const unlock=i=>{if(i===0)return {goal:'Starting armor.',label:'Ready',ready:true};if(i<5)return {goal:`Defeat the ${['','Placenta Creek','Mild Forest','Graveyard','Question'][i]} boss.`,label:`${Math.min(5,Number(state.progress?.[i-1])||0)}/5 levels cleared`,ready:false};return milestone(i)||{goal:'Continue the story.',label:'Locked',ready:false}};
   function switchView(build){
     if(transitioning||!room.classList.contains('active')||state._building!=='home')return;
     transitioning=true;curtain.classList.add('cover');
@@ -77,7 +79,8 @@
     return el;
   }
   function armorPanel(el){
-    const index=preview,current=equipped(),data=activeClassStats(),baseAttack=data.damage+combatUpgradeLevel()*2;
+    const index=preview,current=equipped(),isOwned=owned().includes(index),unlockInfo=unlock(index),data=activeClassStats(),baseAttack=data.damage+combatUpgradeLevel()*2;
+    const oldList=el.querySelector('.home-armor-list'),listScroll=oldList?.scrollLeft||0;
     const benefit=()=>{
       if(index===0)return ['GUARDED CRITICAL','50% → 65%','When a guarded critical is primed.'];
       if(index===1)return state.gear==='bow'?['BOW HIT',`${baseAttack} → ${Math.round(baseAttack*1.2)}`,'Against a neutral target before critical hits.']:['BOW DAMAGE','+20%','Applies when you use a Bow.'];
@@ -95,11 +98,14 @@
     };
     const [label,value,note]=benefit();
     const body=el.querySelector('.home-viewer-body');
-    body.innerHTML=`<div class="home-armor-focus"><div class="home-armor-art"><img src="${escape(sprite(index))}" alt="${escape(name(index))}"></div><div class="home-armor-info"><small>${index===current?'EQUIPPED':'ARMOR PREVIEW'}</small><h3>${escape(name(index))}</h3><p class="home-armor-effect">${escape(effects[index]||'No special effect.')}</p><div class="home-benefit"><span>${escape(label)}</span><strong>${escape(value)}</strong><small>${escape(note)}</small></div>${index===current?'':`<p class="home-comparison">Currently wearing ${escape(name(current))}: ${escape(effects[current]||'No special effect.')}</p>`}<button type="button" data-home-equip="${index}" ${index===current?'disabled':''}>${index===current?'Equipped':'Equip this set'}</button></div></div><div class="home-armor-list" aria-label="Unlocked armor sets">${owned().map(i=>`<button type="button" data-home-preview="${i}" class="${i===index?'selected':''}" aria-label="Preview ${escape(name(i))}" title="${escape(name(i))}"><img src="${escape(sprite(i))}" alt=""></button>`).join('')}</div>`;
+    const canClaim=!isOwned&&index>=8&&unlockInfo.ready;
+    body.innerHTML=`<div class="home-armor-focus"><div class="home-armor-art ${isOwned?'':'locked'}"><img src="${escape(sprite(index))}" alt="${escape(name(index))}"></div><div class="home-armor-info"><small>${index===current?'EQUIPPED':isOwned?'ARMOR PREVIEW':'LOCKED ARMOR'}</small><h3>${escape(name(index))}</h3><p class="home-armor-effect">${escape(effects[index]||'No special effect.')}</p>${isOwned?'':`<div class="home-unlock"><strong>HOW TO UNLOCK</strong><span>${escape(unlockInfo.goal)}</span><small>${escape(unlockInfo.label)}${canClaim?' · Ready to claim at home':''}</small></div>`}<div class="home-benefit"><span>${escape(label)}</span><strong>${escape(value)}</strong><small>${escape(note)}</small></div>${index===current?'':`<p class="home-comparison">Currently wearing ${escape(name(current))}: ${escape(effects[current]||'No special effect.')}</p>`}<button type="button" data-home-equip="${index}" ${!isOwned&&!canClaim||index===current?'disabled':''}>${index===current?'Equipped':isOwned?'Equip this set':canClaim?'Claim armor':'Locked'}</button></div></div><div class="home-armor-list" aria-label="All armor sets">${ARMOR_NAMES.map((_,i)=>`<button type="button" data-home-preview="${i}" class="${i===index?'selected':''} ${owned().includes(i)?'':'locked'}" aria-label="${owned().includes(i)?'Preview':'Locked'} ${escape(name(i))}" title="${escape(name(i))}: ${escape(owned().includes(i)?'Unlocked':unlock(i).goal)}"><img src="${escape(sprite(i))}" alt=""><span>${owned().includes(i)?'':escape(unlock(i).label)}</span></button>`).join('')}</div>`;
+    body.querySelector('.home-armor-list').scrollLeft=listScroll;
     body.querySelectorAll('[data-home-preview]').forEach(b=>b.onclick=()=>{preview=Number(b.dataset.homePreview);armorPanel(el)});
     body.querySelector('[data-home-equip]').onclick=()=>{
+      if(canClaim){if(window.sideArmor?.claimAtHome?.(index)){armorPanel(el)}return}
       if(!owned().includes(index))return;
-      state.armorSets[state.gender]=index;save();refreshHouseCharacter();armorPanel(el);
+      state.armorSets[state.gender]=index;save();refreshHouseCharacter();window.InteriorDialogue?.refreshPlayer?.();armorPanel(el);
     };
   }
   function openArmor(){
@@ -124,8 +130,12 @@
     const departing=room.classList.contains('transition-old')&&state._building==='home';
     const entering=room.dataset.facilityType==='home'&&state._building==='home'&&document.querySelector('#fadeTransition')?.classList.contains('active');
     room.classList.toggle('house-revamp',active||departing||entering);
+    if(viewer?.classList.contains('home-armor')){const signature=JSON.stringify([window.sideArmor?.catalog?.(),state.unlockedArmor?.[state.gender],state.progress]);if(signature!==armorSignature){armorSignature=signature;armorPanel(viewer)}}
     if(active&&!houseAssetsWarm){houseAssetsWarm=true;['Textures/Buildings/house-night.png','Textures/UI/House/armor-doll.png',...trophies.map(t=>t.src)].forEach(src=>window.ensureSceneImage?.(src))}
     if(!active&&!departing&&!entering&&viewer){viewer.remove();viewer=null;curtain.classList.remove('cover');transitioning=false}
   },150);
-  window.homeRevamp={openArmor,openTrophies,reconcileTrophies};
+  window.homeRevamp={openArmor,openTrophies,reconcileTrophies,
+    mountHotspots(host){if(host&&state._building==='home')host.append(doll,wall)},
+    restoreHotspots(){backdrop.append(doll,wall)}
+  };
 })();

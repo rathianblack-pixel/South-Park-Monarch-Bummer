@@ -1,0 +1,12 @@
+Apply over interior-minimal-menu-quests-armor.zip.
+
+interior-dialogue.js: refresh the original side-armor milestone section before showing a building's quest board; place the milestone above the ten quest cards in the visible dialogue board; forward its Claim button to the original functional button.
+interior-dialogue.css: style the milestone as a compact banner above the quest grid.
+index.html: refresh cache versions for the changed dialogue script and CSS.
+
+Cathedral: Choirguard Vestments after 10 Cathedral quests.
+Blacksmith: Forgeheart Plate after 10 Blacksmith quests.
+Merchant: Gilded Bargainer after 10 Merchant quests.
+The existing progress tracking, unlock conditions, bonuses, quest rewards, and save fields are unchanged.
+
+Validation: syntax checked; all three milestone definitions and claim forwarding inspected; final ZIP verified.

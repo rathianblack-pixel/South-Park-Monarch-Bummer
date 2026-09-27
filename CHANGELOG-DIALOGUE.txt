@@ -1,0 +1,13 @@
+Dialogue rewrite based on the latest uploaded South-Park-Monarch-Bummer-Expanded.zip.
+
+Changed game.js: opening Lucien monologue, enemy intent text, quest and area narration, interior speech, Crownhold lore, endings and postgame text.
+Changed alive-systems.js: area story beats, resolutions, and roadside introductions.
+Changed boss-intro-dialogue.js: boss conversations with distinct Kind, Taunt, and Roast replies.
+Changed reactivity-systems.js: 24 road visitor introductions and choice-specific conversations, revisits, consequences, and boss phase remarks.
+Changed interior-dialogue.js: greetings, talk, service, shop, quest, armor and house thoughts.
+Changed village-raid.js: varied thanks after defending the village.
+Changed help-hints.js: concise first-time tutorial wording.
+Changed index.html: cache versions for the updated scripts.
+
+No texture, CSS, gameplay mechanic, reward, quest condition, or save-schema changes. Existing dialogue branch keys and event order are retained.
+Validation: all JS files in the uploaded build passed node --check; all 14 boss entries retain opening/Kind/Taunt/Roast arrays. The ZIP was inspected after creation. A live browser playthrough was not possible because the uploaded build contains scripts and styles but no texture/video assets.

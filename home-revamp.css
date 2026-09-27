@@ -109,3 +109,11 @@
 
 /* Match the shared interior character framing in the house. */
 #interior.house-revamp .interior-backdrop #interiorCharacter{right:8%;bottom:4%;width:min(30%,330px);height:min(72%,430px);object-fit:contain;object-position:center bottom}
+/* Locked sets remain discoverable while their art stays concealed. */
+.home-armor .home-armor-art.locked img,.home-armor .home-armor-list button.locked img{filter:brightness(0) saturate(0) drop-shadow(0 7px 5px #0009);opacity:.82}
+.home-armor .home-armor-list button.locked{background:#111821d9;border-color:#aab0ad55}
+.home-armor .home-armor-list button.locked.selected{border-color:#ecd5a4}
+.home-armor .home-armor-list button{position:relative}
+.home-armor .home-armor-list button span{position:absolute;bottom:2px;left:2px;right:2px;max-width:none;font:700 8px Arial,sans-serif;color:#f0dfb9;text-align:center;text-shadow:0 1px 3px #000;pointer-events:none}
+.home-armor .home-unlock{display:grid;gap:3px;margin:3px 0 8px;padding:8px 10px;border:1px solid #e8d2a45e;border-radius:6px;background:#0d1720c9;font:11px/1.3 Arial,sans-serif;max-width:430px}
+.home-armor .home-unlock strong{font-size:9px;letter-spacing:.14em;color:#e6cc9b}.home-armor .home-unlock small{color:#ddd0ae}

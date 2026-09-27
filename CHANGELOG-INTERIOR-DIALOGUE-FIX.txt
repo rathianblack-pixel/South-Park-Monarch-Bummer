@@ -1,0 +1,8 @@
+Apply over the previously delivered complete-dialogue-rewrite.zip (same latest uploaded build).
+
+interior-dialogue.js: corrected visual menu button routing through the original facility controls. The copied buttons no longer trigger the global facility click handler. Returning from service/shop/upgrade restores the conversation menu. Quest board shows three jobs per page, with Previous/Next buttons and live quest state. Replaced long interior monologues with shorter, character-specific lines and tightened player replies.
+interior-dialogue.css: removed empty speaker/text space from service, shop, upgrade, armor, and quest panels. Compact two-column controls and paged quest rows fit the dialogue scene without routine scrolling.
+boss-intro-dialogue.js: rewrote the five original and five Crownhold first-entry bosses with shorter, responsive Kind/Taunt/Roast conversations. The four postgame boss conversations retain their earlier rewrite.
+index.html: refreshed cache versions for the three edited dialogue assets.
+
+No rewards, quest completion rules, save keys, combat values, or textures changed. All scripts passed node --check; 14 bosses still have opening/Kind/Taunt/Roast arrays. No full browser playthrough was available because the patch upload excludes game art and video assets.
