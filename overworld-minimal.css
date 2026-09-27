@@ -1,0 +1,39 @@
+/* Overworld navigation: compact map markers and a restrained glass HUD. */
+#map .hud{z-index:8;min-height:54px;padding:7px 14px;background:linear-gradient(180deg,rgba(9,15,22,.88),rgba(9,15,22,.72));border-bottom:1px solid rgba(242,227,192,.16);box-shadow:0 3px 14px #0004;color:#f5edda}
+#map .hud>div:first-child{gap:5px;flex-wrap:nowrap;min-width:0}
+#map .hud>div:first-child>span{margin:0;padding:5px 8px;border:1px solid rgba(245,231,203,.14);border-radius:6px;background:rgba(255,255,255,.055);font-size:clamp(10px,1vw,13px)}
+#map .hud>div:first-child>span:first-child{font-size:clamp(12px,1.25vw,16px);padding-right:5px;color:#fff0d2}
+#map .hud>div:first-child b{color:#f3dbab}
+#map .game-clock .clock-time{font-size:clamp(15px,1.55vw,20px)}
+#map .game-clock .clock-period{color:#d4c3a3}
+#map .hud .controls{gap:6px}
+#map .hud .controls button{min-height:34px;padding:5px 10px;border:1px solid rgba(244,231,204,.26);border-radius:6px;background:rgba(255,255,255,.09);color:#f6efdf;box-shadow:none;font-size:11px;font-weight:800}
+#map .hud .controls button:hover,#map .hud .controls button:focus-visible{background:rgba(222,181,103,.24);color:#fff5dc}
+#mapHotspots{z-index:4}
+#mapHotspots .map-spot{width:46px;height:46px;min-height:46px;padding:0;display:grid;place-items:center;border:0;border-radius:50%;background:transparent;color:#ffedbd;box-shadow:none;text-shadow:none;filter:none;overflow:visible;transition:transform .18s ease;color-scheme:dark}
+#mapHotspots .map-spot:before{content:"";position:absolute;inset:9px;border:1px solid rgba(255,232,175,.66);border-radius:50%;background:rgba(16,22,26,.80);box-shadow:0 2px 9px #0009;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+#mapHotspots .map-spot:not(.locked):before{border-color:#f3d38a;box-shadow:0 0 0 3px rgba(244,198,108,.16),0 0 13px rgba(250,220,143,.34)}
+#mapHotspots .map-spot-symbol{position:relative;font-size:15px;line-height:1;z-index:1}
+#mapHotspots .map-spot.locked{opacity:1;color:#c4c6be;cursor:help}
+#mapHotspots .map-spot.locked:before{border-color:#afb8b7a8;background:#172127bc;box-shadow:0 2px 8px #0008}
+#mapHotspots .map-spot-label{position:absolute;left:50%;bottom:calc(100% - 3px);transform:translate(-50%,4px);max-width:200px;width:max-content;padding:6px 9px;border:1px solid rgba(248,227,188,.37);border-radius:6px;background:rgba(14,21,27,.88);box-shadow:0 5px 16px #0008;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#f5e9d3;font-size:11px;line-height:1.2;letter-spacing:0;white-space:normal;text-align:center;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,transform .18s,visibility .18s}
+#mapHotspots .map-spot:is(:hover,:focus-visible,.map-spot-revealed) .map-spot-label{opacity:1;visibility:visible;transform:translate(-50%,0)}
+#mapHotspots .map-spot:is(:hover,:focus-visible){transform:translate(-50%,-50%) scale(1.08);background:transparent;color:#fff4d7;filter:none}
+#mapHotspots .map-spot:focus-visible{outline:2px solid #fff2ce;outline-offset:1px}
+#mapHotspots .map-spot:first-child .map-spot-label{left:0;transform:translate(0,4px)}
+#mapHotspots .map-spot:first-child:is(:hover,:focus-visible,.map-spot-revealed) .map-spot-label{transform:translate(0,0)}
+#mapHotspots .map-spot:last-child .map-spot-label{left:auto;right:0;transform:translate(0,4px)}
+#mapHotspots .map-spot:last-child:is(:hover,:focus-visible,.map-spot-revealed) .map-spot-label{transform:translate(0,0)}
+#map #travelMarker{z-index:3;width:37px;height:37px;border:1px solid rgba(255,228,163,.50);background:transparent;box-shadow:0 0 0 5px rgba(247,210,127,.10);opacity:.8}
+#map #questBar{position:absolute;top:calc(54px + 7px);left:14px;z-index:7;display:flex;align-items:center;gap:7px;max-width:min(370px,calc(100% - 28px));min-height:29px;padding:5px 9px;border:1px solid rgba(242,222,184,.28);border-radius:7px;background:rgba(13,20,26,.79);box-shadow:0 3px 12px #0005;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#eee7d7;text-align:left;font-size:11px;font-weight:700;line-height:1.3;cursor:pointer}
+#map #questBar b{font-size:13px;color:#e5c98f;margin:0;letter-spacing:0}
+#map #questBar span{display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;min-width:0}
+#map #questBar i{font-style:normal;font-size:13px;color:#d7c49c;transition:transform .18s}
+#map #questBar[aria-expanded=true]{max-width:min(430px,calc(100% - 28px));align-items:flex-start}
+#map #questBar[aria-expanded=true] span{white-space:normal;overflow:visible}
+#map #questBar[aria-expanded=true] i{transform:rotate(180deg)}
+#map #mapWeather .weather-label{right:12px;bottom:64px;padding:4px 7px;border:1px solid rgba(244,231,202,.25);border-radius:6px;background:rgba(13,20,26,.72);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);color:#e8dcc4;font-size:10px;letter-spacing:.04em}
+.game:has(#map.active) .audio-dock{right:13px;bottom:13px}
+.game:has(#map.active) .audio-dock #musicToggle{width:36px;height:36px;border-color:rgba(244,231,202,.35);background:rgba(13,20,26,.72)}
+@media(max-width:700px){#map .hud{min-height:44px;padding:4px 7px}#map .hud>div:first-child{gap:2px}#map .hud>div:first-child>span{padding:3px 5px;font-size:9px}#map .hud .controls{gap:3px}#map .hud .controls button{padding:3px 5px;font-size:9px;min-height:32px}#map #questBar{top:50px;left:7px;max-width:min(270px,calc(100% - 14px));font-size:10px}#mapHotspots .map-spot{width:42px;height:42px;min-height:42px}#mapHotspots .map-spot-label{max-width:145px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){#mapHotspots .map-spot,#mapHotspots .map-spot-label,#map #questBar i{transition:none}}

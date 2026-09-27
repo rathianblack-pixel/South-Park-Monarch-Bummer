@@ -1,0 +1,233 @@
+/* World Reactivity Update: recurring characters, enemy behavior and evolving world feedback. */
+.reactivity-personality-badge{display:inline-flex;align-items:center;gap:5px;margin-top:5px;padding:4px 8px;border:1px solid rgba(255,235,185,.38);border-radius:999px;background:rgba(15,15,24,.78);color:#ffe8aa;font-size:10px;font-weight:1000;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 3px 9px #0007}
+.reactivity-personality-badge:before{content:'◆';font-size:8px;color:#d9a94b}.reactivity-personality-badge[data-kind="Cowardly"]:before{content:'↩'}.reactivity-personality-badge[data-kind="Berserk"]:before{content:'!'}.reactivity-personality-badge[data-kind="Trickster"]:before{content:'?'}.reactivity-personality-badge[data-kind="Defensive"]:before{content:'◆'}.reactivity-personality-badge[data-kind="Protector"]:before{content:'▣'}.reactivity-personality-badge[data-kind="Aggressive"]:before{content:'▲'}
+.reactivity-phase-banner{position:absolute;left:50%;top:27%;z-index:90;transform:translate(-50%,-50%);width:min(520px,72vw);padding:10px 16px;text-align:center;border:2px solid rgba(255,230,167,.68);border-radius:10px;background:linear-gradient(180deg,rgba(26,15,34,.96),rgba(9,9,15,.94));box-shadow:0 10px 28px #000b;pointer-events:none;animation:reactivityPhaseIn 1.65s ease both}.reactivity-phase-banner b{display:block;color:#ffe6a2;font-size:18px;letter-spacing:.04em;text-transform:uppercase}.reactivity-phase-banner span{display:block;margin-top:4px;color:#f4e9d5;font-size:12px;line-height:1.25}@keyframes reactivityPhaseIn{0%{opacity:0;transform:translate(-50%,-45%) scale(.88)}12%,72%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-55%) scale(.96)}}
+#enemyArt.reactivity-phase-three .alive-motion-shell{filter:contrast(1.07) saturate(1.14) drop-shadow(0 0 10px rgba(221,83,104,.34))}.reactivity-stagger-flash{animation:reactivityStagger .42s ease}@keyframes reactivityStagger{0%{filter:brightness(1)}35%{filter:brightness(1.65) contrast(1.15)}100%{filter:brightness(1)}}
+.reactivity-world-pulse{margin:8px auto 0;width:min(900px,94%);padding:8px 12px;border:1px solid rgba(255,232,184,.27);border-radius:9px;background:rgba(16,16,24,.68);box-shadow:0 5px 14px #0006;color:#efe3ca;font-size:11px;line-height:1.35}.reactivity-world-pulse b{color:#ffe2a0}.reactivity-world-pulse .world-pulse-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}.reactivity-world-pulse .world-pulse-tags span{padding:3px 6px;border-radius:7px;background:rgba(255,255,255,.07);color:#dcd2bf;font-size:9px}
+.reactivity-level-state{margin:7px 0 0;padding:7px 9px;border-left:3px solid #d7aa52;background:rgba(255,233,179,.08);font-size:10px;line-height:1.3;color:#f1e3c6}
+.road-event-card.reactivity-npc-card{width:min(720px,92vw);max-height:88vh;overflow:auto}.reactivity-npc-layout{display:grid;grid-template-columns:185px minmax(0,1fr);gap:14px;align-items:center}.reactivity-npc-portrait{min-height:220px;display:flex;align-items:flex-end;justify-content:center;border-radius:10px;background:radial-gradient(circle at 50% 65%,rgba(255,239,188,.18),transparent 65%);overflow:hidden}.reactivity-npc-portrait img{display:block;width:100%;height:230px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 7px 4px #0008)}.reactivity-npc-copy .npc-role{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#caa95f;font-weight:1000}.reactivity-npc-copy h2{margin:3px 0 8px}.reactivity-npc-memory{margin-top:8px;font-size:10px;color:#bdb29f;font-style:italic}.reactivity-result{display:grid;gap:5px;margin:10px 0}.reactivity-result span{display:block;padding:5px 7px;border-radius:6px;background:rgba(255,255,255,.06);font-size:10px}.reactivity-result .memory-note{border-left:3px solid #c89b45;color:#f7deb0}
+.reactivity-visitors{position:absolute;inset:0;z-index:6;pointer-events:none}.reactivity-visitor{position:absolute;width:48px;height:48px;min-height:0!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;cursor:pointer;pointer-events:auto;transform:translate(-50%,-100%);transform-origin:50% 100%}.reactivity-visitor:hover,.reactivity-visitor:active{transform:translate(-50%,-100%);filter:none}.reactivity-visitor img{position:absolute;left:50%;bottom:0;width:auto;height:36px;max-width:none;object-fit:contain;object-position:center bottom;transform:translateX(-50%);filter:drop-shadow(2px 3px 1px #0007);transition:filter .16s ease}.reactivity-visitor:hover img,.reactivity-visitor:focus-visible img{filter:drop-shadow(0 0 5px #fff3c9) drop-shadow(2px 3px 1px #0007)}.reactivity-visitor-shadow{position:absolute;left:50%;bottom:-1px;width:24px;height:6px;transform:translateX(-50%);border-radius:50%;background:#05080a6b;filter:blur(1px)}.reactivity-visitor:focus-visible{outline:2px solid #ffe6a2;outline-offset:2px}
+.reactivity-epilogue{margin:14px auto 0;width:min(780px,94%);padding:12px;border:1px solid rgba(255,232,178,.35);border-radius:10px;background:rgba(11,10,16,.72);text-align:left}.reactivity-epilogue h3{margin:0 0 8px;color:#ffe3a2;text-align:center}.reactivity-epilogue-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.reactivity-epilogue-line{padding:8px;border-radius:7px;background:rgba(255,255,255,.06);font-size:10px;line-height:1.35;color:#eee1c8}.reactivity-epilogue-line b{color:#ffdfa0}
+.screen.reactivity-enter .paper,.screen.reactivity-enter .hud,.screen.reactivity-enter .battle-field,.screen.reactivity-enter .map-shell{animation:reactivityScreenIn .3s ease-out both}@keyframes reactivityScreenIn{from{opacity:.55;transform:scale(.992) translateY(3px)}to{opacity:1;transform:none}}
+@media(max-width:700px){.reactivity-npc-layout{grid-template-columns:104px minmax(0,1fr);gap:8px}.reactivity-npc-portrait{min-height:150px}.reactivity-npc-portrait img{height:155px}.reactivity-visitor{width:38px;height:40px}.reactivity-visitor img{height:31px}.reactivity-visitor-shadow{width:20px;height:5px}.reactivity-epilogue-grid{grid-template-columns:1fr}.reactivity-phase-banner{top:24%;width:82vw}.reactivity-phase-banner b{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.reactivity-phase-banner,.screen.reactivity-enter .paper,.screen.reactivity-enter .hud,.screen.reactivity-enter .battle-field,.screen.reactivity-enter .map-shell{animation:none!important}.reactivity-visitor img{transition:none!important}}
+.reactivity-environment-badge{display:inline-flex;align-items:center;gap:5px;margin-left:6px;padding:3px 7px;border:1px solid rgba(183,213,185,.3);border-radius:7px;background:rgba(8,20,17,.66);color:#d8efcf;font-size:9px;font-weight:900;letter-spacing:.03em}.reactivity-environment-badge:before{content:'⌁';color:#a6d88c}.reactivity-flee{animation:reactivityFlee .62s ease-in forwards}@keyframes reactivityFlee{0%{opacity:1;transform:translateX(0) rotate(0)}100%{opacity:0;transform:translateX(48vw) translateY(-12px) rotate(8deg)}}
+
+/* Shared translucent window treatment for in-game popups. Full-screen scenes and
+   the illustrated Codex book keep their own layout. */
+.game :is(.level-modal,.facility-modal,.save-slots-modal,.reward-modal,.quiz-modal,.road-event,#rewardOverlay,#roadEventOverlay,#utilityModal,#codexOverlay){
+  background:rgba(5,9,16,.48)!important;
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+}
+.game :is(.level-card,.facility-card,.save-slots-card,.reward-card,.quiz-card,.road-event-card,.utility-card,.codex-card:not(.book-shell)){
+  background:rgba(17,24,39,.74)!important;
+  border:1px solid rgba(255,255,255,.17)!important;
+  border-radius:12px;
+  box-shadow:0 16px 48px rgba(0,0,0,.56)!important;
+  color:#f8eed7;
+  backdrop-filter:blur(16px) saturate(1.08);
+  -webkit-backdrop-filter:blur(16px) saturate(1.08);
+}
+.game :is(.level-card,.facility-card,.save-slots-card,.reward-card,.quiz-card,.road-event-card,.utility-card) :is(h2,h3,p,small,label){color:#f8eed7}
+.game :is(.level-card,.facility-card,.save-slots-card,.reward-card,.quiz-card,.road-event-card,.utility-card) :is(button:not(.locked),.save-slot,.reward-item,.codex-entry,.effect-panel,.event-reward-result){
+  background:rgba(255,255,255,.09)!important;
+  border-color:rgba(255,255,255,.18)!important;
+  color:#f8eed7!important;
+  box-shadow:none!important;
+}
+.game :is(.level-card,.facility-card,.save-slots-card,.reward-card,.quiz-card,.road-event-card,.utility-card) button:not(:disabled):hover{background:rgba(255,255,255,.18)!important}
+.game :is(.level-card,.facility-card,.save-slots-card,.reward-card,.quiz-card,.road-event-card,.utility-card) button:disabled{opacity:.48}
+.game .level-card .level-grid button.current{background:rgba(104,190,137,.24)!important;border-color:rgba(158,235,180,.48)!important;color:#d9ffe5!important}
+/* Keep the Codex pages readable while allowing the world behind its overlay to show. */
+.game #codexOverlay .codex-card.book-shell{background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none;-webkit-backdrop-filter:none}
+
+/* Compact combat HUD: keep names and HP clear of tall enemy artwork. */
+#combat .battle-field .battle-foe-card,
+#combat .battle-field .battle-player-card{
+  top:5%!important;
+  bottom:auto!important;
+  padding:5px 8px!important;
+  min-width:0!important;
+  gap:2px 7px!important;
+  border-radius:9px!important;
+  background:rgba(15,23,42,.80)!important;
+}
+#combat .battle-field .battle-foe-card{right:5%!important;left:auto!important;width:clamp(166px,22%,280px)!important}
+#combat .battle-field .battle-player-card{left:5%!important;right:auto!important;width:clamp(145px,16%,190px)!important}
+#combat .battle-field .nameplate strong{min-width:0;font-size:clamp(10px,1.05vw,14px)!important;line-height:1.15;white-space:normal;overflow-wrap:normal}
+#combat .battle-field .nameplate>span{font-size:clamp(9px,.85vw,11px);white-space:nowrap;align-self:center}
+#combat .battle-field .nameplate .hp{height:13px!important;margin-top:5px!important;border-width:1px!important}
+#combat .battle-field .nameplate .target-status{margin-top:2px!important;gap:3px!important}
+#combat .battle-field .nameplate .target-status .status-tag,
+#combat .battle-field .reactivity-personality-badge{padding:2px 6px!important;font-size:9px!important;margin-top:2px!important}
+#combat .battle-bottom .combat-log{top:11%!important;width:min(42%,520px)!important;max-width:520px!important}
+#combat .battle-bottom .combat-log b{font-size:clamp(12px,1.25vw,16px)!important;line-height:1.1!important}
+#combat .battle-bottom .combat-log span{font-size:clamp(10px,.95vw,12px)!important;line-height:1.25!important;margin-top:4px!important}
+@media(max-width:900px){
+  #combat .battle-field .battle-foe-card{right:3%!important;width:clamp(150px,25%,220px)!important}
+  #combat .battle-field .battle-player-card{left:3%!important;width:clamp(132px,19%,170px)!important}
+  #combat .battle-bottom .combat-log{top:11%!important;width:45%!important}
+}
+
+/* Three illustrated cards rest as short tabs at the bottom of combat.
+   Opening one reveals the full card for a deliberate second tap. */
+#combat .battle-bottom .cards{
+  left:50%!important;bottom:9px!important;width:min(46%,380px)!important;
+  height:145px!important;gap:8px!important;display:flex!important;
+  align-items:flex-end!important;justify-content:center!important;
+  transform:translateX(-50%)!important;pointer-events:none!important;
+}
+#combat .battle-bottom .cards .card,
+#combat .battle-bottom .cards .card:hover,
+#combat .battle-bottom .cards .card:focus{
+  flex:0 0 clamp(86px,9vw,105px)!important;
+  width:clamp(86px,9vw,105px)!important;
+  height:145px!important;min-height:0!important;margin:0!important;
+  transform:translateY(calc(100% - 49px)) rotate(0deg)!important;
+  filter:none!important;box-shadow:0 7px 13px #0009!important;
+  transition:transform .26s cubic-bezier(.18,.84,.2,1),filter .2s,box-shadow .2s!important;
+  pointer-events:auto!important;
+}
+#combat .battle-bottom .cards .card.is-expanded,
+#combat .battle-bottom .cards .card.is-expanded:hover,
+#combat .battle-bottom .cards .card.is-expanded:focus,
+#combat .battle-bottom .cards .card.is-acting{
+  transform:translateY(-8px) rotate(0deg)!important;
+  filter:brightness(1.08)!important;box-shadow:0 13px 24px #000b!important;
+  z-index:16!important;
+}
+#combat .battle-bottom .cards .card.is-expanded:after{
+  content:'Tap again to use';position:absolute;left:50%;bottom:100%;
+  transform:translateX(-50%);white-space:nowrap;padding:4px 7px;
+  border-radius:6px;background:rgba(13,20,32,.86);color:#f8eed7;
+  font:800 10px Arial,sans-serif;box-shadow:0 3px 8px #0008;
+}
+#combat .battle-bottom .cards.card-deck-enemy-turn .card{opacity:.55}
+@media(max-width:900px){
+  #combat .battle-bottom .cards{width:min(65%,340px)!important;height:125px!important;bottom:7px!important;gap:5px!important}
+  #combat .battle-bottom .cards .card{height:125px!important;flex-basis:clamp(75px,10vw,95px)!important;width:clamp(75px,10vw,95px)!important;transform:translateY(calc(100% - 45px)) rotate(0deg)!important}
+  #combat .battle-bottom .cards .card.is-expanded,
+  #combat .battle-bottom .cards .card.is-expanded:hover,
+  #combat .battle-bottom .cards .card.is-expanded:focus,
+  #combat .battle-bottom .cards .card.is-acting{transform:translateY(-7px) rotate(0deg)!important}
+}
+
+/* Desktop hover is the preview; clicking then uses the action immediately. */
+@media(hover:hover) and (pointer:fine){
+  #combat .battle-bottom .cards .card:not(.is-locked):hover,
+  #combat .battle-bottom .cards .card:not(.is-locked):focus-visible{
+    transform:translateY(-8px) rotate(0deg)!important;
+    filter:brightness(1.08)!important;
+    box-shadow:0 13px 24px #000b!important;
+    z-index:16!important;
+  }
+  #combat .battle-bottom .cards .card:not(.is-locked):hover:after,
+  #combat .battle-bottom .cards .card:not(.is-locked):focus-visible:after{
+    content:'Click to use';position:absolute;left:50%;bottom:100%;
+    transform:translateX(-50%);white-space:nowrap;padding:4px 7px;
+    border-radius:6px;background:rgba(13,20,32,.86);color:#f8eed7;
+    font:800 10px Arial,sans-serif;box-shadow:0 3px 8px #0008;
+  }
+}
+
+/* Show both individual monsters on a discovered Level 3 codex page. */
+.revamped-codex .rev-monster-window .codex-pair-art{display:flex;align-items:end;justify-content:center;width:100%;height:100%;gap:0}.revamped-codex .rev-monster-window .codex-pair-art img{width:55%!important;height:90%!important;max-width:55%;object-fit:contain!important;object-position:center bottom!important;margin:0 -3%!important}.revamped-codex .rev-monster-window .codex-pair-art img:first-child{transform:translateY(6%)}
+
+/* A single click or tap activates a combat card; focus also lifts it. */
+#combat .battle-bottom .cards .card:focus-visible{transform:translateY(-8px) rotate(0deg)!important;filter:brightness(1.08)!important;box-shadow:0 13px 24px #000b!important;z-index:16!important}
+
+/* Popup glass belongs on the window; keep the world behind it sharp. */
+.game :is(.level-modal,.facility-modal,.save-slots-modal,.reward-modal,.quiz-modal,.road-event,#rewardOverlay,#roadEventOverlay,#utilityModal,#codexOverlay),
+.game #utilityModal:not(.debug-minimal-modal),
+.game #utilityModal.debug-minimal-modal{
+  background:rgba(5,9,16,.23)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.game :is(.level-card,.facility-card,.save-slots-card,.reward-card,.quiz-card,.road-event-card,.utility-card,.codex-card:not(.book-shell)){
+  width:max-content;
+  min-width:min(260px,90vw);
+  max-width:min(680px,92vw);
+  max-height:86%;
+  height:auto;
+  overflow:auto;
+  backdrop-filter:blur(16px) saturate(1.08)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(1.08)!important;
+}
+/* Illustrated and multi-column windows need their existing reading width. */
+.game :is(.level-card,.reward-card,.quiz-card,.road-event-card.reactivity-npc-card){width:min(680px,92vw)}
+.game #noticeOverlay.compact-notice{
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:4% 4% 8%;
+}
+.game #noticeOverlay.compact-notice .road-event-card{
+  width:max-content!important;
+  min-width:min(220px,90vw);
+  max-width:min(440px,92vw);
+  max-height:76%;
+  padding:13px 17px;
+  text-align:center;
+}
+.game #noticeOverlay.compact-notice .road-event-card h2{margin:0 0 6px;font-size:17px}
+.game #noticeOverlay.compact-notice .road-event-card p{margin:0 0 11px;line-height:1.4}
+.game #noticeOverlay.compact-notice .road-event-card button{min-height:33px;padding:5px 13px}
+@media(max-height:480px){.game #noticeOverlay.compact-notice{padding-bottom:3%}}
+.game #utilityModal:not(.debug-minimal-modal) .utility-card{
+  width:max-content!important;
+  min-width:min(260px,90vw);
+  max-width:min(680px,92vw);
+  height:auto;
+  max-height:86%;
+}
+/* Place quick notices below the clock, clear of interior controls and cards. */
+.game #noticeOverlay.compact-notice{
+  align-items:flex-start;
+  padding:clamp(68px,7vw,94px) 4% 4%;
+}
+@media(max-height:480px){
+  .game #noticeOverlay.compact-notice{padding-top:58px;padding-bottom:2%}
+}
+/* Contextual help: no full-screen overlay and no intercepted game controls. */
+.game .help-hint{position:absolute;left:50%;top:clamp(66px,7vw,92px);transform:translateX(-50%);z-index:95;display:flex;align-items:flex-start;gap:10px;width:max-content;min-width:min(210px,86%);max-width:min(400px,88%);padding:10px 12px;background:rgba(16,23,35,.73);color:#fff2d8;border:1px solid rgba(255,240,205,.45);border-radius:10px;box-shadow:0 9px 22px #0008;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);pointer-events:auto;font-size:12px;line-height:1.35}
+.game .help-hint[hidden],.game .help-hints-guide[hidden],.game .help-hints-button[hidden]{display:none!important}
+.game .help-hint strong{font-size:12px;color:#ffe5aa}.game .help-hint p{margin:3px 0 0}.game .help-hint button,.game .help-hints-heading button{min-height:22px;padding:0 5px;border:0;background:transparent;color:#fff2d8;box-shadow:none;font-size:18px;line-height:1}
+.game .help-hints-button{position:absolute;top:69px;right:12px;z-index:94;width:28px;height:28px;min-height:28px;padding:0;border:1px solid #f7e6ba77;border-radius:50%;background:#172536bd;color:#fff2d8;box-shadow:0 3px 9px #0008;font-size:14px}
+.game .help-hints-guide{position:absolute;right:10px;top:102px;z-index:96;width:min(370px,75%);max-height:70%;padding:10px;overflow:auto;background:#111a29ec;color:#fff2d8;border:1px solid #ffe2a688;border-radius:10px;box-shadow:0 12px 28px #000a;backdrop-filter:blur(14px)}
+.game .help-hints-heading{display:flex;justify-content:space-between;align-items:center;padding:3px 5px 8px}.game .help-hints-guide [data-help-key]{display:block;width:100%;min-height:0;text-align:left;padding:7px 9px;margin:3px 0;background:#ffffff12;color:#fff2d8;border:1px solid #ffffff1d;border-radius:6px;box-shadow:none;font-size:11px}.game .help-hints-guide [data-help-key] span{display:block;font-weight:400;margin-top:2px}
+@media(max-height:470px){.game .help-hint{top:56px}.game .help-hints-button{top:55px}.game .help-hints-guide{top:88px}}
+/* Keep first-time hints legible on short screens without covering controls. */
+.game .help-hint{max-height:36%;overflow:auto}
+
+/* Brief centered guidance. Other notices retain their own positions. */
+.game .help-hint{
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  max-height:min(44%,240px);
+  text-align:center;
+  justify-content:center;
+  pointer-events:none;
+  animation:helpHintFade 3s ease-in-out both;
+}
+@keyframes helpHintFade{
+  0%{opacity:0;transform:translate(-50%,-46%)}
+  12%,84%{opacity:1;transform:translate(-50%,-50%)}
+  100%{opacity:0;transform:translate(-50%,-54%)}
+}
+@media(max-height:470px){.game .help-hint{top:50%}}
+@media(prefers-reduced-motion:reduce){.game .help-hint{animation:none}}
+
+/* Road visitors are scenery on the map; dialogue is available only in the dock. */
+#village .reactivity-visitors{pointer-events:none}
+#village .reactivity-visitors .reactivity-visitor{pointer-events:none;cursor:default}
+#village .reactivity-visitors .reactivity-visitor img{transition:transform .18s ease,filter .16s ease}
+#village .reactivity-visitor-dock{position:absolute;left:10px;bottom:10px;z-index:12;display:flex;align-items:flex-end;gap:6px;padding:6px 8px 5px;border:1px solid rgba(255,236,183,.24);border-radius:9px;background:rgba(8,12,18,.72);box-shadow:0 5px 14px #0007;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#village .reactivity-visitor-dock .reactivity-visitors-label{align-self:center;max-width:54px;color:#eedba9;font-size:8px;font-weight:900;line-height:1.1;text-transform:uppercase;letter-spacing:.06em}
+#village .reactivity-visitor-choice{position:relative;width:45px;height:53px;min-height:0;padding:0;border:0;background:transparent;box-shadow:none;cursor:pointer}
+#village .reactivity-visitor-choice img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(1px 3px 2px #0009);transition:transform .16s ease}
+#village .reactivity-visitor-choice:hover img,#village .reactivity-visitor-choice:focus-visible img{transform:translateY(-4px) scale(1.05)}
+#village .reactivity-visitor-choice:focus-visible{outline:2px solid #ffe6a2;outline-offset:2px}
+@media(max-width:700px){#village .reactivity-visitor-dock{left:5px;bottom:5px;gap:3px;padding:4px}#village .reactivity-visitor-dock .reactivity-visitors-label{display:none}#village .reactivity-visitor-choice{width:35px;height:41px}}
+@media(prefers-reduced-motion:reduce){#village .reactivity-visitors .reactivity-visitor img,#village .reactivity-visitor-choice img{transition:none}}

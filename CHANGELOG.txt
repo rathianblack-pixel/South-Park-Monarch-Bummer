@@ -1,0 +1,4 @@
+Village Raid chance: increased the eligible village-entry trigger from 8% to 10%.
+
+Changed files:
+- village-raid.js

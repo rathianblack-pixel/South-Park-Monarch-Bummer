@@ -1,0 +1,14 @@
+.village-raid-announcement{position:absolute;inset:0;z-index:95;display:grid;place-items:center;background:rgba(26,3,9,.35);pointer-events:auto;animation:raidVeil 1.4s ease both}
+.village-raid-announcement strong{font-size:clamp(30px,6vw,72px);font-weight:1000;letter-spacing:.08em;color:#f25b64;text-shadow:0 3px #3f0714,0 0 24px #b51e3d;animation:raidPulse .55s ease-in-out infinite alternate;text-align:center}
+.village-raid-announcement.departing{opacity:0;transition:opacity .65s ease}
+@keyframes raidVeil{from{opacity:0}20%,80%{opacity:1}to{opacity:1}}
+@keyframes raidPulse{to{transform:scale(1.045);filter:brightness(1.25)}}
+#combat.village-raid{background-size:cover!important;background-position:center!important}
+#combat.village-raid #combatNightLayer{display:none!important}
+#combat.village-raid .combat-texture-stage{display:none!important}
+.village-raid-thanks{position:absolute;inset:0;z-index:90;display:grid;place-items:center;padding:15px;background:rgba(5,10,16,.32);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.village-raid-thanks-card{width:min(420px,92%);padding:18px 20px;border:1px solid rgba(245,225,186,.3);border-radius:11px;background:rgba(15,24,33,.9);box-shadow:0 15px 40px #0009;color:#f5ead5}
+.village-raid-thanks-card span{color:#d9bc83;text-transform:uppercase;letter-spacing:.1em;font-size:10px;font-weight:900}
+.village-raid-thanks-card p{font-size:13px;line-height:1.45;margin:8px 0 15px}
+.village-raid-thanks-card button{display:block;margin-left:auto;min-height:34px;padding:6px 12px;border:1px solid #c9a66b;border-radius:6px;background:rgba(222,180,106,.13);color:#fff0d3;box-shadow:none;font-size:11px}
+@media(prefers-reduced-motion:reduce){.village-raid-announcement,.village-raid-announcement strong{animation:none}}

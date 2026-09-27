@@ -1,0 +1,174 @@
+/* Scope-limited physical/reactive update: combat motion, damage feedback, camera motion, story/event cards. */
+.alive-camera-layer{position:absolute;inset:0;z-index:1;pointer-events:none;transform-origin:50% 58%;will-change:transform}
+.alive-motion-shell{position:absolute;inset:0;transform-origin:50% 82%;will-change:transform,filter,opacity}
+.fighter .alive-motion-shell>.layered-doll,.fighter .alive-motion-shell>.monster-sprite{width:100%;height:100%}
+
+/* Player actions. Player fighter itself is mirrored by the existing build, so negative X on the inner shell reads as forward/right. */
+.alive-motion-shell.alive-player-sword{animation:alivePlayerSword var(--alive-action-ms,950ms) cubic-bezier(.2,.75,.22,1) both}
+.alive-motion-shell.alive-player-bow{animation:alivePlayerBow var(--alive-action-ms,950ms) cubic-bezier(.2,.75,.22,1) both}
+.alive-motion-shell.alive-player-magic{animation:alivePlayerMagic var(--alive-action-ms,950ms) cubic-bezier(.2,.75,.22,1) both}
+.alive-motion-shell.alive-player-guard{animation:alivePlayerGuard .42s cubic-bezier(.2,.75,.22,1) both}
+.alive-motion-shell.alive-guard-hold{transform:translate(12px,8px) rotate(2deg) scale(.97)}
+@keyframes alivePlayerSword{0%{transform:translateX(0) rotate(0)}18%{transform:translateX(18px) rotate(2deg) scale(.98)}54%{transform:translateX(calc(var(--alive-lunge,-150px)*.7)) rotate(-3deg) scale(1.03)}88%{transform:translateX(var(--alive-lunge,-150px)) rotate(-5deg) scale(1.05)}93%{transform:translateX(calc(var(--alive-lunge,-150px)*.82)) rotate(2deg)}100%{transform:translateX(0) rotate(0)}}
+@keyframes alivePlayerBow{0%{transform:translateX(0) rotate(0)}28%{transform:translate(20px,3px) rotate(3deg) scale(.98)}72%{transform:translate(10px,0) rotate(1deg)}88%{transform:translate(-8px,-2px) rotate(-2deg) scale(1.02)}100%{transform:translateX(0) rotate(0)}}
+@keyframes alivePlayerMagic{0%{transform:translateX(0) rotate(0)}24%{transform:translate(18px,8px) rotate(3deg) scale(.97)}62%{transform:translate(10px,3px) rotate(1deg) scale(1.01);filter:brightness(1.08)}88%{transform:translate(var(--alive-lunge,-34px),-3px) rotate(-2deg) scale(1.05);filter:brightness(1.28)}100%{transform:translateX(0) rotate(0);filter:none}}
+@keyframes alivePlayerGuard{0%{transform:translate(0,0) rotate(0)}100%{transform:translate(12px,8px) rotate(2deg) scale(.97)}}
+
+/* Enemy telegraph -> move -> impact -> return. */
+.alive-motion-shell.alive-enemy-attack{animation:aliveEnemyAttack var(--alive-action-ms,950ms) cubic-bezier(.2,.75,.22,1) both}
+@keyframes aliveEnemyAttack{0%{transform:translateX(0) rotate(0)}18%{transform:translateX(14px) rotate(2deg) scale(.99)}55%{transform:translateX(calc(var(--alive-lunge,-145px)*.72)) rotate(-2deg) scale(1.02)}88%{transform:translateX(var(--alive-lunge,-145px)) rotate(-4deg) scale(1.05)}94%{transform:translateX(calc(var(--alive-lunge,-145px)*.78)) rotate(2deg)}100%{transform:translateX(0) rotate(0)}}
+
+/* Impact recoil is separate from attacker movement and is triggered by the real damage callback. */
+.alive-motion-shell.alive-enemy-recoil{animation:aliveEnemyRecoil .34s cubic-bezier(.16,.8,.24,1)}
+.alive-motion-shell.alive-player-recoil{animation:alivePlayerRecoil .34s cubic-bezier(.16,.8,.24,1)}
+.alive-motion-shell.alive-player-guard-recoil{animation:alivePlayerGuardRecoil .28s cubic-bezier(.16,.8,.24,1)}
+.alive-motion-shell.alive-heavy-recoil{animation-duration:.46s}
+@keyframes aliveEnemyRecoil{0%{transform:translate(0,0) rotate(0)}32%{transform:translate(30px,-4px) rotate(7deg) scale(.97)}65%{transform:translate(18px,2px) rotate(-3deg)}100%{transform:translate(0,0) rotate(0)}}
+@keyframes alivePlayerRecoil{0%{transform:translate(0,0) rotate(0)}32%{transform:translate(26px,3px) rotate(6deg) scale(.97)}65%{transform:translate(14px,2px) rotate(-2deg)}100%{transform:translate(0,0) rotate(0)}}
+@keyframes alivePlayerGuardRecoil{0%{transform:translate(12px,8px) rotate(2deg) scale(.97)}35%{transform:translate(20px,10px) rotate(4deg) scale(.965)}70%{transform:translate(15px,8px) rotate(1deg) scale(.97)}100%{transform:translate(0,0) rotate(0)}}
+
+/* Death sequences. Victory is delayed in JS until these are complete. */
+.alive-motion-shell.alive-death-normal{animation:aliveDeathNormal .88s cubic-bezier(.22,.72,.2,1) forwards}
+.alive-motion-shell.alive-death-boss{animation:aliveDeathBoss 1.48s cubic-bezier(.22,.72,.2,1) forwards}
+@keyframes aliveDeathNormal{0%{transform:translate(0,0) rotate(0) scale(1);opacity:1;filter:brightness(1)}15%{transform:translate(34px,-6px) rotate(7deg) scale(1.03);filter:brightness(1.65)}28%{transform:translate(24px,0) rotate(-4deg);filter:brightness(1)}45%{transform:translate(12px,6px) rotate(12deg) scale(.99);opacity:1}78%{transform:translate(34px,58px) rotate(72deg) scale(.94);opacity:1}100%{transform:translate(42px,74px) rotate(88deg) scale(.9);opacity:0}}
+@keyframes aliveDeathBoss{0%{transform:translate(0,0) rotate(0) scale(1);opacity:1;filter:brightness(1)}10%{transform:translate(42px,-10px) rotate(8deg) scale(1.04);filter:brightness(1.8)}20%{transform:translate(18px,0) rotate(-5deg);filter:brightness(1)}32%{transform:translate(34px,-2px) rotate(5deg)}43%{transform:translate(12px,4px) rotate(-6deg)}55%{transform:translate(28px,8px) rotate(9deg)}68%{transform:translate(20px,16px) rotate(18deg) scale(.98)}86%{transform:translate(48px,72px) rotate(70deg) scale(.93);opacity:1}100%{transform:translate(56px,92px) rotate(92deg) scale(.88);opacity:0}}
+
+/* Projectile-like motion uses simple paper-cut shapes; no new art assets are required. */
+.alive-projectile{position:absolute;z-index:12;left:var(--from-x);top:var(--from-y);width:clamp(36px,5vw,72px);height:7px;border:2px solid #17131d;background:#f4d66d;box-shadow:3px 3px 0 #0007;transform-origin:left center;pointer-events:none;animation:aliveProjectile var(--projectile-ms,190ms) linear forwards}
+.alive-projectile.magic{height:13px;border-radius:50%;background:#c7a6ff;box-shadow:0 0 18px #b087ff,3px 3px 0 #0008}
+.alive-projectile.magic.fire{background:#ff9a42;border-color:#71351d;box-shadow:0 0 11px #ffca61,0 0 23px #f16328,3px 3px 0 #0008}
+.alive-projectile.magic.water{background:#61caff;border-color:#23587e;box-shadow:0 0 12px #a4ecff,0 0 23px #3799ec,3px 3px 0 #0008}
+.alive-projectile.magic.light{background:#fffef2;border-color:#d5cca0;box-shadow:0 0 12px #fff,0 0 25px #fff5cb,3px 3px 0 #0008}
+.alive-projectile:after{content:"";position:absolute;right:-9px;top:-5px;border-left:10px solid #17131d;border-top:7px solid transparent;border-bottom:7px solid transparent}
+@keyframes aliveProjectile{from{transform:translate(0,0) scaleX(.7);opacity:.2}18%{opacity:1}to{transform:translate(var(--to-x),var(--to-y)) scaleX(1.08);opacity:0}}
+
+/* Camera layer leaves HUD/nameplates untouched. */
+.alive-camera-layer.alive-cam-entry{animation:aliveCamEntry .55s ease-out}
+.alive-camera-layer.alive-cam-player{animation:aliveCamPlayer .32s ease-out}
+.alive-camera-layer.alive-cam-enemy{animation:aliveCamEnemy .32s ease-out}
+.alive-camera-layer.alive-cam-heavy{animation:aliveCamHeavy .24s ease-out}
+.alive-camera-layer.alive-cam-crit{animation:aliveCamCrit .42s ease-out}
+.alive-camera-layer.alive-cam-boss-entry{animation:aliveCamBossEntry .85s ease-out}
+.alive-camera-layer.alive-cam-boss-final{animation:aliveCamBossFinal .62s ease-out}
+@keyframes aliveCamEntry{0%{transform:scale(.975)}100%{transform:scale(1)}}
+@keyframes aliveCamPlayer{0%,100%{transform:translateX(0) scale(1)}50%{transform:translateX(1.1%) scale(1.012)}}
+@keyframes aliveCamEnemy{0%,100%{transform:translateX(0) scale(1)}50%{transform:translateX(-1.1%) scale(1.012)}}
+@keyframes aliveCamHeavy{0%,100%{transform:translate(0,0)}25%{transform:translate(-.8%,.3%) scale(1.012)}55%{transform:translate(.65%,-.2%) scale(1.008)}}
+@keyframes aliveCamCrit{0%,100%{transform:scale(1)}35%{transform:scale(1.035) translateX(1.1%)}60%{transform:scale(1.018)}}
+@keyframes aliveCamBossEntry{0%{transform:scale(.96) translateX(-1.5%)}70%{transform:scale(1.025) translateX(-.5%)}100%{transform:scale(1)}}
+@keyframes aliveCamBossFinal{0%,100%{transform:scale(1) translate(0,0)}22%{transform:scale(1.045) translateX(1.4%)}38%{transform:scale(1.028) translate(-.8%,.35%)}58%{transform:scale(1.036) translate(.55%,-.25%)}}
+
+/* Real-damage floating text. */
+.damage-number.alive-number{min-width:34px;text-align:center;color:#ff564f;text-shadow:2px 3px 0 #3a0b12,0 0 10px #000;font-size:clamp(22px,2.7vw,39px);animation:aliveDamageFloat .92s cubic-bezier(.16,.8,.24,1) forwards;transform-origin:center}
+.damage-number.alive-number.critical{font-size:clamp(31px,4vw,56px);color:#ffcc4a;text-shadow:3px 4px 0 #641d14,0 0 16px #ff6a22;animation-name:aliveCriticalFloat}
+.damage-number.alive-number.heal-number{color:#83e78d;text-shadow:2px 3px 0 #103b1c,0 0 10px #000}
+.damage-number.alive-number.status-number{font-size:clamp(18px,2.2vw,31px);color:#f0c4ff}
+.damage-number.alive-number.combat-word{font-size:clamp(18px,2.4vw,34px);color:#f3e4bd;letter-spacing:.04em}
+@keyframes aliveDamageFloat{0%{opacity:0;transform:translate(-50%,5px) scale(.45) rotate(-4deg)}14%{opacity:1;transform:translate(-50%,-6px) scale(1.18) rotate(2deg)}100%{opacity:0;transform:translate(-50%,-72px) scale(.9) rotate(-3deg)}}
+@keyframes aliveCriticalFloat{0%{opacity:0;transform:translate(-50%,5px) scale(.35) rotate(-7deg)}14%{opacity:1;transform:translate(-50%,-10px) scale(1.38) rotate(4deg)}55%{opacity:1;transform:translate(-50%,-45px) scale(1.05)}100%{opacity:0;transform:translate(-50%,-86px) scale(.92) rotate(-4deg)}}
+
+/* Story beat card uses the existing road-event visual language, with only a small label. */
+.alive-story-card .story-kicker{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#d7b460;font-weight:1000;margin-bottom:5px}
+.alive-story-card .story-level{opacity:.72;font-size:11px;font-weight:900;margin-top:-4px}
+.alive-story-card .story-resolution{border-left:4px solid #d7b460;padding-left:10px}
+
+@media (prefers-reduced-motion:reduce){
+ .alive-motion-shell,.alive-camera-layer,.alive-projectile{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}
+ .damage-number.alive-number{animation-duration:.38s!important}
+}
+
+/* Village texture-layer test: only front/back sway; middle remains fixed. */
+#village .village-texture-stage{position:absolute;inset:0;overflow:hidden;z-index:2;pointer-events:none;background:transparent}
+#village .village-texture-layer{position:absolute;inset:-0.7%;width:101.4%;height:101.4%;object-fit:cover;object-position:center;pointer-events:none;user-select:none;will-change:transform,opacity}
+#village .village-texture-layer.back{z-index:1;transform-origin:50% 70%;animation:villageSwayBack 7s ease-in-out infinite alternate}
+#village .village-texture-layer.middle{z-index:2;transform:none!important}
+#village .village-texture-layer.front{z-index:3;transform-origin:50% 100%;animation:villageSwayFront 5.5s ease-in-out infinite alternate}
+#village .village-texture-layer.night{opacity:0}
+#village.village-layered #villageWeather{z-index:2}
+#village.village-layered .hud,#village.village-layered .village-map-label,#village.village-layered .village-title,#village.village-layered .buildings,#village.village-layered .facility-modal{z-index:5}
+@keyframes villageSwayBack{0%{transform:translateX(-4px) rotate(-.12deg)}100%{transform:translateX(4px) rotate(.12deg)}}
+@keyframes villageSwayFront{0%{transform:translateX(-6px) rotate(-.18deg)}100%{transform:translateX(6px) rotate(.18deg)}}
+@media (prefers-reduced-motion:reduce){#village .village-texture-layer.back,#village .village-texture-layer.front{animation:none}}
+
+
+/* Combat texture parallax. Back/middle stay behind fighters; front can overlap them. */
+#combat .battle-field .combat-texture-stage{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+#combat .battle-field .combat-texture-behind{z-index:0}
+#combat .battle-field .combat-texture-front{z-index:3}
+#combat .battle-field .combat-texture-layer{position:absolute;inset:-0.7%;width:101.4%;height:101.4%;object-fit:cover;object-position:center;pointer-events:none;user-select:none;will-change:transform,opacity}
+#combat .battle-field .combat-texture-layer.back{z-index:0;transform-origin:50% 70%;animation:combatSwayBack 7s ease-in-out infinite alternate}
+#combat .battle-field .combat-texture-layer.middle{z-index:1;transform:none!important}
+#combat .battle-field .combat-texture-layer.front{z-index:0;transform-origin:50% 100%;animation:combatSwayFront 5.5s ease-in-out infinite alternate}
+#combat .battle-field .combat-texture-layer.night{opacity:0}
+@keyframes combatSwayBack{0%{transform:translateX(-4px) rotate(-.12deg)}100%{transform:translateX(4px) rotate(.12deg)}}
+@keyframes combatSwayFront{0%{transform:translateX(-6px) rotate(-.18deg)}100%{transform:translateX(6px) rotate(.18deg)}}
+@media (prefers-reduced-motion:reduce){#combat .battle-field .combat-texture-layer.back,#combat .battle-field .combat-texture-layer.front{animation:none}}
+
+/* ===== Expanded Postgame + NG+ ===== */
+.postgame-route-shell{display:grid;gap:18px}
+.postgame-route-hero{display:grid;grid-template-columns:minmax(280px,1.1fr) minmax(280px,1fr);gap:18px;align-items:stretch}
+.postgame-route-art{width:100%;height:100%;min-height:240px;object-fit:cover;border-radius:18px;border:2px solid rgba(255,255,255,.18);box-shadow:0 14px 34px rgba(0,0,0,.28)}
+.postgame-route-copy{display:grid;gap:12px;background:rgba(16,20,28,.78);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:18px;color:#f8eed7}
+.route-perk,.route-village-note,.route-legacy-note{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 12px;line-height:1.45}
+.route-world-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.route-world-card{background:rgba(15,18,25,.72);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px;color:#f2e6cf;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.route-world-card h4{margin:0 0 8px;font-size:1rem;color:#fff5dc}
+.route-world-card p{margin:0;font-size:.92rem;line-height:1.5}
+.endgame-detail-card{background:rgba(16,20,28,.82);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:20px;color:#f8eed7;display:grid;gap:14px}
+.endgame-choice-grid.small{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.endgame-choice.compact{padding:14px;text-align:left;min-height:unset}
+.endgame-choice.compact small{display:block;opacity:.88;line-height:1.45;margin-top:6px}
+.ngplus-hub-note{display:block;margin-top:6px;color:#d6d0c2;line-height:1.4}
+@media (max-width:900px){.postgame-route-hero{grid-template-columns:1fr}.postgame-route-art{min-height:200px}}
+
+/* NG+ visual isolation: new full backdrops replace normal parallax art in NG+ combat. */
+#combat.ngplus-scene .combat-texture-stage{display:none!important}
+
+/* Legacy Board */
+.legacy-board{display:grid;gap:14px;color:#f8eed7}
+.legacy-board-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.legacy-board-head h2{margin:2px 0 4px;font-size:clamp(24px,3vw,38px)}
+.legacy-board-head p{margin:0;opacity:.82}
+#legacyClose{width:38px;min-height:38px;padding:0;font-size:22px}
+.legacy-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.legacy-summary span{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:9px;text-align:center;font-size:12px;font-weight:900}
+.legacy-route-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.legacy-route-card{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:center;background:rgba(14,18,25,.78);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:8px;overflow:hidden}
+.legacy-route-card img{width:110px;height:72px;object-fit:cover;border-radius:9px;filter:saturate(.9)}
+.legacy-route-card div{display:grid;gap:4px}
+.legacy-route-card small{opacity:.76;line-height:1.35}
+.legacy-route-card em{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#f0d47a;font-style:normal;font-weight:1000}
+.legacy-route-card.locked{filter:saturate(.15);opacity:.52}
+.legacy-route-card.locked img{filter:grayscale(1) brightness(.45)}
+.legacy-route-card.active{border-color:rgba(240,212,122,.62);box-shadow:0 0 0 1px rgba(240,212,122,.18),0 10px 24px rgba(0,0,0,.22)}
+.legacy-perk-list,.legacy-secret{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px}
+.legacy-perk-list h3,.legacy-secret h3{margin:0 0 8px}
+.legacy-perk-list p{display:flex;gap:6px;flex-wrap:wrap;margin:0}
+.legacy-perk-list span{display:inline-block;background:rgba(240,212,122,.12);border:1px solid rgba(240,212,122,.24);border-radius:999px;padding:5px 8px;font-size:11px;font-weight:900}
+.legacy-secret.available{border-color:rgba(170,109,255,.42);box-shadow:inset 0 0 24px rgba(126,68,210,.08)}
+.legacy-secret.locked{opacity:.66}
+@media(max-width:720px){.legacy-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.legacy-route-grid{grid-template-columns:1fr}.legacy-route-card{grid-template-columns:92px 1fr}.legacy-route-card img{width:92px;height:64px}}
+
+/* Shattered Realm secret route + Legacy Echo */
+.shattered-realm-card{position:relative;overflow:hidden}
+.shattered-realm-card>img{width:100%;height:132px;object-fit:cover;border-radius:12px;margin-bottom:9px;filter:saturate(1.08) contrast(1.04)}
+.legacy-echo-doll{filter:drop-shadow(0 0 18px rgba(141,86,255,.45)) saturate(.86)}
+.legacy-echo-doll:after{content:"";position:absolute;inset:5%;border:2px solid rgba(170,122,255,.22);border-radius:50%;box-shadow:0 0 26px rgba(116,71,220,.2);pointer-events:none}
+
+/* Crownhold individual sprites and two-sprite encounter staging. */
+#combat.ngplus-scene #enemyArt.crownhold-solo,
+#combat.ngplus-scene.boss-encounter #enemyArt.crownhold-solo{width:34%!important;height:62%!important;right:7%!important;top:auto!important;bottom:11%!important;overflow:visible!important}
+#combat.ngplus-scene.boss-encounter #enemyArt.crownhold-solo{width:39%!important;height:70%!important;right:5%!important;bottom:9%!important}
+#combat.ngplus-scene #enemyArt.crownhold-pair{width:48%!important;height:59%!important;right:2%!important;top:auto!important;bottom:12%!important;overflow:visible!important}
+#enemyArt.crownhold-pair .crownhold-pair-sprites{position:relative;width:100%;height:100%;display:flex;align-items:flex-end;justify-content:center;gap:1%}
+#enemyArt.crownhold-pair .crownhold-pair-sprites>.monster-sprite{display:block!important;position:relative;width:49%!important;height:100%!important;max-width:49%;object-fit:contain!important;object-position:center bottom;mix-blend-mode:normal!important;flex:none}
+#enemyArt.crownhold-solo .monster-sprite{object-fit:contain!important;object-position:center bottom;mix-blend-mode:normal!important}
+@media(max-width:900px){#combat.ngplus-scene #enemyArt.crownhold-pair{width:53%!important;right:0!important;height:55%!important}#combat.ngplus-scene #enemyArt.crownhold-solo{width:38%!important;right:3%!important}}
+
+/* Crownhold Level 3: stage the second enemy behind the first, with its head
+   near the front enemy's shoulder/hand rather than in a separate column. */
+#enemyArt.crownhold-pair .crownhold-pair-sprites{display:block;position:relative;width:100%;height:100%;overflow:visible;isolation:isolate}
+#enemyArt.crownhold-pair .crownhold-pair-sprites>.monster-sprite{position:absolute!important;display:block!important;max-width:none!important;object-fit:contain!important;object-position:center bottom!important;mix-blend-mode:normal!important}
+#enemyArt.crownhold-pair .crownhold-pair-sprites>.monster-sprite:first-child{left:0!important;bottom:0!important;width:72%!important;height:100%!important;z-index:2}
+#enemyArt.crownhold-pair .crownhold-pair-sprites>.monster-sprite:nth-child(2){left:27%!important;bottom:-9%!important;width:72%!important;height:82%!important;z-index:1}
+#map .hud .controls #legacyBtn,#village .hud .controls #legacyBtn{white-space:nowrap}

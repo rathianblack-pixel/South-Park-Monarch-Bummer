@@ -1,0 +1,2372 @@
+[
+  {
+    "source_key": "blacksmith-night",
+    "path": "Textures/Buildings/blacksmith-night.png",
+    "bytes": 1621920,
+    "format": "png"
+  },
+  {
+    "source_key": "blacksmith",
+    "path": "Textures/Buildings/blacksmith.png",
+    "bytes": 1828370,
+    "format": "png"
+  },
+  {
+    "source_key": "cathedral-night",
+    "path": "Textures/Buildings/cathedral-night.png",
+    "bytes": 1480025,
+    "format": "png"
+  },
+  {
+    "source_key": "cathedral",
+    "path": "Textures/Buildings/cathedral.png",
+    "bytes": 1665987,
+    "format": "png"
+  },
+  {
+    "source_key": "house-night",
+    "path": "Textures/Buildings/house-night.png",
+    "bytes": 1615252,
+    "format": "png"
+  },
+  {
+    "source_key": "house",
+    "path": "Textures/Buildings/house.png",
+    "bytes": 1953929,
+    "format": "png"
+  },
+  {
+    "source_key": "merchant-night",
+    "path": "Textures/Buildings/merchant-night.png",
+    "bytes": 1904307,
+    "format": "png"
+  },
+  {
+    "source_key": "merchant",
+    "path": "Textures/Buildings/merchant.png",
+    "bytes": 2126762,
+    "format": "png"
+  },
+  {
+    "source_key": "back-grave-night",
+    "path": "Textures/Maps/Areas/CombatLayers/back-grave-night.png",
+    "bytes": 445389,
+    "format": "png"
+  },
+  {
+    "source_key": "back-grave",
+    "path": "Textures/Maps/Areas/CombatLayers/back-grave.png",
+    "bytes": 680630,
+    "format": "png"
+  },
+  {
+    "source_key": "back-mild-night",
+    "path": "Textures/Maps/Areas/CombatLayers/back-mild-night.png",
+    "bytes": 778286,
+    "format": "png"
+  },
+  {
+    "source_key": "back-mild",
+    "path": "Textures/Maps/Areas/CombatLayers/back-mild.png",
+    "bytes": 1219326,
+    "format": "png"
+  },
+  {
+    "source_key": "back-placenta-night",
+    "path": "Textures/Maps/Areas/CombatLayers/back-placenta-night.png",
+    "bytes": 588028,
+    "format": "png"
+  },
+  {
+    "source_key": "back-placenta",
+    "path": "Textures/Maps/Areas/CombatLayers/back-placenta.png",
+    "bytes": 638344,
+    "format": "png"
+  },
+  {
+    "source_key": "front-grave-night",
+    "path": "Textures/Maps/Areas/CombatLayers/front-grave-night.png",
+    "bytes": 300541,
+    "format": "png"
+  },
+  {
+    "source_key": "front-grave",
+    "path": "Textures/Maps/Areas/CombatLayers/front-grave.png",
+    "bytes": 329484,
+    "format": "png"
+  },
+  {
+    "source_key": "front-mild-night",
+    "path": "Textures/Maps/Areas/CombatLayers/front-mild-night.png",
+    "bytes": 94795,
+    "format": "png"
+  },
+  {
+    "source_key": "front-mild",
+    "path": "Textures/Maps/Areas/CombatLayers/front-mild.png",
+    "bytes": 194066,
+    "format": "png"
+  },
+  {
+    "source_key": "front-placenta-night",
+    "path": "Textures/Maps/Areas/CombatLayers/front-placenta-night.png",
+    "bytes": 121399,
+    "format": "png"
+  },
+  {
+    "source_key": "front-placenta",
+    "path": "Textures/Maps/Areas/CombatLayers/front-placenta.png",
+    "bytes": 142989,
+    "format": "png"
+  },
+  {
+    "source_key": "front-question-night",
+    "path": "Textures/Maps/Areas/CombatLayers/front-question-night.png",
+    "bytes": 376028,
+    "format": "png"
+  },
+  {
+    "source_key": "front-question",
+    "path": "Textures/Maps/Areas/CombatLayers/front-question.png",
+    "bytes": 409515,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-grave-night",
+    "path": "Textures/Maps/Areas/CombatLayers/middle-grave-night.png",
+    "bytes": 5140705,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-grave",
+    "path": "Textures/Maps/Areas/CombatLayers/middle-grave.png",
+    "bytes": 5632830,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-mild-night",
+    "path": "Textures/Maps/Areas/CombatLayers/middle-mild-night.png",
+    "bytes": 4502834,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-mild",
+    "path": "Textures/Maps/Areas/CombatLayers/middle-mild.png",
+    "bytes": 5467793,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-placenta-night",
+    "path": "Textures/Maps/Areas/CombatLayers/middle-placenta-night.png",
+    "bytes": 4275429,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-placenta",
+    "path": "Textures/Maps/Areas/CombatLayers/middle-placenta.png",
+    "bytes": 5218082,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-question-night",
+    "path": "Textures/Maps/Areas/CombatLayers/middle-question-night.png",
+    "bytes": 4571966,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-question",
+    "path": "Textures/Maps/Areas/CombatLayers/middle-question.png",
+    "bytes": 5136636,
+    "format": "png"
+  },
+  {
+    "source_key": "back-grave-night",
+    "path": "Textures/Maps/Areas/back-grave-night.png",
+    "bytes": 445389,
+    "format": "png"
+  },
+  {
+    "source_key": "back-grave",
+    "path": "Textures/Maps/Areas/back-grave.png",
+    "bytes": 680630,
+    "format": "png"
+  },
+  {
+    "source_key": "back-mild-night",
+    "path": "Textures/Maps/Areas/back-mild-night.png",
+    "bytes": 778286,
+    "format": "png"
+  },
+  {
+    "source_key": "back-mild",
+    "path": "Textures/Maps/Areas/back-mild.png",
+    "bytes": 1219326,
+    "format": "png"
+  },
+  {
+    "source_key": "back-placenta-night",
+    "path": "Textures/Maps/Areas/back-placenta-night.png",
+    "bytes": 588028,
+    "format": "png"
+  },
+  {
+    "source_key": "back-placenta",
+    "path": "Textures/Maps/Areas/back-placenta.png",
+    "bytes": 638344,
+    "format": "png"
+  },
+  {
+    "source_key": "front-grave-night",
+    "path": "Textures/Maps/Areas/front-grave-night.png",
+    "bytes": 300541,
+    "format": "png"
+  },
+  {
+    "source_key": "front-grave",
+    "path": "Textures/Maps/Areas/front-grave.png",
+    "bytes": 329484,
+    "format": "png"
+  },
+  {
+    "source_key": "front-mild-night",
+    "path": "Textures/Maps/Areas/front-mild-night.png",
+    "bytes": 94795,
+    "format": "png"
+  },
+  {
+    "source_key": "front-mild",
+    "path": "Textures/Maps/Areas/front-mild.png",
+    "bytes": 194066,
+    "format": "png"
+  },
+  {
+    "source_key": "front-placenta-night",
+    "path": "Textures/Maps/Areas/front-placenta-night.png",
+    "bytes": 121399,
+    "format": "png"
+  },
+  {
+    "source_key": "front-placenta",
+    "path": "Textures/Maps/Areas/front-placenta.png",
+    "bytes": 142989,
+    "format": "png"
+  },
+  {
+    "source_key": "front-question-night",
+    "path": "Textures/Maps/Areas/front-question-night.png",
+    "bytes": 376028,
+    "format": "png"
+  },
+  {
+    "source_key": "front-question",
+    "path": "Textures/Maps/Areas/front-question.png",
+    "bytes": 409515,
+    "format": "png"
+  },
+  {
+    "source_key": "grave-night",
+    "path": "Textures/Maps/Areas/grave-night.jpg",
+    "bytes": 1990171,
+    "format": "jpg"
+  },
+  {
+    "source_key": "grave",
+    "path": "Textures/Maps/Areas/grave.jpg",
+    "bytes": 2304869,
+    "format": "jpg"
+  },
+  {
+    "source_key": "middle-grave-night",
+    "path": "Textures/Maps/Areas/middle-grave-night.png",
+    "bytes": 5140705,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-grave",
+    "path": "Textures/Maps/Areas/middle-grave.png",
+    "bytes": 5632830,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-mild-night",
+    "path": "Textures/Maps/Areas/middle-mild-night.png",
+    "bytes": 4502834,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-mild",
+    "path": "Textures/Maps/Areas/middle-mild.png",
+    "bytes": 5467793,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-placenta-night",
+    "path": "Textures/Maps/Areas/middle-placenta-night.png",
+    "bytes": 4275429,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-placenta",
+    "path": "Textures/Maps/Areas/middle-placenta.png",
+    "bytes": 4582085,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-question-night",
+    "path": "Textures/Maps/Areas/middle-question-night.png",
+    "bytes": 4571966,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-question",
+    "path": "Textures/Maps/Areas/middle-question.png",
+    "bytes": 5136636,
+    "format": "png"
+  },
+  {
+    "source_key": "mild-night",
+    "path": "Textures/Maps/Areas/mild-night.jpg",
+    "bytes": 1832069,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild",
+    "path": "Textures/Maps/Areas/mild.jpg",
+    "bytes": 2385845,
+    "format": "jpg"
+  },
+  {
+    "source_key": "monarch-night",
+    "path": "Textures/Maps/Areas/monarch-night.jpg",
+    "bytes": 1797707,
+    "format": "jpg"
+  },
+  {
+    "source_key": "monarch",
+    "path": "Textures/Maps/Areas/monarch.jpg",
+    "bytes": 1870709,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta-night",
+    "path": "Textures/Maps/Areas/placenta-night.jpg",
+    "bytes": 1787923,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta",
+    "path": "Textures/Maps/Areas/placenta.jpg",
+    "bytes": 2355634,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question-night",
+    "path": "Textures/Maps/Areas/question-night.jpg",
+    "bytes": 1806542,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question",
+    "path": "Textures/Maps/Areas/question.jpg",
+    "bytes": 2048639,
+    "format": "jpg"
+  },
+  {
+    "source_key": "graveyard-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-friends/graveyard-night.jpg",
+    "bytes": 755141,
+    "format": "jpg"
+  },
+  {
+    "source_key": "graveyard",
+    "path": "Textures/Maps/NGPlus/Routes/female-friends/graveyard.jpg",
+    "bytes": 771109,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-friends/mild-night.jpg",
+    "bytes": 803759,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild",
+    "path": "Textures/Maps/NGPlus/Routes/female-friends/mild.jpg",
+    "bytes": 743979,
+    "format": "jpg"
+  },
+  {
+    "source_key": "monarch-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-friends/monarch-night.jpg",
+    "bytes": 665904,
+    "format": "jpg"
+  },
+  {
+    "source_key": "monarch",
+    "path": "Textures/Maps/NGPlus/Routes/female-friends/monarch.jpg",
+    "bytes": 671694,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-friends/placenta-night.jpg",
+    "bytes": 775260,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta",
+    "path": "Textures/Maps/NGPlus/Routes/female-friends/placenta.jpg",
+    "bytes": 761673,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-friends/question-night.jpg",
+    "bytes": 833384,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question",
+    "path": "Textures/Maps/NGPlus/Routes/female-friends/question.jpg",
+    "bytes": 834169,
+    "format": "jpg"
+  },
+  {
+    "source_key": "graveyard-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-stay/graveyard-night.jpg",
+    "bytes": 826882,
+    "format": "jpg"
+  },
+  {
+    "source_key": "graveyard",
+    "path": "Textures/Maps/NGPlus/Routes/female-stay/graveyard.jpg",
+    "bytes": 853808,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-stay/mild-night.jpg",
+    "bytes": 881377,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild",
+    "path": "Textures/Maps/NGPlus/Routes/female-stay/mild.jpg",
+    "bytes": 866917,
+    "format": "jpg"
+  },
+  {
+    "source_key": "monarch-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-stay/monarch-night.jpg",
+    "bytes": 701839,
+    "format": "jpg"
+  },
+  {
+    "source_key": "monarch",
+    "path": "Textures/Maps/NGPlus/Routes/female-stay/monarch.jpg",
+    "bytes": 645361,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-stay/placenta-night.jpg",
+    "bytes": 891869,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta",
+    "path": "Textures/Maps/NGPlus/Routes/female-stay/placenta.jpg",
+    "bytes": 871403,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-stay/question-night.jpg",
+    "bytes": 813446,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question",
+    "path": "Textures/Maps/NGPlus/Routes/female-stay/question.jpg",
+    "bytes": 791237,
+    "format": "jpg"
+  },
+  {
+    "source_key": "graveyard-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-travel/graveyard-night.jpg",
+    "bytes": 742908,
+    "format": "jpg"
+  },
+  {
+    "source_key": "graveyard",
+    "path": "Textures/Maps/NGPlus/Routes/female-travel/graveyard.jpg",
+    "bytes": 776637,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-travel/mild-night.jpg",
+    "bytes": 812142,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild",
+    "path": "Textures/Maps/NGPlus/Routes/female-travel/mild.jpg",
+    "bytes": 865389,
+    "format": "jpg"
+  },
+  {
+    "source_key": "monarch-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-travel/monarch-night.jpg",
+    "bytes": 606353,
+    "format": "jpg"
+  },
+  {
+    "source_key": "monarch",
+    "path": "Textures/Maps/NGPlus/Routes/female-travel/monarch.jpg",
+    "bytes": 599265,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-travel/placenta-night.jpg",
+    "bytes": 779629,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta",
+    "path": "Textures/Maps/NGPlus/Routes/female-travel/placenta.jpg",
+    "bytes": 813999,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question-night",
+    "path": "Textures/Maps/NGPlus/Routes/female-travel/question-night.jpg",
+    "bytes": 871586,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question",
+    "path": "Textures/Maps/NGPlus/Routes/female-travel/question.jpg",
+    "bytes": 895089,
+    "format": "jpg"
+  },
+  {
+    "source_key": "graveyard-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-destroy/graveyard-night.jpg",
+    "bytes": 691607,
+    "format": "jpg"
+  },
+  {
+    "source_key": "graveyard",
+    "path": "Textures/Maps/NGPlus/Routes/male-destroy/graveyard.jpg",
+    "bytes": 868018,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-destroy/mild-night.jpg",
+    "bytes": 629475,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild",
+    "path": "Textures/Maps/NGPlus/Routes/male-destroy/mild.jpg",
+    "bytes": 742758,
+    "format": "jpg"
+  },
+  {
+    "source_key": "monarch-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-destroy/monarch-night.jpg",
+    "bytes": 507935,
+    "format": "jpg"
+  },
+  {
+    "source_key": "monarch",
+    "path": "Textures/Maps/NGPlus/Routes/male-destroy/monarch.jpg",
+    "bytes": 561924,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-destroy/placenta-night.jpg",
+    "bytes": 621165,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta",
+    "path": "Textures/Maps/NGPlus/Routes/male-destroy/placenta.jpg",
+    "bytes": 761256,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-destroy/question-night.jpg",
+    "bytes": 700311,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question",
+    "path": "Textures/Maps/NGPlus/Routes/male-destroy/question.jpg",
+    "bytes": 784328,
+    "format": "jpg"
+  },
+  {
+    "source_key": "graveyard-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-empty/graveyard-night.jpg",
+    "bytes": 740573,
+    "format": "jpg"
+  },
+  {
+    "source_key": "graveyard",
+    "path": "Textures/Maps/NGPlus/Routes/male-empty/graveyard.jpg",
+    "bytes": 793838,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-empty/mild-night.jpg",
+    "bytes": 762900,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild",
+    "path": "Textures/Maps/NGPlus/Routes/male-empty/mild.jpg",
+    "bytes": 733683,
+    "format": "jpg"
+  },
+  {
+    "source_key": "monarch-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-empty/monarch-night.jpg",
+    "bytes": 572968,
+    "format": "jpg"
+  },
+  {
+    "source_key": "monarch",
+    "path": "Textures/Maps/NGPlus/Routes/male-empty/monarch.jpg",
+    "bytes": 627078,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-empty/placenta-night.jpg",
+    "bytes": 675125,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta",
+    "path": "Textures/Maps/NGPlus/Routes/male-empty/placenta.jpg",
+    "bytes": 723748,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-empty/question-night.jpg",
+    "bytes": 674352,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question",
+    "path": "Textures/Maps/NGPlus/Routes/male-empty/question.jpg",
+    "bytes": 746913,
+    "format": "jpg"
+  },
+  {
+    "source_key": "graveyard-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-king/graveyard-night.jpg",
+    "bytes": 708849,
+    "format": "jpg"
+  },
+  {
+    "source_key": "graveyard",
+    "path": "Textures/Maps/NGPlus/Routes/male-king/graveyard.jpg",
+    "bytes": 776953,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-king/mild-night.jpg",
+    "bytes": 648958,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild",
+    "path": "Textures/Maps/NGPlus/Routes/male-king/mild.jpg",
+    "bytes": 724875,
+    "format": "jpg"
+  },
+  {
+    "source_key": "monarch-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-king/monarch-night.jpg",
+    "bytes": 601884,
+    "format": "jpg"
+  },
+  {
+    "source_key": "monarch",
+    "path": "Textures/Maps/NGPlus/Routes/male-king/monarch.jpg",
+    "bytes": 585230,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-king/placenta-night.jpg",
+    "bytes": 654657,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta",
+    "path": "Textures/Maps/NGPlus/Routes/male-king/placenta.jpg",
+    "bytes": 731937,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question-night",
+    "path": "Textures/Maps/NGPlus/Routes/male-king/question-night.jpg",
+    "bytes": 602721,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question",
+    "path": "Textures/Maps/NGPlus/Routes/male-king/question.jpg",
+    "bytes": 707689,
+    "format": "jpg"
+  },
+  {
+    "source_key": "fortress-royal-night",
+    "path": "Textures/Maps/NGPlus/fortress-royal-night.jpg",
+    "bytes": 228104,
+    "format": "jpg"
+  },
+  {
+    "source_key": "fortress-royal",
+    "path": "Textures/Maps/NGPlus/fortress-royal.jpg",
+    "bytes": 309738,
+    "format": "jpg"
+  },
+  {
+    "source_key": "fortress-ruin-night",
+    "path": "Textures/Maps/NGPlus/fortress-ruin-night.jpg",
+    "bytes": 226258,
+    "format": "jpg"
+  },
+  {
+    "source_key": "fortress-ruin",
+    "path": "Textures/Maps/NGPlus/fortress-ruin.jpg",
+    "bytes": 272338,
+    "format": "jpg"
+  },
+  {
+    "source_key": "grave-night",
+    "path": "Textures/Maps/NGPlus/grave-night.jpg",
+    "bytes": 252451,
+    "format": "jpg"
+  },
+  {
+    "source_key": "grave",
+    "path": "Textures/Maps/NGPlus/grave.jpg",
+    "bytes": 286481,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild-night",
+    "path": "Textures/Maps/NGPlus/mild-night.jpg",
+    "bytes": 297638,
+    "format": "jpg"
+  },
+  {
+    "source_key": "mild",
+    "path": "Textures/Maps/NGPlus/mild.jpg",
+    "bytes": 368241,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta-free-night",
+    "path": "Textures/Maps/NGPlus/placenta-free-night.jpg",
+    "bytes": 219572,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta-free",
+    "path": "Textures/Maps/NGPlus/placenta-free.jpg",
+    "bytes": 292504,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta-royal-night",
+    "path": "Textures/Maps/NGPlus/placenta-royal-night.jpg",
+    "bytes": 290636,
+    "format": "jpg"
+  },
+  {
+    "source_key": "placenta-royal",
+    "path": "Textures/Maps/NGPlus/placenta-royal.jpg",
+    "bytes": 336985,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question-night",
+    "path": "Textures/Maps/NGPlus/question-night.jpg",
+    "bytes": 285060,
+    "format": "jpg"
+  },
+  {
+    "source_key": "question",
+    "path": "Textures/Maps/NGPlus/question.jpg",
+    "bytes": 298847,
+    "format": "jpg"
+  },
+  {
+    "source_key": "shattered-realm-night",
+    "path": "Textures/Maps/NGPlus/shattered-realm-night.jpg",
+    "bytes": 192615,
+    "format": "jpg"
+  },
+  {
+    "source_key": "shattered-realm",
+    "path": "Textures/Maps/NGPlus/shattered-realm.jpg",
+    "bytes": 248272,
+    "format": "jpg"
+  },
+  {
+    "source_key": "back-village-night",
+    "path": "Textures/Maps/VillageLayers/back-village-night.png",
+    "bytes": 102032,
+    "format": "png"
+  },
+  {
+    "source_key": "back-village",
+    "path": "Textures/Maps/VillageLayers/back-village.png",
+    "bytes": 168005,
+    "format": "png"
+  },
+  {
+    "source_key": "front-village-night",
+    "path": "Textures/Maps/VillageLayers/front-village-night.png",
+    "bytes": 104221,
+    "format": "png"
+  },
+  {
+    "source_key": "front-village",
+    "path": "Textures/Maps/VillageLayers/front-village.png",
+    "bytes": 93895,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-village-night",
+    "path": "Textures/Maps/VillageLayers/middle-village-night.png",
+    "bytes": 1582580,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-village",
+    "path": "Textures/Maps/VillageLayers/middle-village.png",
+    "bytes": 1832575,
+    "format": "png"
+  },
+  {
+    "source_key": "back-village-4",
+    "path": "Textures/Maps/back-village-4.png",
+    "bytes": 168005,
+    "format": "png"
+  },
+  {
+    "source_key": "back-village-night",
+    "path": "Textures/Maps/back-village-night.png",
+    "bytes": 102032,
+    "format": "png"
+  },
+  {
+    "source_key": "front-village-night",
+    "path": "Textures/Maps/front-village-night.png",
+    "bytes": 104221,
+    "format": "png"
+  },
+  {
+    "source_key": "front-village",
+    "path": "Textures/Maps/front-village.png",
+    "bytes": 93895,
+    "format": "png"
+  },
+  {
+    "source_key": "intro-background",
+    "path": "Textures/Maps/intro-background.png",
+    "bytes": 400334,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-village-night",
+    "path": "Textures/Maps/middle-village-night.png",
+    "bytes": 1582580,
+    "format": "png"
+  },
+  {
+    "source_key": "middle-village",
+    "path": "Textures/Maps/middle-village.png",
+    "bytes": 1832575,
+    "format": "png"
+  },
+  {
+    "source_key": "overworld-background-night",
+    "path": "Textures/Maps/overworld-background-night.jpg",
+    "bytes": 1077779,
+    "format": "jpg"
+  },
+  {
+    "source_key": "overworld-background",
+    "path": "Textures/Maps/overworld-background.jpg",
+    "bytes": 1401057,
+    "format": "jpg"
+  },
+  {
+    "source_key": "start-background",
+    "path": "Textures/Maps/start-background.jpg",
+    "bytes": 2139445,
+    "format": "jpg"
+  },
+  {
+    "source_key": "village-night",
+    "path": "Textures/Maps/village-night.jpg",
+    "bytes": 941082,
+    "format": "jpg"
+  },
+  {
+    "source_key": "village",
+    "path": "Textures/Maps/village.jpg",
+    "bytes": 1253486,
+    "format": "jpg"
+  },
+  {
+    "source_key": "angry-goose-damaged",
+    "path": "Textures/Monsters/Damaged/angry-goose-damaged.png",
+    "bytes": 259917,
+    "format": "png"
+  },
+  {
+    "source_key": "bullying-sprite-damaged",
+    "path": "Textures/Monsters/Damaged/bullying-sprite-damaged.png",
+    "bytes": 235260,
+    "format": "png"
+  },
+  {
+    "source_key": "cursed-timberwolf-damaged",
+    "path": "Textures/Monsters/Damaged/cursed-timberwolf-damaged.png",
+    "bytes": 153765,
+    "format": "png"
+  },
+  {
+    "source_key": "daedric-knight-damaged",
+    "path": "Textures/Monsters/Damaged/daedric-knight-damaged.png",
+    "bytes": 278933,
+    "format": "png"
+  },
+  {
+    "source_key": "dark-sorcerer-damaged",
+    "path": "Textures/Monsters/Damaged/dark-sorcerer-damaged.png",
+    "bytes": 307687,
+    "format": "png"
+  },
+  {
+    "source_key": "drunk-peasant-damaged",
+    "path": "Textures/Monsters/Damaged/drunk-peasant-damaged.png",
+    "bytes": 274018,
+    "format": "png"
+  },
+  {
+    "source_key": "gargoyle-damaged",
+    "path": "Textures/Monsters/Damaged/gargoyle-damaged.png",
+    "bytes": 300992,
+    "format": "png"
+  },
+  {
+    "source_key": "gloomfang-damaged",
+    "path": "Textures/Monsters/Damaged/gloomfang-damaged.png",
+    "bytes": 292881,
+    "format": "png"
+  },
+  {
+    "source_key": "gloomfang-the-cursed-timberwolf-damaged",
+    "path": "Textures/Monsters/Damaged/gloomfang-the-cursed-timberwolf-damaged.png",
+    "bytes": 175895,
+    "format": "png"
+  },
+  {
+    "source_key": "goblin-poacher-damaged",
+    "path": "Textures/Monsters/Damaged/goblin-poacher-damaged.png",
+    "bytes": 265116,
+    "format": "png"
+  },
+  {
+    "source_key": "grave-wraith-damaged",
+    "path": "Textures/Monsters/Damaged/grave-wraith-damaged.png",
+    "bytes": 293105,
+    "format": "png"
+  },
+  {
+    "source_key": "lich-king-timmy-damaged",
+    "path": "Textures/Monsters/Damaged/lich-king-timmy-damaged.png",
+    "bytes": 302656,
+    "format": "png"
+  },
+  {
+    "source_key": "minotaur-with-anxiety-damaged",
+    "path": "Textures/Monsters/Damaged/minotaur-with-anxiety-damaged.png",
+    "bytes": 273504,
+    "format": "png"
+  },
+  {
+    "source_key": "moldy-mummy-damaged",
+    "path": "Textures/Monsters/Damaged/moldy-mummy-damaged.png",
+    "bytes": 308066,
+    "format": "png"
+  },
+  {
+    "source_key": "monarch-lucien-damaged",
+    "path": "Textures/Monsters/Damaged/monarch-lucien-damaged.png",
+    "bytes": 300872,
+    "format": "png"
+  },
+  {
+    "source_key": "necromancer-apprentice-damaged",
+    "path": "Textures/Monsters/Damaged/necromancer-apprentice-damaged.png",
+    "bytes": 324596,
+    "format": "png"
+  },
+  {
+    "source_key": "rabid-racoon-damaged",
+    "path": "Textures/Monsters/Damaged/rabid-racoon-damaged.png",
+    "bytes": 264643,
+    "format": "png"
+  },
+  {
+    "source_key": "sir-barnaby-damaged",
+    "path": "Textures/Monsters/Damaged/sir-barnaby-damaged.png",
+    "bytes": 259781,
+    "format": "png"
+  },
+  {
+    "source_key": "skeleton-archer-damaged",
+    "path": "Textures/Monsters/Damaged/skeleton-archer-damaged.png",
+    "bytes": 206670,
+    "format": "png"
+  },
+  {
+    "source_key": "slime-rat-damaged",
+    "path": "Textures/Monsters/Damaged/slime-rat-damaged.png",
+    "bytes": 271407,
+    "format": "png"
+  },
+  {
+    "source_key": "throne-warden-damaged",
+    "path": "Textures/Monsters/Damaged/throne-warden-damaged.png",
+    "bytes": 143428,
+    "format": "png"
+  },
+  {
+    "source_key": "zombie-wolf-damaged",
+    "path": "Textures/Monsters/Damaged/zombie-wolf-damaged.png",
+    "bytes": 137706,
+    "format": "png"
+  },
+  {
+    "source_key": "antlerguard_warden-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/antlerguard_warden-damaged.png",
+    "bytes": 268383,
+    "format": "png"
+  },
+  {
+    "source_key": "bannerblade_knight-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/bannerblade_knight-damaged.png",
+    "bytes": 310370,
+    "format": "png"
+  },
+  {
+    "source_key": "bluecrest_militiaman-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/bluecrest_militiaman-damaged.png",
+    "bytes": 212841,
+    "format": "png"
+  },
+  {
+    "source_key": "briarfang_hound-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/briarfang_hound-damaged.png",
+    "bytes": 180220,
+    "format": "png"
+  },
+  {
+    "source_key": "briarhood_sneak-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/briarhood_sneak-damaged.png",
+    "bytes": 224148,
+    "format": "png"
+  },
+  {
+    "source_key": "crown_cutpurse-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/crown_cutpurse-damaged.png",
+    "bytes": 201586,
+    "format": "png"
+  },
+  {
+    "source_key": "crowncrypt_bishop-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/crowncrypt_bishop-damaged.png",
+    "bytes": 301631,
+    "format": "png"
+  },
+  {
+    "source_key": "crowncrypt_procession-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/crowncrypt_procession-damaged.png",
+    "bytes": 223842,
+    "format": "png"
+  },
+  {
+    "source_key": "crownmarch_sentinel-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/crownmarch_sentinel-damaged.png",
+    "bytes": 311569,
+    "format": "png"
+  },
+  {
+    "source_key": "crownshield_halberdier-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/crownshield_halberdier-damaged.png",
+    "bytes": 246502,
+    "format": "png"
+  },
+  {
+    "source_key": "crownwood_hunting_pack-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/crownwood_hunting_pack-damaged.png",
+    "bytes": 156564,
+    "format": "png"
+  },
+  {
+    "source_key": "fleurshield_sentinel-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/fleurshield_sentinel-damaged.png",
+    "bytes": 315504,
+    "format": "png"
+  },
+  {
+    "source_key": "kingswood_ranger-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/kingswood_ranger-damaged.png",
+    "bytes": 176449,
+    "format": "png"
+  },
+  {
+    "source_key": "lanternbone_watcher-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/lanternbone_watcher-damaged.png",
+    "bytes": 276168,
+    "format": "png"
+  },
+  {
+    "source_key": "lord_macewarden-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/lord_macewarden-damaged.png",
+    "bytes": 332172,
+    "format": "png"
+  },
+  {
+    "source_key": "maze_court_conspirators-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/maze_court_conspirators-damaged.png",
+    "bytes": 184225,
+    "format": "png"
+  },
+  {
+    "source_key": "mosscrown_treant-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/mosscrown_treant-damaged.png",
+    "bytes": 321156,
+    "format": "png"
+  },
+  {
+    "source_key": "ossuary_reliquary_king-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/ossuary_reliquary_king-damaged.png",
+    "bytes": 370927,
+    "format": "png"
+  },
+  {
+    "source_key": "rosemaze_sovereign-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/rosemaze_sovereign-damaged.png",
+    "bytes": 382816,
+    "format": "png"
+  },
+  {
+    "source_key": "royal_hex_chancellor-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/royal_hex_chancellor-damaged.png",
+    "bytes": 294224,
+    "format": "png"
+  },
+  {
+    "source_key": "royal_road_ambush-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/royal_road_ambush-damaged.png",
+    "bytes": 197805,
+    "format": "png"
+  },
+  {
+    "source_key": "royal_vanguard_pair-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/royal_vanguard_pair-damaged.png",
+    "bytes": 227814,
+    "format": "png"
+  },
+  {
+    "source_key": "thronewraith_king-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/thronewraith_king-damaged.png",
+    "bytes": 397792,
+    "format": "png"
+  },
+  {
+    "source_key": "topiary_page-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/topiary_page-damaged.png",
+    "bytes": 219350,
+    "format": "png"
+  },
+  {
+    "source_key": "veiled_rose_wraith-damaged",
+    "path": "Textures/Monsters/NGPlus/Crownhold/Damaged/veiled_rose_wraith-damaged.png",
+    "bytes": 230144,
+    "format": "png"
+  },
+  {
+    "source_key": "antlerguard_warden",
+    "path": "Textures/Monsters/NGPlus/Crownhold/antlerguard_warden.png",
+    "bytes": 259894,
+    "format": "png"
+  },
+  {
+    "source_key": "bannerblade_knight",
+    "path": "Textures/Monsters/NGPlus/Crownhold/bannerblade_knight.png",
+    "bytes": 285358,
+    "format": "png"
+  },
+  {
+    "source_key": "bluecrest_militiaman",
+    "path": "Textures/Monsters/NGPlus/Crownhold/bluecrest_militiaman.png",
+    "bytes": 193562,
+    "format": "png"
+  },
+  {
+    "source_key": "briarfang_hound",
+    "path": "Textures/Monsters/NGPlus/Crownhold/briarfang_hound.png",
+    "bytes": 173845,
+    "format": "png"
+  },
+  {
+    "source_key": "briarhood_sneak",
+    "path": "Textures/Monsters/NGPlus/Crownhold/briarhood_sneak.png",
+    "bytes": 213735,
+    "format": "png"
+  },
+  {
+    "source_key": "crown_cutpurse",
+    "path": "Textures/Monsters/NGPlus/Crownhold/crown_cutpurse.png",
+    "bytes": 172508,
+    "format": "png"
+  },
+  {
+    "source_key": "crowncrypt_bishop",
+    "path": "Textures/Monsters/NGPlus/Crownhold/crowncrypt_bishop.png",
+    "bytes": 283112,
+    "format": "png"
+  },
+  {
+    "source_key": "crowncrypt_procession",
+    "path": "Textures/Monsters/NGPlus/Crownhold/crowncrypt_procession.png",
+    "bytes": 221507,
+    "format": "png"
+  },
+  {
+    "source_key": "crownmarch_sentinel",
+    "path": "Textures/Monsters/NGPlus/Crownhold/crownmarch_sentinel.png",
+    "bytes": 275861,
+    "format": "png"
+  },
+  {
+    "source_key": "crownshield_halberdier",
+    "path": "Textures/Monsters/NGPlus/Crownhold/crownshield_halberdier.png",
+    "bytes": 206689,
+    "format": "png"
+  },
+  {
+    "source_key": "crownwood_hunting_pack",
+    "path": "Textures/Monsters/NGPlus/Crownhold/crownwood_hunting_pack.png",
+    "bytes": 148048,
+    "format": "png"
+  },
+  {
+    "source_key": "fleurshield_sentinel",
+    "path": "Textures/Monsters/NGPlus/Crownhold/fleurshield_sentinel.png",
+    "bytes": 304341,
+    "format": "png"
+  },
+  {
+    "source_key": "kingswood_ranger",
+    "path": "Textures/Monsters/NGPlus/Crownhold/kingswood_ranger.png",
+    "bytes": 163690,
+    "format": "png"
+  },
+  {
+    "source_key": "lanternbone_watcher",
+    "path": "Textures/Monsters/NGPlus/Crownhold/lanternbone_watcher.png",
+    "bytes": 258537,
+    "format": "png"
+  },
+  {
+    "source_key": "lord_macewarden",
+    "path": "Textures/Monsters/NGPlus/Crownhold/lord_macewarden.png",
+    "bytes": 291972,
+    "format": "png"
+  },
+  {
+    "source_key": "maze_court_conspirators",
+    "path": "Textures/Monsters/NGPlus/Crownhold/maze_court_conspirators.png",
+    "bytes": 183238,
+    "format": "png"
+  },
+  {
+    "source_key": "mosscrown_treant",
+    "path": "Textures/Monsters/NGPlus/Crownhold/mosscrown_treant.png",
+    "bytes": 340633,
+    "format": "png"
+  },
+  {
+    "source_key": "ossuary_reliquary_king",
+    "path": "Textures/Monsters/NGPlus/Crownhold/ossuary_reliquary_king.png",
+    "bytes": 375639,
+    "format": "png"
+  },
+  {
+    "source_key": "rosemaze_sovereign",
+    "path": "Textures/Monsters/NGPlus/Crownhold/rosemaze_sovereign.png",
+    "bytes": 365306,
+    "format": "png"
+  },
+  {
+    "source_key": "royal_hex_chancellor",
+    "path": "Textures/Monsters/NGPlus/Crownhold/royal_hex_chancellor.png",
+    "bytes": 275151,
+    "format": "png"
+  },
+  {
+    "source_key": "royal_road_ambush",
+    "path": "Textures/Monsters/NGPlus/Crownhold/royal_road_ambush.png",
+    "bytes": 167332,
+    "format": "png"
+  },
+  {
+    "source_key": "royal_vanguard_pair",
+    "path": "Textures/Monsters/NGPlus/Crownhold/royal_vanguard_pair.png",
+    "bytes": 196800,
+    "format": "png"
+  },
+  {
+    "source_key": "thronewraith_king",
+    "path": "Textures/Monsters/NGPlus/Crownhold/thronewraith_king.png",
+    "bytes": 375074,
+    "format": "png"
+  },
+  {
+    "source_key": "topiary_page",
+    "path": "Textures/Monsters/NGPlus/Crownhold/topiary_page.png",
+    "bytes": 206443,
+    "format": "png"
+  },
+  {
+    "source_key": "veiled_rose_wraith",
+    "path": "Textures/Monsters/NGPlus/Crownhold/veiled_rose_wraith.png",
+    "bytes": 211209,
+    "format": "png"
+  },
+  {
+    "source_key": "ashen-throne-warden",
+    "path": "Textures/Monsters/NGPlus/ashen-throne-warden.png",
+    "bytes": 317864,
+    "format": "png"
+  },
+  {
+    "source_key": "crown-revenant",
+    "path": "Textures/Monsters/NGPlus/crown-revenant.png",
+    "bytes": 266146,
+    "format": "png"
+  },
+  {
+    "source_key": "lucien-redeemed",
+    "path": "Textures/Monsters/NGPlus/lucien-redeemed.png",
+    "bytes": 270895,
+    "format": "png"
+  },
+  {
+    "source_key": "peacemaker-sentinel",
+    "path": "Textures/Monsters/NGPlus/peacemaker-sentinel.png",
+    "bytes": 318644,
+    "format": "png"
+  },
+  {
+    "source_key": "petition-beast",
+    "path": "Textures/Monsters/NGPlus/petition-beast.png",
+    "bytes": 370294,
+    "format": "png"
+  },
+  {
+    "source_key": "roadshade-mimic",
+    "path": "Textures/Monsters/NGPlus/roadshade-mimic.png",
+    "bytes": 291360,
+    "format": "png"
+  },
+  {
+    "source_key": "rogue-goose-marshal",
+    "path": "Textures/Monsters/NGPlus/rogue-goose-marshal.png",
+    "bytes": 203070,
+    "format": "png"
+  },
+  {
+    "source_key": "timeline-devourer",
+    "path": "Textures/Monsters/NGPlus/timeline-devourer.png",
+    "bytes": 341457,
+    "format": "png"
+  },
+  {
+    "source_key": "angry-goose",
+    "path": "Textures/Monsters/angry-goose.png",
+    "bytes": 93820,
+    "format": "png"
+  },
+  {
+    "source_key": "bullying-sprite",
+    "path": "Textures/Monsters/bullying-sprite.png",
+    "bytes": 90022,
+    "format": "png"
+  },
+  {
+    "source_key": "cursed-timberwolf",
+    "path": "Textures/Monsters/cursed-timberwolf.png",
+    "bytes": 150871,
+    "format": "png"
+  },
+  {
+    "source_key": "daedric-knight",
+    "path": "Textures/Monsters/daedric-knight.png",
+    "bytes": 182818,
+    "format": "png"
+  },
+  {
+    "source_key": "dark-sorcerer",
+    "path": "Textures/Monsters/dark-sorcerer.png",
+    "bytes": 153493,
+    "format": "png"
+  },
+  {
+    "source_key": "drunk-peasant",
+    "path": "Textures/Monsters/drunk-peasant.png",
+    "bytes": 126721,
+    "format": "png"
+  },
+  {
+    "source_key": "gargoyle",
+    "path": "Textures/Monsters/gargoyle.png",
+    "bytes": 174655,
+    "format": "png"
+  },
+  {
+    "source_key": "gloomfang-the-cursed-timberwolf",
+    "path": "Textures/Monsters/gloomfang-the-cursed-timberwolf.png",
+    "bytes": 173665,
+    "format": "png"
+  },
+  {
+    "source_key": "gloomfang",
+    "path": "Textures/Monsters/gloomfang.png",
+    "bytes": 173658,
+    "format": "png"
+  },
+  {
+    "source_key": "goblin-poacher",
+    "path": "Textures/Monsters/goblin-poacher.png",
+    "bytes": 121520,
+    "format": "png"
+  },
+  {
+    "source_key": "grave-wraith",
+    "path": "Textures/Monsters/grave-wraith.png",
+    "bytes": 137994,
+    "format": "png"
+  },
+  {
+    "source_key": "lich-king-timmy",
+    "path": "Textures/Monsters/lich-king-timmy.png",
+    "bytes": 200118,
+    "format": "png"
+  },
+  {
+    "source_key": "minotaur-with-anxiety",
+    "path": "Textures/Monsters/minotaur-with-anxiety.png",
+    "bytes": 165221,
+    "format": "png"
+  },
+  {
+    "source_key": "moldy-mummy",
+    "path": "Textures/Monsters/moldy-mummy.png",
+    "bytes": 171200,
+    "format": "png"
+  },
+  {
+    "source_key": "monarch-lucien",
+    "path": "Textures/Monsters/monarch-lucien.png",
+    "bytes": 156231,
+    "format": "png"
+  },
+  {
+    "source_key": "necromancer-apprentice",
+    "path": "Textures/Monsters/necromancer-apprentice.png",
+    "bytes": 196224,
+    "format": "png"
+  },
+  {
+    "source_key": "rabid-racoon",
+    "path": "Textures/Monsters/rabid-racoon.png",
+    "bytes": 172045,
+    "format": "png"
+  },
+  {
+    "source_key": "sir-barnaby",
+    "path": "Textures/Monsters/sir-barnaby.png",
+    "bytes": 177147,
+    "format": "png"
+  },
+  {
+    "source_key": "skeleton-archer",
+    "path": "Textures/Monsters/skeleton-archer.png",
+    "bytes": 122655,
+    "format": "png"
+  },
+  {
+    "source_key": "slime-rat",
+    "path": "Textures/Monsters/slime-rat.png",
+    "bytes": 199315,
+    "format": "png"
+  },
+  {
+    "source_key": "throne-warden",
+    "path": "Textures/Monsters/throne-warden.png",
+    "bytes": 144009,
+    "format": "png"
+  },
+  {
+    "source_key": "zombie-wolf",
+    "path": "Textures/Monsters/zombie-wolf.png",
+    "bytes": 187468,
+    "format": "png"
+  },
+  {
+    "source_key": "blacksmith-damaged",
+    "path": "Textures/NPCs/Damaged/blacksmith-damaged.png",
+    "bytes": 149560,
+    "format": "png"
+  },
+  {
+    "source_key": "guard-1-damaged",
+    "path": "Textures/NPCs/Damaged/guard-1-damaged.png",
+    "bytes": 125571,
+    "format": "png"
+  },
+  {
+    "source_key": "guard-2-damaged",
+    "path": "Textures/NPCs/Damaged/guard-2-damaged.png",
+    "bytes": 125433,
+    "format": "png"
+  },
+  {
+    "source_key": "merchant-damaged",
+    "path": "Textures/NPCs/Damaged/merchant-damaged.png",
+    "bytes": 152990,
+    "format": "png"
+  },
+  {
+    "source_key": "monarch-lucien-cutout-damaged",
+    "path": "Textures/NPCs/Damaged/monarch-lucien-cutout-damaged.png",
+    "bytes": 160428,
+    "format": "png"
+  },
+  {
+    "source_key": "priest-damaged",
+    "path": "Textures/NPCs/Damaged/priest-damaged.png",
+    "bytes": 141501,
+    "format": "png"
+  },
+  {
+    "source_key": "villager-1-damaged",
+    "path": "Textures/NPCs/Damaged/villager-1-damaged.png",
+    "bytes": 112128,
+    "format": "png"
+  },
+  {
+    "source_key": "villager-2-damaged",
+    "path": "Textures/NPCs/Damaged/villager-2-damaged.png",
+    "bytes": 114719,
+    "format": "png"
+  },
+  {
+    "source_key": "villager-3-damaged",
+    "path": "Textures/NPCs/Damaged/villager-3-damaged.png",
+    "bytes": 113081,
+    "format": "png"
+  },
+  {
+    "source_key": "villager-4-damaged",
+    "path": "Textures/NPCs/Damaged/villager-4-damaged.png",
+    "bytes": 91844,
+    "format": "png"
+  },
+  {
+    "source_key": "agatha-hedge-witch-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/agatha-hedge-witch-damaged.png",
+    "bytes": 406130,
+    "format": "png"
+  },
+  {
+    "source_key": "aldrin-magistrate-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/aldrin-magistrate-damaged.png",
+    "bytes": 300572,
+    "format": "png"
+  },
+  {
+    "source_key": "bernard-town-crier-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/bernard-town-crier-damaged.png",
+    "bytes": 328520,
+    "format": "png"
+  },
+  {
+    "source_key": "brom-ex-guard-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/brom-ex-guard-damaged.png",
+    "bytes": 304386,
+    "format": "png"
+  },
+  {
+    "source_key": "bruna-innkeeper-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/bruna-innkeeper-damaged.png",
+    "bytes": 277303,
+    "format": "png"
+  },
+  {
+    "source_key": "cassian-relic-hunter-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/cassian-relic-hunter-damaged.png",
+    "bytes": 330028,
+    "format": "png"
+  },
+  {
+    "source_key": "cedric-cartographer-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/cedric-cartographer-damaged.png",
+    "bytes": 346375,
+    "format": "png"
+  },
+  {
+    "source_key": "corvin-wounded-traveler-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/corvin-wounded-traveler-damaged.png",
+    "bytes": 230100,
+    "format": "png"
+  },
+  {
+    "source_key": "elsie-tailor-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/elsie-tailor-damaged.png",
+    "bytes": 307000,
+    "format": "png"
+  },
+  {
+    "source_key": "fenn-courier-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/fenn-courier-damaged.png",
+    "bytes": 287935,
+    "format": "png"
+  },
+  {
+    "source_key": "garrick-swamp-fisherman-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/garrick-swamp-fisherman-damaged.png",
+    "bytes": 318207,
+    "format": "png"
+  },
+  {
+    "source_key": "greta-angry-cousin-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/greta-angry-cousin-damaged.png",
+    "bytes": 219504,
+    "format": "png"
+  },
+  {
+    "source_key": "jangles-puppeteer-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/jangles-puppeteer-damaged.png",
+    "bytes": 324210,
+    "format": "png"
+  },
+  {
+    "source_key": "lyra-forest-herbalist-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/lyra-forest-herbalist-damaged.png",
+    "bytes": 276641,
+    "format": "png"
+  },
+  {
+    "source_key": "mabel-village-gossip-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/mabel-village-gossip-damaged.png",
+    "bytes": 284713,
+    "format": "png"
+  },
+  {
+    "source_key": "merrick-shady-merchant-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/merrick-shady-merchant-damaged.png",
+    "bytes": 255424,
+    "format": "png"
+  },
+  {
+    "source_key": "mira-stablehand-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/mira-stablehand-damaged.png",
+    "bytes": 293113,
+    "format": "png"
+  },
+  {
+    "source_key": "oddo-gravekeeper-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/oddo-gravekeeper-damaged.png",
+    "bytes": 260592,
+    "format": "png"
+  },
+  {
+    "source_key": "osric-retired-knight-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/osric-retired-knight-damaged.png",
+    "bytes": 307229,
+    "format": "png"
+  },
+  {
+    "source_key": "perrin-tax-collector-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/perrin-tax-collector-damaged.png",
+    "bytes": 302102,
+    "format": "png"
+  },
+  {
+    "source_key": "pipwick-bard-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/pipwick-bard-damaged.png",
+    "bytes": 335236,
+    "format": "png"
+  },
+  {
+    "source_key": "rook-highway-bandit-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/rook-highway-bandit-damaged.png",
+    "bytes": 281069,
+    "format": "png"
+  },
+  {
+    "source_key": "sister-mara-apothecary-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/sister-mara-apothecary-damaged.png",
+    "bytes": 318031,
+    "format": "png"
+  },
+  {
+    "source_key": "tobin-runaway-squire-damaged",
+    "path": "Textures/NPCs/Reactivity/Damaged/tobin-runaway-squire-damaged.png",
+    "bytes": 265586,
+    "format": "png"
+  },
+  {
+    "source_key": "agatha-hedge-witch",
+    "path": "Textures/NPCs/Reactivity/Normal/agatha-hedge-witch.png",
+    "bytes": 414500,
+    "format": "png"
+  },
+  {
+    "source_key": "aldrin-magistrate",
+    "path": "Textures/NPCs/Reactivity/Normal/aldrin-magistrate.png",
+    "bytes": 306081,
+    "format": "png"
+  },
+  {
+    "source_key": "bernard-town-crier",
+    "path": "Textures/NPCs/Reactivity/Normal/bernard-town-crier.png",
+    "bytes": 310570,
+    "format": "png"
+  },
+  {
+    "source_key": "brom-ex-guard",
+    "path": "Textures/NPCs/Reactivity/Normal/brom-ex-guard.png",
+    "bytes": 291211,
+    "format": "png"
+  },
+  {
+    "source_key": "bruna-innkeeper",
+    "path": "Textures/NPCs/Reactivity/Normal/bruna-innkeeper.png",
+    "bytes": 282868,
+    "format": "png"
+  },
+  {
+    "source_key": "cassian-relic-hunter",
+    "path": "Textures/NPCs/Reactivity/Normal/cassian-relic-hunter.png",
+    "bytes": 306096,
+    "format": "png"
+  },
+  {
+    "source_key": "cedric-cartographer",
+    "path": "Textures/NPCs/Reactivity/Normal/cedric-cartographer.png",
+    "bytes": 354421,
+    "format": "png"
+  },
+  {
+    "source_key": "corvin-wounded-traveler",
+    "path": "Textures/NPCs/Reactivity/Normal/corvin-wounded-traveler.png",
+    "bytes": 234227,
+    "format": "png"
+  },
+  {
+    "source_key": "elsie-tailor",
+    "path": "Textures/NPCs/Reactivity/Normal/elsie-tailor.png",
+    "bytes": 313940,
+    "format": "png"
+  },
+  {
+    "source_key": "fenn-courier",
+    "path": "Textures/NPCs/Reactivity/Normal/fenn-courier.png",
+    "bytes": 293958,
+    "format": "png"
+  },
+  {
+    "source_key": "garrick-swamp-fisherman",
+    "path": "Textures/NPCs/Reactivity/Normal/garrick-swamp-fisherman.png",
+    "bytes": 323806,
+    "format": "png"
+  },
+  {
+    "source_key": "greta-angry-cousin",
+    "path": "Textures/NPCs/Reactivity/Normal/greta-angry-cousin.png",
+    "bytes": 223800,
+    "format": "png"
+  },
+  {
+    "source_key": "jangles-puppeteer",
+    "path": "Textures/NPCs/Reactivity/Normal/jangles-puppeteer.png",
+    "bytes": 330486,
+    "format": "png"
+  },
+  {
+    "source_key": "lyra-forest-herbalist",
+    "path": "Textures/NPCs/Reactivity/Normal/lyra-forest-herbalist.png",
+    "bytes": 281934,
+    "format": "png"
+  },
+  {
+    "source_key": "mabel-village-gossip",
+    "path": "Textures/NPCs/Reactivity/Normal/mabel-village-gossip.png",
+    "bytes": 235697,
+    "format": "png"
+  },
+  {
+    "source_key": "merrick-shady-merchant",
+    "path": "Textures/NPCs/Reactivity/Normal/merrick-shady-merchant.png",
+    "bytes": 260724,
+    "format": "png"
+  },
+  {
+    "source_key": "mira-stablehand",
+    "path": "Textures/NPCs/Reactivity/Normal/mira-stablehand.png",
+    "bytes": 298789,
+    "format": "png"
+  },
+  {
+    "source_key": "oddo-gravekeeper",
+    "path": "Textures/NPCs/Reactivity/Normal/oddo-gravekeeper.png",
+    "bytes": 265529,
+    "format": "png"
+  },
+  {
+    "source_key": "osric-retired-knight",
+    "path": "Textures/NPCs/Reactivity/Normal/osric-retired-knight.png",
+    "bytes": 312276,
+    "format": "png"
+  },
+  {
+    "source_key": "perrin-tax-collector",
+    "path": "Textures/NPCs/Reactivity/Normal/perrin-tax-collector.png",
+    "bytes": 307545,
+    "format": "png"
+  },
+  {
+    "source_key": "pipwick-bard",
+    "path": "Textures/NPCs/Reactivity/Normal/pipwick-bard.png",
+    "bytes": 278234,
+    "format": "png"
+  },
+  {
+    "source_key": "rook-highway-bandit",
+    "path": "Textures/NPCs/Reactivity/Normal/rook-highway-bandit.png",
+    "bytes": 285836,
+    "format": "png"
+  },
+  {
+    "source_key": "sister-mara-apothecary",
+    "path": "Textures/NPCs/Reactivity/Normal/sister-mara-apothecary.png",
+    "bytes": 270906,
+    "format": "png"
+  },
+  {
+    "source_key": "tobin-runaway-squire",
+    "path": "Textures/NPCs/Reactivity/Normal/tobin-runaway-squire.png",
+    "bytes": 270389,
+    "format": "png"
+  },
+  {
+    "source_key": "Villager-1",
+    "path": "Textures/NPCs/Villager-1.png",
+    "bytes": 113876,
+    "format": "png"
+  },
+  {
+    "source_key": "Villager-2",
+    "path": "Textures/NPCs/Villager-2.png",
+    "bytes": 117330,
+    "format": "png"
+  },
+  {
+    "source_key": "Villager-3",
+    "path": "Textures/NPCs/Villager-3.png",
+    "bytes": 115678,
+    "format": "png"
+  },
+  {
+    "source_key": "Villager-4",
+    "path": "Textures/NPCs/Villager-4.png",
+    "bytes": 93673,
+    "format": "png"
+  },
+  {
+    "source_key": "blacksmith",
+    "path": "Textures/NPCs/blacksmith.png",
+    "bytes": 149417,
+    "format": "png"
+  },
+  {
+    "source_key": "guard-1",
+    "path": "Textures/NPCs/guard-1.png",
+    "bytes": 126770,
+    "format": "png"
+  },
+  {
+    "source_key": "guard-2",
+    "path": "Textures/NPCs/guard-2.png",
+    "bytes": 126770,
+    "format": "png"
+  },
+  {
+    "source_key": "merchant",
+    "path": "Textures/NPCs/merchant.png",
+    "bytes": 155807,
+    "format": "png"
+  },
+  {
+    "source_key": "monarch-lucien-cutout",
+    "path": "Textures/NPCs/monarch-lucien-cutout.png",
+    "bytes": 162130,
+    "format": "png"
+  },
+  {
+    "source_key": "priest",
+    "path": "Textures/NPCs/priest.png",
+    "bytes": 142838,
+    "format": "png"
+  },
+  {
+    "source_key": "female-01-placenta-creek-wayfarer-damaged",
+    "path": "Textures/Player/Armor/female-01-placenta-creek-wayfarer-damaged.png",
+    "bytes": 127529,
+    "format": "png"
+  },
+  {
+    "source_key": "female-01-placenta-creek-wayfarer",
+    "path": "Textures/Player/Armor/female-01-placenta-creek-wayfarer.png",
+    "bytes": 125645,
+    "format": "png"
+  },
+  {
+    "source_key": "female-02-moonleaf-huntress-damaged",
+    "path": "Textures/Player/Armor/female-02-moonleaf-huntress-damaged.png",
+    "bytes": 146712,
+    "format": "png"
+  },
+  {
+    "source_key": "female-02-moonleaf-huntress",
+    "path": "Textures/Player/Armor/female-02-moonleaf-huntress.png",
+    "bytes": 142534,
+    "format": "png"
+  },
+  {
+    "source_key": "female-03-graveveil-warden-damaged",
+    "path": "Textures/Player/Armor/female-03-graveveil-warden-damaged.png",
+    "bytes": 145264,
+    "format": "png"
+  },
+  {
+    "source_key": "female-03-graveveil-warden",
+    "path": "Textures/Player/Armor/female-03-graveveil-warden.png",
+    "bytes": 142911,
+    "format": "png"
+  },
+  {
+    "source_key": "female-04-runebloom-battlemage-damaged",
+    "path": "Textures/Player/Armor/female-04-runebloom-battlemage-damaged.png",
+    "bytes": 150901,
+    "format": "png"
+  },
+  {
+    "source_key": "female-04-runebloom-battlemage",
+    "path": "Textures/Player/Armor/female-04-runebloom-battlemage.png",
+    "bytes": 138470,
+    "format": "png"
+  },
+  {
+    "source_key": "female-05-monarchs-eclipse-damaged",
+    "path": "Textures/Player/Armor/female-05-monarchs-eclipse-damaged.png",
+    "bytes": 175243,
+    "format": "png"
+  },
+  {
+    "source_key": "female-05-monarchs-eclipse-variant-damaged",
+    "path": "Textures/Player/Armor/female-05-monarchs-eclipse-variant-damaged.png",
+    "bytes": 175251,
+    "format": "png"
+  },
+  {
+    "source_key": "female-05-monarchs-eclipse-variant",
+    "path": "Textures/Player/Armor/female-05-monarchs-eclipse-variant.png",
+    "bytes": 170869,
+    "format": "png"
+  },
+  {
+    "source_key": "female-05-monarchs-eclipse",
+    "path": "Textures/Player/Armor/female-05-monarchs-eclipse.png",
+    "bytes": 170869,
+    "format": "png"
+  },
+  {
+    "source_key": "male-01-placenta-creek-scrapper-damaged",
+    "path": "Textures/Player/Armor/male-01-placenta-creek-scrapper-damaged.png",
+    "bytes": 125856,
+    "format": "png"
+  },
+  {
+    "source_key": "male-01-placenta-creek-scrapper",
+    "path": "Textures/Player/Armor/male-01-placenta-creek-scrapper.png",
+    "bytes": 121351,
+    "format": "png"
+  },
+  {
+    "source_key": "male-02-goblinhide-raider-damaged",
+    "path": "Textures/Player/Armor/male-02-goblinhide-raider-damaged.png",
+    "bytes": 153406,
+    "format": "png"
+  },
+  {
+    "source_key": "male-02-goblinhide-raider",
+    "path": "Textures/Player/Armor/male-02-goblinhide-raider.png",
+    "bytes": 135945,
+    "format": "png"
+  },
+  {
+    "source_key": "male-03-gravebone-sentinel-damaged",
+    "path": "Textures/Player/Armor/male-03-gravebone-sentinel-damaged.png",
+    "bytes": 163554,
+    "format": "png"
+  },
+  {
+    "source_key": "male-03-gravebone-sentinel",
+    "path": "Textures/Player/Armor/male-03-gravebone-sentinel.png",
+    "bytes": 154788,
+    "format": "png"
+  },
+  {
+    "source_key": "male-04-runeplate-delver-damaged",
+    "path": "Textures/Player/Armor/male-04-runeplate-delver-damaged.png",
+    "bytes": 159316,
+    "format": "png"
+  },
+  {
+    "source_key": "male-04-runeplate-delver",
+    "path": "Textures/Player/Armor/male-04-runeplate-delver.png",
+    "bytes": 154637,
+    "format": "png"
+  },
+  {
+    "source_key": "male-05-daedric-bummerlord-damaged",
+    "path": "Textures/Player/Armor/male-05-daedric-bummerlord-damaged.png",
+    "bytes": 150475,
+    "format": "png"
+  },
+  {
+    "source_key": "male-05-daedric-bummerlord",
+    "path": "Textures/Player/Armor/male-05-daedric-bummerlord.png",
+    "bytes": 159335,
+    "format": "png"
+  },
+  {
+    "source_key": "fire-focus",
+    "path": "Textures/Player/Equipment/fire-focus.png",
+    "bytes": 71444,
+    "format": "png"
+  },
+  {
+    "source_key": "iron-sword",
+    "path": "Textures/Player/Equipment/iron-sword.png",
+    "bytes": 30383,
+    "format": "png"
+  },
+  {
+    "source_key": "light-focus",
+    "path": "Textures/Player/Equipment/light-focus.png",
+    "bytes": 56781,
+    "format": "png"
+  },
+  {
+    "source_key": "water-focus",
+    "path": "Textures/Player/Equipment/water-focus.png",
+    "bytes": 72744,
+    "format": "png"
+  },
+  {
+    "source_key": "wooden-bow",
+    "path": "Textures/Player/Equipment/wooden-bow.png",
+    "bytes": 26876,
+    "format": "png"
+  },
+  {
+    "source_key": "Codex-Bookmark",
+    "path": "Textures/UI/Codex/Codex-Bookmark.png",
+    "bytes": 298165,
+    "format": "png"
+  },
+  {
+    "source_key": "Codex-Cover",
+    "path": "Textures/UI/Codex/Codex-Cover.png",
+    "bytes": 893443,
+    "format": "png"
+  },
+  {
+    "source_key": "Codex-Ink-Stamp",
+    "path": "Textures/UI/Codex/Codex-Ink-Stamp.png",
+    "bytes": 105365,
+    "format": "png"
+  },
+  {
+    "source_key": "Codex-Page-Left",
+    "path": "Textures/UI/Codex/Codex-Page-Left.png",
+    "bytes": 995693,
+    "format": "png"
+  },
+  {
+    "source_key": "Codex-Page-Right",
+    "path": "Textures/UI/Codex/Codex-Page-Right.png",
+    "bytes": 1001059,
+    "format": "png"
+  },
+  {
+    "source_key": "bow",
+    "path": "Textures/UI/Combat/bow.png",
+    "bytes": 132356,
+    "format": "png"
+  },
+  {
+    "source_key": "guard",
+    "path": "Textures/UI/Combat/guard.png",
+    "bytes": 148330,
+    "format": "png"
+  },
+  {
+    "source_key": "heal-spell-effect",
+    "path": "Textures/UI/Combat/heal-spell-effect.png",
+    "bytes": 2331310,
+    "format": "png"
+  },
+  {
+    "source_key": "items",
+    "path": "Textures/UI/Combat/items.png",
+    "bytes": 140493,
+    "format": "png"
+  },
+  {
+    "source_key": "magic",
+    "path": "Textures/UI/Combat/magic.png",
+    "bytes": 139248,
+    "format": "png"
+  },
+  {
+    "source_key": "purify-spell-effect",
+    "path": "Textures/UI/Combat/purify-spell-effect.png",
+    "bytes": 1777719,
+    "format": "png"
+  },
+  {
+    "source_key": "spells",
+    "path": "Textures/UI/Combat/spells.png",
+    "bytes": 132373,
+    "format": "png"
+  },
+  {
+    "source_key": "sword",
+    "path": "Textures/UI/Combat/sword.png",
+    "bytes": 127095,
+    "format": "png"
+  },
+  {
+    "source_key": "Castle-Restored-Interior",
+    "path": "Textures/UI/Endgame/Castle-Restored-Interior.png",
+    "bytes": 2672439,
+    "format": "png"
+  },
+  {
+    "source_key": "Challenge-Arena",
+    "path": "Textures/UI/Endgame/Challenge-Arena.png",
+    "bytes": 2287039,
+    "format": "png"
+  },
+  {
+    "source_key": "Endgame-Throne-Room-Damaged",
+    "path": "Textures/UI/Endgame/Endgame-Throne-Room-Damaged.png",
+    "bytes": 2376473,
+    "format": "png"
+  },
+  {
+    "source_key": "Endgame-Throne-Room-Empty",
+    "path": "Textures/UI/Endgame/Endgame-Throne-Room-Empty.png",
+    "bytes": 2264816,
+    "format": "png"
+  },
+  {
+    "source_key": "Endgame-Throne-Room-Restored",
+    "path": "Textures/UI/Endgame/Endgame-Throne-Room-Restored.png",
+    "bytes": 2672439,
+    "format": "png"
+  },
+  {
+    "source_key": "Female-Ending-Joined-Hands",
+    "path": "Textures/UI/Endgame/Female-Ending-Joined-Hands.png",
+    "bytes": 942724,
+    "format": "png"
+  },
+  {
+    "source_key": "Female-Savior-Silhouette",
+    "path": "Textures/UI/Endgame/Female-Savior-Silhouette.png",
+    "bytes": 294763,
+    "format": "png"
+  },
+  {
+    "source_key": "Lucien-Armor-Shattered",
+    "path": "Textures/UI/Endgame/Lucien-Armor-Shattered.png",
+    "bytes": 774019,
+    "format": "png"
+  },
+  {
+    "source_key": "Lucien-Companion",
+    "path": "Textures/UI/Endgame/Lucien-Companion.png",
+    "bytes": 644561,
+    "format": "png"
+  },
+  {
+    "source_key": "Lucien-Emotional",
+    "path": "Textures/UI/Endgame/Lucien-Emotional.png",
+    "bytes": 800358,
+    "format": "png"
+  },
+  {
+    "source_key": "Lucien-Vulnerable",
+    "path": "Textures/UI/Endgame/Lucien-Vulnerable.png",
+    "bytes": 716003,
+    "format": "png"
+  },
+  {
+    "source_key": "Male-Ending-Broken-Throne",
+    "path": "Textures/UI/Endgame/Male-Ending-Broken-Throne.png",
+    "bytes": 2376473,
+    "format": "png"
+  },
+  {
+    "source_key": "Male-Ending-Epic-Conquest",
+    "path": "Textures/UI/Endgame/Male-Ending-Epic-Conquest.png",
+    "bytes": 633714,
+    "format": "png"
+  },
+  {
+    "source_key": "Male-Savior-Silhouette",
+    "path": "Textures/UI/Endgame/Male-Savior-Silhouette.png",
+    "bytes": 332397,
+    "format": "png"
+  },
+  {
+    "source_key": "Throne-Become-King",
+    "path": "Textures/UI/Endgame/Throne-Become-King.png",
+    "bytes": 2576655,
+    "format": "png"
+  },
+  {
+    "source_key": "Throne-Destroy",
+    "path": "Textures/UI/Endgame/Throne-Destroy.png",
+    "bytes": 2376473,
+    "format": "png"
+  },
+  {
+    "source_key": "Throne-Leave-Empty",
+    "path": "Textures/UI/Endgame/Throne-Leave-Empty.png",
+    "bytes": 2264816,
+    "format": "png"
+  },
+  {
+    "source_key": "route-female-friends-night",
+    "path": "Textures/UI/Postgame/Maps/route-female-friends-night.jpg",
+    "bytes": 772053,
+    "format": "jpg"
+  },
+  {
+    "source_key": "route-female-friends",
+    "path": "Textures/UI/Postgame/Maps/route-female-friends.jpg",
+    "bytes": 1045789,
+    "format": "jpg"
+  },
+  {
+    "source_key": "route-female-stay-night",
+    "path": "Textures/UI/Postgame/Maps/route-female-stay-night.jpg",
+    "bytes": 768272,
+    "format": "jpg"
+  },
+  {
+    "source_key": "route-female-stay",
+    "path": "Textures/UI/Postgame/Maps/route-female-stay.jpg",
+    "bytes": 1062000,
+    "format": "jpg"
+  },
+  {
+    "source_key": "route-female-travel-night",
+    "path": "Textures/UI/Postgame/Maps/route-female-travel-night.jpg",
+    "bytes": 827240,
+    "format": "jpg"
+  },
+  {
+    "source_key": "route-female-travel",
+    "path": "Textures/UI/Postgame/Maps/route-female-travel.jpg",
+    "bytes": 1076744,
+    "format": "jpg"
+  },
+  {
+    "source_key": "route-male-destroy-night",
+    "path": "Textures/UI/Postgame/Maps/route-male-destroy-night.jpg",
+    "bytes": 774498,
+    "format": "jpg"
+  },
+  {
+    "source_key": "route-male-destroy",
+    "path": "Textures/UI/Postgame/Maps/route-male-destroy.jpg",
+    "bytes": 932627,
+    "format": "jpg"
+  },
+  {
+    "source_key": "route-male-empty-night",
+    "path": "Textures/UI/Postgame/Maps/route-male-empty-night.jpg",
+    "bytes": 794290,
+    "format": "jpg"
+  },
+  {
+    "source_key": "route-male-empty",
+    "path": "Textures/UI/Postgame/Maps/route-male-empty.jpg",
+    "bytes": 1024423,
+    "format": "jpg"
+  },
+  {
+    "source_key": "route-male-king-night",
+    "path": "Textures/UI/Postgame/Maps/route-male-king-night.jpg",
+    "bytes": 829980,
+    "format": "jpg"
+  },
+  {
+    "source_key": "route-male-king",
+    "path": "Textures/UI/Postgame/Maps/route-male-king.jpg",
+    "bytes": 1065886,
+    "format": "jpg"
+  }
+]

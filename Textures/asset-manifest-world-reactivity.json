@@ -1,0 +1,192 @@
+{
+  "version": "1.0",
+  "description": "World Reactivity texture pack: 24 new recurring NPCs plus damaged variants for all new NPCs, all original non-player NPCs, and all 22 existing monsters. Player textures intentionally untouched.",
+  "counts": {
+    "newNpcNormal": 24,
+    "newNpcDamaged": 24,
+    "existingNpcDamaged": 10,
+    "monsterDamaged": 22
+  },
+  "newNpcs": [
+    {
+      "id": "corvin-wounded-traveler",
+      "name": "Wounded Traveler",
+      "normal": "NPCs/New/Normal/corvin-wounded-traveler.png",
+      "damaged": "NPCs/New/Damaged/corvin-wounded-traveler-damaged.png"
+    },
+    {
+      "id": "merrick-shady-merchant",
+      "name": "Shady Merchant",
+      "normal": "NPCs/New/Normal/merrick-shady-merchant.png",
+      "damaged": "NPCs/New/Damaged/merrick-shady-merchant-damaged.png"
+    },
+    {
+      "id": "mabel-village-gossip",
+      "name": "Village Gossip",
+      "normal": "NPCs/New/Normal/mabel-village-gossip.png",
+      "damaged": "NPCs/New/Damaged/mabel-village-gossip-damaged.png"
+    },
+    {
+      "id": "brom-ex-guard",
+      "name": "Ex-Guard",
+      "normal": "NPCs/New/Normal/brom-ex-guard.png",
+      "damaged": "NPCs/New/Damaged/brom-ex-guard-damaged.png"
+    },
+    {
+      "id": "lyra-forest-herbalist",
+      "name": "Forest Herbalist",
+      "normal": "NPCs/New/Normal/lyra-forest-herbalist.png",
+      "damaged": "NPCs/New/Damaged/lyra-forest-herbalist-damaged.png"
+    },
+    {
+      "id": "pipwick-bard",
+      "name": "Traveling Bard",
+      "normal": "NPCs/New/Normal/pipwick-bard.png",
+      "damaged": "NPCs/New/Damaged/pipwick-bard-damaged.png"
+    },
+    {
+      "id": "oddo-gravekeeper",
+      "name": "Gravekeeper",
+      "normal": "NPCs/New/Normal/oddo-gravekeeper.png",
+      "damaged": "NPCs/New/Damaged/oddo-gravekeeper-damaged.png"
+    },
+    {
+      "id": "cassian-relic-hunter",
+      "name": "Relic Hunter",
+      "normal": "NPCs/New/Normal/cassian-relic-hunter.png",
+      "damaged": "NPCs/New/Damaged/cassian-relic-hunter-damaged.png"
+    },
+    {
+      "id": "greta-angry-cousin",
+      "name": "Angry Cousin",
+      "normal": "NPCs/New/Normal/greta-angry-cousin.png",
+      "damaged": "NPCs/New/Damaged/greta-angry-cousin-damaged.png"
+    },
+    {
+      "id": "sister-mara-apothecary",
+      "name": "Nun Apothecary",
+      "normal": "NPCs/New/Normal/sister-mara-apothecary.png",
+      "damaged": "NPCs/New/Damaged/sister-mara-apothecary-damaged.png"
+    },
+    {
+      "id": "tobin-runaway-squire",
+      "name": "Runaway Squire",
+      "normal": "NPCs/New/Normal/tobin-runaway-squire.png",
+      "damaged": "NPCs/New/Damaged/tobin-runaway-squire-damaged.png"
+    },
+    {
+      "id": "bernard-town-crier",
+      "name": "Town Crier",
+      "normal": "NPCs/New/Normal/bernard-town-crier.png",
+      "damaged": "NPCs/New/Damaged/bernard-town-crier-damaged.png"
+    },
+    {
+      "id": "aldrin-magistrate",
+      "name": "Suspicious Magistrate",
+      "normal": "NPCs/New/Normal/aldrin-magistrate.png",
+      "damaged": "NPCs/New/Damaged/aldrin-magistrate-damaged.png"
+    },
+    {
+      "id": "bruna-innkeeper",
+      "name": "Rough Innkeeper",
+      "normal": "NPCs/New/Normal/bruna-innkeeper.png",
+      "damaged": "NPCs/New/Damaged/bruna-innkeeper-damaged.png"
+    },
+    {
+      "id": "fenn-courier",
+      "name": "Nervous Courier",
+      "normal": "NPCs/New/Normal/fenn-courier.png",
+      "damaged": "NPCs/New/Damaged/fenn-courier-damaged.png"
+    },
+    {
+      "id": "agatha-hedge-witch",
+      "name": "Hedge Witch",
+      "normal": "NPCs/New/Normal/agatha-hedge-witch.png",
+      "damaged": "NPCs/New/Damaged/agatha-hedge-witch-damaged.png"
+    },
+    {
+      "id": "perrin-tax-collector",
+      "name": "Tax Collector",
+      "normal": "NPCs/New/Normal/perrin-tax-collector.png",
+      "damaged": "NPCs/New/Damaged/perrin-tax-collector-damaged.png"
+    },
+    {
+      "id": "osric-retired-knight",
+      "name": "Retired Knight",
+      "normal": "NPCs/New/Normal/osric-retired-knight.png",
+      "damaged": "NPCs/New/Damaged/osric-retired-knight-damaged.png"
+    },
+    {
+      "id": "garrick-swamp-fisherman",
+      "name": "Swamp Fisherman",
+      "normal": "NPCs/New/Normal/garrick-swamp-fisherman.png",
+      "damaged": "NPCs/New/Damaged/garrick-swamp-fisherman-damaged.png"
+    },
+    {
+      "id": "jangles-puppeteer",
+      "name": "Traveling Puppeteer",
+      "normal": "NPCs/New/Normal/jangles-puppeteer.png",
+      "damaged": "NPCs/New/Damaged/jangles-puppeteer-damaged.png"
+    },
+    {
+      "id": "elsie-tailor",
+      "name": "Village Tailor",
+      "normal": "NPCs/New/Normal/elsie-tailor.png",
+      "damaged": "NPCs/New/Damaged/elsie-tailor-damaged.png"
+    },
+    {
+      "id": "cedric-cartographer",
+      "name": "Scholar Cartographer",
+      "normal": "NPCs/New/Normal/cedric-cartographer.png",
+      "damaged": "NPCs/New/Damaged/cedric-cartographer-damaged.png"
+    },
+    {
+      "id": "mira-stablehand",
+      "name": "Stablehand Squire",
+      "normal": "NPCs/New/Normal/mira-stablehand.png",
+      "damaged": "NPCs/New/Damaged/mira-stablehand-damaged.png"
+    },
+    {
+      "id": "rook-highway-bandit",
+      "name": "Masked Highway Bandit",
+      "normal": "NPCs/New/Normal/rook-highway-bandit.png",
+      "damaged": "NPCs/New/Damaged/rook-highway-bandit-damaged.png"
+    }
+  ],
+  "existingNpcDamaged": [
+    "blacksmith-damaged.png",
+    "guard-1-damaged.png",
+    "guard-2-damaged.png",
+    "merchant-damaged.png",
+    "monarch-lucien-cutout-damaged.png",
+    "priest-damaged.png",
+    "villager-1-damaged.png",
+    "villager-2-damaged.png",
+    "villager-3-damaged.png",
+    "villager-4-damaged.png"
+  ],
+  "monsterDamaged": [
+    "angry-goose-damaged.png",
+    "bullying-sprite-damaged.png",
+    "cursed-timberwolf-damaged.png",
+    "daedric-knight-damaged.png",
+    "dark-sorcerer-damaged.png",
+    "drunk-peasant-damaged.png",
+    "gargoyle-damaged.png",
+    "gloomfang-damaged.png",
+    "gloomfang-the-cursed-timberwolf-damaged.png",
+    "goblin-poacher-damaged.png",
+    "grave-wraith-damaged.png",
+    "lich-king-timmy-damaged.png",
+    "minotaur-with-anxiety-damaged.png",
+    "moldy-mummy-damaged.png",
+    "monarch-lucien-damaged.png",
+    "necromancer-apprentice-damaged.png",
+    "rabid-racoon-damaged.png",
+    "sir-barnaby-damaged.png",
+    "skeleton-archer-damaged.png",
+    "slime-rat-damaged.png",
+    "throne-warden-damaged.png",
+    "zombie-wolf-damaged.png"
+  ]
+}

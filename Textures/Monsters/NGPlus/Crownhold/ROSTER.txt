@@ -1,0 +1,38 @@
+Crownhold Ascendant NG+ roster
+
+PLACENTA CREEK
+L1 Crown Cutpurse
+L2 Bluecrest Militiaman
+L3 Royal Road Ambush
+L4 Crownmarch Sentinel (Elite)
+L5 Lord Macewarden (Boss)
+
+MILD INCONVENIENCE
+L1 Kingswood Ranger
+L2 Briarfang Hound
+L3 Crownwood Hunting Pack
+L4 Antlerguard Warden (Elite)
+L5 Mosscrown Treant (Boss)
+
+GRAVE MISTAKE
+L1 Veiled Rose Wraith
+L2 Lanternbone Watcher
+L3 Crowncrypt Procession
+L4 Crowncrypt Bishop (Elite)
+L5 Ossuary King (Boss)
+
+QUESTIONABLE DECISIONS
+L1 Topiary Page
+L2 Briarhood Sneak
+L3 Maze Court Conspirators
+L4 Fleurshield Sentinel (Elite)
+L5 Rosemaze Sovereign (Boss)
+
+DREAD FORTRESS
+L1 Crownshield Halberdier
+L2 Bannerblade Knight
+L3 Royal Vanguard Pair
+L4 Royal Hex Chancellor (Elite)
+L5 Thronewraith King (Boss)
+
+Every encounter has a normal sprite and a damaged counterpart.

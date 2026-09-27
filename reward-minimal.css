@@ -1,0 +1,23 @@
+/* Compact post-combat reward choice. The combat scene remains behind the glass. */
+.game #rewardOverlay{padding:14px;background:rgba(5,10,17,.36)!important;backdrop-filter:blur(8px) saturate(.84)!important;-webkit-backdrop-filter:blur(8px) saturate(.84)!important}
+.game #rewardOverlay .reward-card{box-sizing:border-box;width:min(470px,calc(100% - 16px))!important;min-width:0!important;max-width:470px!important;max-height:calc(100% - 20px)!important;height:auto!important;overflow:auto;padding:18px 19px 15px!important;border:1px solid rgba(244,224,185,.28)!important;border-radius:12px;background:rgba(13,22,32,.90)!important;box-shadow:0 16px 48px #000a!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;color:#f4ebda}
+.game #rewardOverlay .reward-eyebrow{display:block;margin-bottom:5px;font-size:9px;font-weight:850;letter-spacing:.12em;text-transform:uppercase;color:#d7be8e}
+.game #rewardOverlay .reward-heading h2{margin:0 0 13px;color:#f8eedc!important;font-size:clamp(18px,1.9vw,22px);line-height:1.2;letter-spacing:0}
+.game #rewardOverlay .reward-heading h2 span{font-size:.72em;font-weight:650;color:#cfc5b5}
+.game #rewardOverlay .reward-choice-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:5px!important;margin:0!important}
+.game #rewardOverlay .reward-choice{display:grid!important;grid-template-columns:25px minmax(0,1fr) 12px;align-items:center;gap:9px;min-height:54px!important;height:auto;padding:7px 10px!important;border:1px solid rgba(243,225,192,.16)!important;border-radius:7px;background:rgba(255,255,255,.045)!important;box-shadow:none!important;color:#f2e7d4!important;text-align:left;transform:none!important}
+.game #rewardOverlay .reward-choice:hover,.game #rewardOverlay .reward-choice:focus-visible{background:rgba(223,187,119,.18)!important;border-color:rgba(248,223,176,.58)!important;filter:none;transform:translateX(2px)!important}
+.game #rewardOverlay .reward-icon{font-size:17px;line-height:1;text-align:center;color:#d9bd83}
+.game #rewardOverlay .reward-copy{display:grid;gap:2px;min-width:0}
+.game #rewardOverlay .reward-choice b{color:#f3e5c7!important;font-size:12px;font-weight:850;line-height:1.2}
+.game #rewardOverlay .reward-choice small{color:#cfc6b8!important;font-size:10px;font-weight:500;line-height:1.25}
+.game #rewardOverlay .reward-arrow{color:#d6bd8b;font-size:17px;line-height:1;font-weight:400}
+.game #rewardOverlay .reward-drop-note{margin-top:12px;padding-top:9px;border-top:1px solid rgba(244,226,193,.15);color:#c9beab;font-size:10px}
+.game #rewardOverlay .reward-drop-note b{color:#ead4a8}
+.game #rewardOverlay .reward-confirmation{text-align:center;padding:24px 8px 18px;animation:rewardConfirmIn .24s ease-out both}
+.game #rewardOverlay .reward-confirmation>span{color:#e5c786;font-size:24px}
+.game #rewardOverlay .reward-confirmation h2{margin:6px 0;color:#f6ebd6!important;font-size:20px}
+.game #rewardOverlay .reward-confirmation p{margin:0;color:#dfd0b7!important;font-size:12px;line-height:1.45}
+@keyframes rewardConfirmIn{from{opacity:.3;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media(max-width:520px){.game #rewardOverlay .reward-card{width:min(430px,calc(100% - 8px))!important;padding:13px 14px!important}.game #rewardOverlay .reward-choice{min-height:47px!important;padding:6px 8px!important}.game #rewardOverlay .reward-choice small{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.game #rewardOverlay .reward-confirmation{animation:none}}

@@ -1,0 +1,15 @@
+Crownhold integration update
+
+What was added:
+- Integrated the latest NG+ route overworld maps and day/night area backgrounds for all 6 postgame routes.
+- Added separated Crownhold Ascendant monster sprites with normal and damaged variants.
+- Added unique Crownhold enemy names and custom level encounter lists for all 5 Crownhold areas.
+- Added damaged-sprite swapping during combat for the custom Crownhold enemies.
+- Updated the Crownhold level-select screen and boss labels to use the new enemy names.
+
+Key Crownhold enemy set:
+Placenta Creek: Crown Cutpurse, Bluecrest Militiaman, Royal Halberdier, Crownshield Sentinel, Goosecourt Marshal
+Mild Inconvenience: Kingswood Ranger, Briarfang Hound, Antlerguard Scout, Mosscrown Guardian, Thornstag Sovereign
+Grave Mistake: Royal Mourner, Crown Cryptguard, Ossuary Lancer, Sepulcher Bishop, Crown Revenant
+Questionable Decisions: Hedgebound Spearman, Thorncourt Prowler, Labyrinth Marshal, Bluebriar Construct, Thornmaze Warden
+Dread Fortress: Crownblade Knight, Banneret Executioner, Coronation Golem, Aurell Crown Regent, Throne Ascendant

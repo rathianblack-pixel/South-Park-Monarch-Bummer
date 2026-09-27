@@ -1,0 +1,15 @@
+POST-GAME + NEW GAME+ EXPANSION
+
+This is a changed-files-only package.
+
+1. Extract it into the root of your current game build.
+2. Allow game.js and alive-systems.css to overwrite the current copies.
+3. Merge the included Textures folder with your existing Textures folder.
+4. Do not delete your existing textures. This package only supplies the new NG+ asset folders.
+
+New asset folders:
+Textures/UI/Postgame/Maps/
+Textures/Maps/NGPlus/
+Textures/Monsters/NGPlus/
+
+The expansion uses your existing save format and stores additional data inside state.meta/state.endgame.
