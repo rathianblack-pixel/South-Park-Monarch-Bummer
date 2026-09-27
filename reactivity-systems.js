@@ -402,7 +402,7 @@
     const img=qs('#enemyArt img.monster-sprite');if(!img)return;
     if(!img.dataset.reactivityNormal)img.dataset.reactivityNormal=img.getAttribute('src')||'';
     if(!img.dataset.reactivityDamaged)img.dataset.reactivityDamaged=damagedMonsterPath(combat.enemy);
-    const damaged=combat.enemyHp>0&&(combat.enemyHp/Math.max(1,combat.enemyMax)<=.48||Number(combat.reactivityPhase||1)>=2);
+    const damaged=combat.enemyHp/Math.max(1,combat.enemyMax)<=.48||Number(combat.reactivityPhase||1)>=2;
     const wanted=damaged&&img.dataset.reactivityDamaged&&!img.dataset.reactivityDamageFailed?img.dataset.reactivityDamaged:img.dataset.reactivityNormal;
     if(wanted&&img.getAttribute('src')!==wanted){img.onerror=()=>{img.dataset.reactivityDamageFailed='1';img.onerror=null;img.src=img.dataset.reactivityNormal};img.src=wanted}
   }
@@ -672,6 +672,7 @@
     personalityFor,
     showNpc:id=>{const n=NPC_BY_ID[id];return n?encounterCard(n,n.intro,specificOptions(n)):false},
     forceConsequence:()=>tryDelayedConsequence(Number(state.hub)||0),
+    refreshEnemySprite:syncEnemySprite,
     syncCombat:()=>{initReactivityCombat();adaptIntent();monitorBossPhase();syncEnemySprite()},
     reputationRumor
   };

@@ -1,5 +1,6 @@
 Changed files:
-- alive-systems.js: Burning and Bleeding damage floats now show only the small negative number and receive effect-specific animation classes.
-- status-damage-minimal.css: animated rising amber number with two embers for Burning; falling crimson number with one drop for Bleeding. Reduced-motion fade included.
-- game.js: removes the extra four-drop burst from Burning/Bleeding turn ticks, including the older Bleeding tick. Application effects and ordinary hit numbers remain.
-- index.html: loads the new stylesheet and updates JS URL versions for deployed browsers.
+- reactivity-systems.js: regular enemies remain on their damaged sprite at zero HP; exposes the sprite refresh to the death animation.
+- alive-systems.js: refreshes the enemy sprite immediately before the death motion starts.
+- index.html: updates JS URL versions for deployed browser caches.
+
+Crownhold sprite handling stays as before.

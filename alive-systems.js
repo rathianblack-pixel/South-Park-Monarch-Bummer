@@ -176,6 +176,7 @@
     if(!combat||combat.enemyHp>0)return Promise.resolve();
     if(combat._aliveDeathComplete)return Promise.resolve();
     if(deathPromise)return deathPromise;
+    window.WorldReactivity?.refreshEnemySprite?.();
     ensureCombatMotion();
     const shell=ensureActorShell(document.querySelector('#enemyArt'));
     if(!shell){combat._aliveDeathComplete=true;return Promise.resolve()}
