@@ -1,18 +1,7 @@
-Armor reveal and bonuses patch
+Combat upgrade, armor defense, and house sprite patch
 
-Changed files: game.js, side-armor.js, side-armor.css, index.html.
-No textures were changed in this patch; install over the previous side armor milestone patch, which contains the side armor PNGs.
-
-Newly earned area armor and claimed side armor now open a centered reveal with a blurred backdrop, animated light and gentle armor sway, the set name, and a Continue button. Area armor appears after the battle reward is claimed.
-
-Unique side armor bonuses apply while equipped:
-- Choirguard Vestments: healing items and spells restore 2 extra HP.
-- Forgeheart Plate: Guard reduces incoming damage by another 10%.
-- Gilded Bargainer: combat coin rewards increase by 20% (rounded up).
-- Roadkeeper's Cloak: reduces enemy signature ailment chance by 20% and incidental Bleeding chance from 50% to 40%.
-- Village Defender: village raid attacks deal 10% less damage.
-- Grave Lantern Keeper: Burning and Bleeding deal 1 less damage per turn (minimum 1).
-- Maze Cartographer: attack accuracy gains 5 percentage points.
-- Thronebreaker Regalia: damaging hits and Sword counters deal 2 extra damage to bosses.
-
-Updated HTML asset versions to refresh cached game, side armor JS, and CSS.
+- game.js: Blacksmith magic levels now add +2 damage per level to spells; weapon levels continue adding +2 to sword and bow hits. Existing magic saves retain previously earned weapon-level damage. Magic battle damage rewards now advance magicLevel. Armor levels reduce incoming direct damage by 2% per level, capped at 30%, in addition to their HP increase. Updated upgrade/reward descriptions and reset magic level on new games.
+- home-revamp.js: Armor preview attack numbers include magic upgrades.
+- home-revamp.css: House player sprite matches the size and placement of characters in other interiors.
+- index.html: Updated asset cache versions for the changed files.
+- No textures were changed.
