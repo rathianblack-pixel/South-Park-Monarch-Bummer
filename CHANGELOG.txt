@@ -1,6 +1,7 @@
-House player sprite position
+House resource location
 
-- interior-dialogue.css: Place the house player sprite on the rug beside the armor doll at comparable height, behind the house menu and dialogue panels.
-- index.html: Refresh the stylesheet version for deployed builds.
+- interior-dialogue.js: Place the live coin and health chips directly in the house scene instead of the bottom button row.
+- interior-dialogue.css: Position the chips at the upper middle of the room, clear of the player sprite and controls.
+- index.html: Refresh the changed script and stylesheet versions.
 
-Extract over the latest build after house-armor-claim-hotspots.zip.
+Extract over the latest build after house-player-position.zip.

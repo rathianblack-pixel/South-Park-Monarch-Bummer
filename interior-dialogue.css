@@ -113,3 +113,9 @@
 #interiorDialogueScene.home-thought .interior-dialogue-player img{
   width:100%;height:100%;object-fit:contain;object-position:center bottom
 }
+/* Keep live house resources above the room instead of over the player. */
+#interiorDialogueScene.home-thought > .interior-home-resources{
+  position:absolute;top:7%;left:50%;z-index:4;transform:translateX(-50%);
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  pointer-events:none
+}

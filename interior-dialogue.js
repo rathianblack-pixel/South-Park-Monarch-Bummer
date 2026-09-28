@@ -55,7 +55,7 @@ function say(who,line,fn,type){if(timer)clearInterval(timer);scene.querySelector
 function renderControls(){if(!scene)return;controls().replaceChildren();if(next){add('Continue',next);return}mainMenu()}
 function mainMenu(){
  const type=state._building||'home';view='main';scene.classList.remove('showing-menu','quest-view');scene.classList.add('idle-menu');scene.querySelector('.interior-dialogue-menu').hidden=true;
- controls().replaceChildren();if(type==='home'){const stats=document.createElement('div');stats.className='interior-home-resources';stats.innerHTML=`<span><small>COINS</small><b>◈ ${state.coins}</b></span><span><small>HEALTH</small><b>❤ ${state.hp}/${state.maxHp}</b></span>`;controls().append(stats)}const choices=type==='blacksmith'?labels.blacksmith.map(([title,action])=>[action==='upgrade'?'Upgrade '+(state.gear==='magic'?'Magic':'Weapon'):title,action]):labels[type]||labels.home;
+ controls().replaceChildren();scene.querySelector(':scope > .interior-home-resources')?.remove();if(type==='home'){const stats=document.createElement('div');stats.className='interior-home-resources';stats.innerHTML=`<span><small>COINS</small><b>◈ ${state.coins}</b></span><span><small>HEALTH</small><b>❤ ${state.hp}/${state.maxHp}</b></span>`;scene.append(stats)}const choices=type==='blacksmith'?labels.blacksmith.map(([title,action])=>[action==='upgrade'?'Upgrade '+(state.gear==='magic'?'Magic':'Weapon'):title,action]):labels[type]||labels.home;
  choices.forEach(([title,action])=>add(title,()=>choose(type,action)));
 }
 function showPanel(){
