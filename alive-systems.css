@@ -77,20 +77,6 @@
  .damage-number.alive-number{animation-duration:.38s!important}
 }
 
-/* Village texture-layer test: only front/back sway; middle remains fixed. */
-#village .village-texture-stage{position:absolute;inset:0;overflow:hidden;z-index:2;pointer-events:none;background:transparent}
-#village .village-texture-layer{position:absolute;inset:-0.7%;width:101.4%;height:101.4%;object-fit:cover;object-position:center;pointer-events:none;user-select:none;will-change:transform,opacity}
-#village .village-texture-layer.back{z-index:1;transform-origin:50% 70%;animation:villageSwayBack 7s ease-in-out infinite alternate}
-#village .village-texture-layer.middle{z-index:2;transform:none!important}
-#village .village-texture-layer.front{z-index:3;transform-origin:50% 100%;animation:villageSwayFront 5.5s ease-in-out infinite alternate}
-#village .village-texture-layer.night{opacity:0}
-#village.village-layered #villageWeather{z-index:2}
-#village.village-layered .hud,#village.village-layered .village-map-label,#village.village-layered .village-title,#village.village-layered .buildings,#village.village-layered .facility-modal{z-index:5}
-@keyframes villageSwayBack{0%{transform:translateX(-4px) rotate(-.12deg)}100%{transform:translateX(4px) rotate(.12deg)}}
-@keyframes villageSwayFront{0%{transform:translateX(-6px) rotate(-.18deg)}100%{transform:translateX(6px) rotate(.18deg)}}
-@media (prefers-reduced-motion:reduce){#village .village-texture-layer.back,#village .village-texture-layer.front{animation:none}}
-
-
 /* Combat texture parallax. Back/middle stay behind fighters; front can overlap them. */
 #combat .battle-field .combat-texture-stage{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 #combat .battle-field .combat-texture-behind{z-index:0}
