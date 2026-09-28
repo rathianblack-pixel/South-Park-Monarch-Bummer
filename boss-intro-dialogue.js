@@ -3,63 +3,581 @@
   'use strict';
   const q=s=>document.querySelector(s),game=q('.game');if(!game||!window.startLevel)return;
   const STORIES={
-    'Sir Barnaby':{opening:["Stop. This bridge has a toll.","You charged a farmer for crossing to his own field.","He crossed twice. I gave him the return discount.","That's not a thing.","It is now. I've already printed the sign."],
-      kind:["Let people cross. You can still protect them.","Without a toll, how will they know I'm working?","They'll see you guarding the bridge.","That sounds suspiciously like unpaid work.","It sounds like being a knight.","Fine. But first you have to get past the knight."],
-      taunt:["I've crossed scarier bridges made of wet planks.","This bridge has a trained defender.","Where? Behind the man with the coin cup?","I am the trained defender.","Then your training needs a refund.","My shield cost more than your entire outfit. Let's test it."],
-      roast:["Does that shield protect you from criticism too?","It has survived twelve campaigns.","And still couldn't stop you becoming a tollbooth.","I am a sworn knight.","You are a parking fine with legs.","Right. I'm charging you extra for that."]},
-    'Gloomfang':{opening:["You're in my woods.","Your traps pushed the animals onto the village road.","The road belongs to people. They'll cope.","The wolves didn't.","The wolves should've learned to read signs."],
-      kind:["Let me clear the traps. Your pack can come home.","People said that before the iron jaws arrived.","Watch me do it, then.","If you touch the wrong snare, you lose a hand.","I have another.","That is not reassuring. Show me anyway."],
-      taunt:["Your pack led me straight here.","They led you where I wanted you.","Into the clearing with the broken traps?","They worked yesterday.","I was busy yesterday.","Then let's see how busy you are now."],
-      roast:["You call this a forest? It's a trap shop with trees.","The traps keep hunters out.","They also keep your pack out, genius.","They can go around.","They've been sleeping in the village bins.","...I didn't approve that. Get out of my woods."]},
-    'Lich King Timmy':{opening:["Welcome to my eternal court. Sit wherever you like.","They're all graves.","Yes. Reserved seats were unpopular.","You've been waking people to hear your speeches.","The living kept leaving halfway through."],
-      kind:["Let them rest. You don't need an audience to matter.","Easy for you to say. People came to see you.","They came because you rang the cemetery bell all night.","I needed a decent turnout.","You needed to ask them.","Ask the dead? That's going to be awkward. Fight first."],
-      taunt:["I'll beat you before you finish the opening speech.","This is only the introduction.","The audience already left.","They're buried here. They can't leave.","That's somehow worse than I thought.","You asked for a shorter speech. Here's the short part."],
-      roast:["You made dead people attend your speech?","My court is loyal.","Your court is legally unable to walk out.","They can crawl.","And they still chose to stay underground.","Fine. I'll give you something else to talk about."]},
-    'Minotaur with Anxiety':{opening:["You're at the center. I think. The hedges moved again.","Your signs say the traps are 'probably safe.'","I couldn't prove they weren't.","People got hurt following them.","I know. I've been rewriting the signs."],
-      kind:["Open a path. I'll help everyone out.","What if it's the wrong path?","We'll turn around.","You say that like it doesn't take three hours.","Then we start now.","All right. But I need to know you can survive the maze first."],
-      taunt:["Your maze took me ten minutes.","That's impossible. It takes me forty.","You keep stopping to apologize to the hedges.","One of them is very sensitive.","I'll race you to the exit.","There are four exits. Wait. Three. Damn it."],
-      roast:["The only thing lost in this maze is your confidence.","My confidence has a designated location.","Is it behind the sign that says 'maybe'?","That sign took me an hour.","Your traps are better at hurting your feelings.","Could we fight? I know where to stand for that."]},
-    'Monarch Lucien':{opening:["You made it through the fortress.","Your guards gave me very detailed directions.","I told them not to talk.","They mostly screamed. The ledgers did the talking.","Then you know why I can't let you leave."],
-      kind:["The villages need their supplies back. Stop the tribute.","And tell the court I was wrong?","Tell them you changed your mind.","They'd ask why.","Because people were hungry.","You make surrender sound simple. It won't be."],
-      taunt:["Five regions, one throne, and I still found you.","My guards slowed you down.","They were excellent at standing in doorways.","You joke because you haven't seen me fight.","I'm saving the serious face for a challenge.","Then you won't have to wait."],
-      roast:["You emptied five villages to decorate one chair?","It is the royal throne.","So you spent all that money on a bad seat.","The throne represents order.","The villagers call it a tax bill with cushions.","That's enough. You can insult me with a weapon."]},
-    'Goosecourt Marshal':{opening:["Road's closed. HONK.","Those petitions under your wing belong to the villagers.","They are awaiting review.","You're sitting on them.","That is how I prevent unauthorized review."],
-      kind:["Give the petitions back. They need supplies.","A marshal can't just hand over documents.","Their names are on them.","That does complicate custody.","You could actually help them.","I could. But first I need to win this argument."],
-      taunt:["Nice sash. Did the crown issue that to every bird?","Only officers with distinguished service.","How many forms did you peck to earn it?","Seventeen. Perfectly legible.","I'll be past your desk before number eighteen.","HONK. The desk has a defender."],
-      roast:["You're a goose guarding paperwork you can't read.","I can read the important parts.","Like the big stamp that says 'goose'?","That is my official seal.","Your entire government fits under one wing.","It also has a disciplinary wing. This one."]},
-    'Thornstag Sovereign':{opening:["The grove is closed.","Your ranger chased people here. The hound chased them back.","They were meant to keep hunters out.","They can't tell a hunter from a lost kid.","Neither could the last hunters."],
-      kind:["Let them through. I'll keep the hunters away.","Promises don't stop axes.","Then watch me take the traps down.","The trees have heard that before.","They haven't heard it from me.","They will be listening when we fight."],
-      taunt:["Your border has holes. I found all of them.","You found the path I left open.","Very generous. Want it back?","I want to see whether you deserved it.","I already passed your whole staff.","Then it's time to meet their employer."],
-      roast:["Your kingdom is an angry hedge.","This grove is older than your crown.","And yet it still can't manage a front gate.","Visitors brought axes last time.","Now they bring directions. You should ask for some.","I know exactly where you stand. Lower your guard."]},
-    'Crown Revenant':{opening:["Who wears a crown above my grave?","Someone trying to let the mourners sleep.","They once answered to me.","They've been dead a long time.","Then they have had time to remember their manners."],
-      kind:["Let them rest. I'll remember their names.","A promise from the living fades quickly.","Then I'll write them down.","On a monument?","In the village records. Where people actually look.","Prove you're willing to carry that burden."],
-      taunt:["Centuries underground, and this is your comeback?","My cryptguard stopped most intruders.","Most isn't everyone. I'm here.","The bishop still stands.","I passed him too. Update your ledger.","I'll put your name in the final entry."],
-      roast:["You're the only corpse here who won't let anyone sleep.","I am their first sovereign.","You are a loud neighbor in an expensive coffin.","The crown commands respect.","The crown needs a 'quiet hours' sign.","I'll show you how quiet this crypt can become."]},
-    'Thornmaze Warden':{opening:["The court has judged your route.","Your spearman pointed me into a wall.","A test of discernment.","The prowler pointed at the same wall.","A second test. We need new staff."],
-      kind:["Open the paths. People are trapped.","The trials are the court's purpose.","Then the court needs a better purpose.","Hedges don't change orders easily.","Start with one gate.","First prove you can reach it."],
-      taunt:["I made it through your maze.","You arrived at the center. Different achievement.","It's where the boss is, right?","That title is informal.","Good. We can skip the paperwork.","Unfortunately, I brought all of it."],
-      roast:["Your maze is a hedge with a law degree.","Every turn serves royal procedure.","Even the one that goes into a shed?","Especially that one.","The shed should be running this place.","It declined the position. I didn't."]},
-    'Throne Ascendant':{opening:["The regent is gone. The throne speaks now.","The guards were defending a chair?","They were defending order.","The villages call it an overdue bill.","Villages are very poor at understanding eternity."],
-      kind:["Let the people decide what comes next.","People change their minds.","That's how they fix mistakes.","The crown was built to endure them.","It was built by people too.","Then let people defend their argument."],
-      taunt:["Five regions of guards, and I'm still here.","I contain every claim they served.","That's a lot of paperwork in one chair.","I contain their strength as well.","Finally. Something worth testing.","Come closer and find out."],
-      roast:["The final ruler is furniture with an ego.","I am the living will of the crown.","So the chair learned to talk and still can't listen.","It has heard every royal decree.","That explains the personality.","You will learn what silence sounds like."]},
-    'Ashen Throne Warden':{opening:['The throne is gone. My last order is still active. I have checked for an expiration date.','The people tore down the fortress so they could build something better.','They stole the stone, the banners, and the name. My orders did not end.','Your orders are ash. The council needs these roads open.','Then the council must pass through what remains of the old guard.'],
-      kind:['You were made to protect a place. Let the people make it safe again.','I remember only the order to stand when all others fell.','You can stand with them instead of against them.','Nobody ever asked what the guard does after the gate is torn down.','Then listen to what is rising outside these walls.','I will listen after I know you can carry its weight.'],
-      taunt:['The fortress is rubble and its guard still expects a performance review.','The throne may be gone. I still know how to fight.','Good. I did not walk through rubble for a quiet debate.','Every blow I take heats the old armor further.','Then I will finish before you become a furnace.','Try. The ashes remember every defender before me.'],
-      roast:['Your king is gone, your castle is rubble, and you are guarding a pile of warm bricks.','I guard the throne’s final command.','A command from a chair that no longer exists. Impressive career planning.','The fire beneath this armor is not a joke.','Neither is leaving people homeless for a dead landlord.','Then meet the fire and see which story survives.']},
-    'Roadshade Mimic':{opening:['Welcome. Directions are free with purchase. The exit costs extra because people keep using it.','You are wearing a merchant’s smile on a bag full of teeth.','A flexible inventory is the heart of honest commerce.','People on this road have been disappearing after your bargains.','They agreed to the terms. Admittedly, I printed them inside my mouth.'],
-      kind:['Let the travelers go. There is enough on the road without feeding on them.','Kindness is a currency I have never learned to keep.','You can learn. Start by opening the path behind you.','Close this shop? Do you know what I paid for roadside signage?','A safe road is worth more than any bargain you made here.','Then let us see what your generosity costs you.'],
-      taunt:['I have seen better disguises in a school play.','And yet you walked close enough to admire mine.','I walked close enough to end your little shop.','Bold customers are always the most profitable.','Try charging me. See how the transaction goes.','With pleasure. No refunds once the teeth come out.'],
-      roast:['You are a backpack with a mouth pretending to understand economics.','My margins are excellent. Some of the margins have teeth.','Yes, mostly where your disguise is splitting at the seams.','You are being very rude to a local business.','A local business that eats its customers deserves a terrible review.','You may post it from inside the inventory.']},
-    'Lucien Redeemed':{opening:['The court is open. The garden is open. The duel is voluntary. I have written all three down.','You did not lock anybody in this time. That is progress.','The invitation specifically says you may leave. Several people asked me to underline it.','People are watching to see whether the new court can defend them.','Then we should give them a fight that does not frighten them away.'],
-      kind:['We can show them strength without cruelty. I trust you to remember why we rebuilt.','People trust me again. I have spent the week wondering if they read the right invitation.','You have practiced. I have seen you listen when it was difficult.','Then I will fight well and stop when the duel is done.','That is all I ask. Let them see who you chose to become.','Very well. For once, I would like to be remembered accurately.'],
-      taunt:['The old Lucien would have made a speech twice this long.','The new Lucien trained while you were talking.','Good. I was hoping for a challenge instead of a ceremony.','Then perhaps I shall surprise you. With restraint, naturally.','You can surprise me by landing a hit first.','Ah. There is the opponent I was hoping to meet.'],
-      roast:['The royal apology tour ends with you challenging me in your own garden?','There are witnesses, a healer, and an agreed stop signal. I am learning restraint in public.','So even your dramatic comeback needed a permission slip.','I had it signed by people whose opinions matter to me.','That is annoyingly wholesome. Your sword stance still needs work.','You can give that criticism while trying to get through it.']},
-    'Peacemaker Sentinel':{opening:['This refuge accepts rivals, refugees, and former enemies. It does not accept untested promises.','We built an academy so people could learn without being judged by their past.','My charge is to protect that hope from the next person who speaks well and acts badly.','Then test what I do, not merely what I say.','That is precisely why I stand at the final door.'],
-      kind:['I want this place safe for the people who have nowhere else to go.','Compassion can be a shelter. It can also hide a failure to act.','Then I will act when it matters and listen when someone needs room.','A difficult balance for any ruler or teacher.','That is why we practice it together.','Then show me the accord can survive a real challenge.'],
-      taunt:['For a peacekeeper, you picked a fairly aggressive entrance exam.','Mercy without strength is an invitation to the cruel.','Then let us find out how strong your principles really are.','I am designed to endure more than clever words.','Good. I brought more than words.','The examination begins. I hope your confidence studied.'],
-      roast:['Did someone give the academy a walking lecture with shoulder armor?','My instructions are concise and necessary.','You have blocked one door for five minutes. Even Timmy would call this a long speech.','I am not programmed to appreciate that comparison.','Then you can learn. This is an academy, after all.','Lesson one: do not mistake patience for hesitation.']}
-  };
+ "Sir Barnaby": {
+  "opening": [
+   "Stop at the bridge. Sir Barnaby, official protector, unofficially tired of explaining the toll.",
+   "You took food from the villagers and charged them to cross their own bridge.",
+   "That sounds awful when you put the two charges in one sentence.",
+   "They are hungry. Your shield gets polished twice a day.",
+   "Once. The second polishing is an inspection. That distinction matters to nobody here, apparently.",
+   "I came here to stop you, not audit your grooming.",
+   "And yet everyone begins with the shield. Nobody notices I polished the helmet."
+  ],
+  "kind": [
+   "You can step aside. You do not have to be the reason they go without.",
+   "A knight stepping aside looks rather like a knight failing his duty.",
+   "Duty should protect people. Let me help them, and you can choose a better one.",
+   "You make chivalry sound like work. Nobody warned me about that part.",
+   "It usually is. They will remember the choice you make here.",
+   "Fine. Let them watch me make one decent choice. After the duel.",
+   "If you can still hear the villagers, why make them fight you for food?",
+   "Because admitting I was wrong in front of them will be worse than losing this duel."
+  ],
+  "taunt": [
+   "Is that shield for protection, or do you need somewhere to hide your face?",
+   "It is an heirloom! And it has survived more battles than your trousers.",
+   "Then it has carried you farther than your courage has.",
+   "I have announced every duel by the book. You are ruining the page order.",
+   "Try keeping up. I am already at the part where you lose.",
+   "Very well. Let the record show that you asked for the dramatic version.",
+   "You practice that speech in the mirror?",
+   "Of course. The shield is an heirloom; the mirror is rented."
+  ],
+  "roast": [
+   "Did you make the bridge pay a toll for carrying you and that enormous ego?",
+   "A bridge cannot own coins. That is basic accounting.",
+   "Neither can the villagers once you are finished with them, you walking receipt.",
+   "I am a knight of proper standing!",
+   "Your stance says knight. Your business model says goose with a clipboard.",
+   "I will defeat you and then write a strongly worded correction.",
+   "Will you write the correction before or after you remove the toll sign?",
+   "After. I refuse to let you choose the wording on my own defeat."
+  ]
+ },
+ "Gloomfang": {
+  "opening": [
+   "Turn back. The traps made this forest quiet for the first time in months.",
+   "Quiet? Every animal ran onto the road to escape you.",
+   "The hunters followed them. The trees stayed standing.",
+   "You cursed the things you claim to protect.",
+   "I noticed. I also noticed nobody else stopped the axes.",
+   "So you made the whole forest into one giant trap.",
+   "I thought the hunters would leave. They brought more traps. I hate that you can see the problem."
+  ],
+  "kind": [
+   "You are hurting the creatures you meant to shelter. Let me help break the curse.",
+   "Help? The last hunter who offered help brought iron jaws.",
+   "I will clear the traps, even if you never trust me afterward.",
+   "Promises do not leave tracks. Actions do.",
+   "Then watch what I do, and let the forest decide.",
+   "The forest is listening. It has been less forgiving than I am.",
+   "Then we clear the iron jaws together.",
+   "You said together like I have already agreed. I have not. Keep talking."
+  ],
+  "taunt": [
+   "For the ruler of these woods, you spend an impressive amount of time hiding behind brambles.",
+   "A hunter who cannot see the trap calls it hiding.",
+   "I saw every trap. I just followed them straight to you.",
+   "Confidence makes a delicious trail.",
+   "Good. You will have no excuse when I catch you.",
+   "Then come closer and learn why the trail ends here.",
+   "Then stop making threats and come out from behind the tree.",
+   "I am a wolf. The trees are where I live. This is a terrible insult."
+  ],
+  "roast": [
+   "Your fear tax is terrible. Even the goblins think your accounting is embarrassing.",
+   "The goblins are guests, not accountants.",
+   "Guests? You have driven out everyone with enough sense to leave.",
+   "You speak loudly for something standing in my den.",
+   "And you are a cursed wolf running a very unpopular campsite.",
+   "I was going to offer a warning. I withdraw it.",
+   "Do the deer get a vote or do you just speak for anything with fur?",
+   "They stopped coming close enough to ask me. I know what that means."
+  ]
+ },
+ "Lich King Timmy": {
+  "opening": [
+   "Welcome to my court. Attendance is mandatory. Applause is strongly encouraged.",
+   "You rang the dead out of their graves to hear a speech?",
+   "Several speeches. The living kept leaving after the first one.",
+   "The dead would leave too if you let them.",
+   "Then it is fortunate for the court that I do not.",
+   "How many graves did you open for this audience?",
+   "All the good seats were taken. Stop calling them graves while I am addressing the court."
+  ],
+  "kind": [
+   "They deserve peace, Timmy. You can let them go and still be remembered.",
+   "A king without a court is only a boy wearing old metal.",
+   "You would be a person who finally listened to his people.",
+   "That sounds less impressive on a monument.",
+   "It would matter more to those beneath it.",
+   "You make mercy sound harder than necromancy. Annoyingly, you may be right.",
+   "You could let them rest. You would still have a kingdom.",
+   "A kingdom of empty chairs is not a kingdom. It is my old birthday party."
+  ],
+  "taunt": [
+   "An eternal court? You could not keep an audience alive for one speech.",
+   "My speeches are magnificent. The audience was insufficiently durable.",
+   "Then try one without making everyone attend by force.",
+   "You have the confidence of a fool at his own coronation.",
+   "And you have the crown of a fool who missed the funeral.",
+   "I get the last word. I rehearsed it for three centuries.",
+   "Your guards look like they would rather be buried.",
+   "They have been buried. That is why your threat lacks imagination."
+  ],
+  "roast": [
+   "You raised an army of dead people because nobody liked your public speaking?",
+   "That is a crude summary of a sophisticated royal program.",
+   "Your program is a haunted lecture with a dress code.",
+   "My robes are ceremonial!",
+   "So is the silence every time you finish a sentence.",
+   "Guards! Oh, right. I shall handle this personally.",
+   "The crown looks like it came from a cereal box.",
+   "It did not. The cereal box had better jewels. I had the royal smith arrested."
+  ]
+ },
+ "Minotaur with Anxiety": {
+  "opening": [
+   "Welcome to the middle of the maze. I had a speech. The wall moved my notes.",
+   "Your traps have apology signs. People still got hurt.",
+   "I wrote the signs before the walls changed. I know that sounds bad.",
+   "It is bad. Can you open the exits?",
+   "Yes. Probably. I need everyone to stop watching me first.",
+   "Do you know which door leads out?",
+   "I had labels. Then the hedge grew over them. Please stop staring while I remember."
+  ],
+  "kind": [
+   "You do not have to manage this alone. Let us get everyone out safely.",
+   "What if I open the wrong corridor and make it worse?",
+   "We can correct a wrong turn. We cannot help anyone while the maze stays closed.",
+   "My battle plan did not account for you being reasonable. That is upsetting.",
+   "Then put the plan down and take the first step with me.",
+   "I might. If we both survive how frightening that sounds.",
+   "Take your time. Nobody needs another trap.",
+   "Nobody says that after stepping on the fourth plate. I appreciate it."
+  ],
+  "taunt": [
+   "I solved your maze. Did you put all the difficult turns in the other one?",
+   "There is no other one! I checked the plans repeatedly.",
+   "Then we have only the part where you try to stop me.",
+   "I penciled that part in. The pencil broke.",
+   "Find another pencil. You will want to record this loss.",
+   "I wrote down seventeen replies and none of them work against that.",
+   "Did you rehearse that threat or the apology afterward?",
+   "Both. The apology was longer and had diagrams."
+  ],
+  "roast": [
+   "Your maze is a collection of wrong turns written by a nervous cow.",
+   "I am a minotaur. And some of those turns are intentionally wrong.",
+   "The apology signs are the only directions that make sense.",
+   "Those took the longest to word politely.",
+   "I can tell. The traps are terrible, but the grammar is flawless.",
+   "Thank you. Wait. That was an insult.",
+   "You built a maze with an exit you cannot find.",
+   "I found it yesterday. Then somebody moved the hedge. I know how that sounds."
+  ]
+ },
+ "Monarch Lucien": {
+  "opening": [
+   "You got past the gates. I'd compliment you, but I paid a great deal for those gates.",
+   "The tribute ledgers show what everyone else paid for this room.",
+   "A kingdom needs order. Order costs something.",
+   "It cost people their homes while you chose curtains.",
+   "I chose the banners. The curtains were the steward's mistake. Your point stands.",
+   "People outside are counting lost homes while you count banners.",
+   "I know. The count reached the throne room. I had the steward remove the ledger."
+  ],
+  "kind": [
+   "I came for the people outside these walls. You can end this without making more of them suffer.",
+   "You believe the person on the throne simply walks away?",
+   "I believe you can decide who you are when you leave it.",
+   "Nobody has offered me an exit before. Usually they offer a blade.",
+   "Then listen now. I will stop you, but you can still choose what follows.",
+   "Perhaps. First I need to know whether your mercy survives a fight.",
+   "Then you knew. You can still make a different choice.",
+   "I knew the numbers. I did not know the names. That is not a defense."
+  ],
+  "taunt": [
+   "I walked through your entire fortress. You should ask for a refund on the guards.",
+   "They held longer than most armies.",
+   "I was saving my best work for the one who signed their orders.",
+   "Bravado has ended many challengers in this hall.",
+   "Then add a new line to your records: this one came prepared.",
+   "Come on, then. Give the historian a reason to sharpen a pencil.",
+   "I came through your expensive gates without an invitation.",
+   "Yes. The captain has already been informed that his invoice is declined."
+  ],
+  "roast": [
+   "You drained five regions to furnish one chair. Was the cushion at least comfortable?",
+   "That is the royal throne, not a chair.",
+   "So the cushion was uncomfortable. That explains the mood.",
+   "You mock the symbol of the entire kingdom.",
+   "I mock the man hiding behind it and sending everyone else the bill.",
+   "That is quite enough. Draw your weapon.",
+   "Does your portrait collection include the one where you fix a roof?",
+   "No. The painters insisted they had never seen me do it. Insolent and accurate."
+  ]
+ },
+ "Goosecourt Marshal": {
+  "opening": [
+   "HONK. Road closed. Petitions seized. Please respect the sash.",
+   "Those petitions belong to the villagers.",
+   "They are under review. I have a stamp and an ink pad.",
+   "You stole their food carts too.",
+   "That part is called impoundment. The stamp makes it different.",
+   "That sash is crooked.",
+   "The sash is authorized. Its angle is under review. HONK."
+  ],
+  "kind": [
+   "Give the petitions back. People need supplies more than they need another order.",
+   "A marshal cannot surrender documents to every polite traveler.",
+   "Then surrender them to the people whose names are on them.",
+   "That would be good administration. I hate how easy you made it sound.",
+   "It would be a start. You can still do the right thing.",
+   "My beak says no. My conscience has asked to speak privately.",
+   "Return the carts. We can still feed the people today.",
+   "The carts have been stamped. I would have to stamp them again. This is a serious request."
+  ],
+  "taunt": [
+   "Nice stamp. Is the entire kingdom scared of a goose with stationery?",
+   "This stationery has sealed more gates than your sword has opened.",
+   "Then this will be an educational day for both of us.",
+   "You underestimate the discipline of the Goosecourt.",
+   "I reached your desk. Your discipline needs a new map.",
+   "HONK! Then face the marshal directly.",
+   "I have defeated a goose before.",
+   "A civilian goose! My training includes forms and aggressive wings."
+  ],
+  "roast": [
+   "Did the crown run out of officers and promote its loudest bird?",
+   "I earned this sash in distinguished service.",
+   "Distinguished from what? Other geese with pens?",
+   "My decrees carry royal authority!",
+   "So does a seal on a jar. At least the jar keeps food fresh.",
+   "That insult shall be entered into the record after I flatten you.",
+   "That stamp is the only thing here with a job.",
+   "Insult the sash if you must. Leave the stamp out of this."
+  ]
+ },
+ "Thornstag Sovereign": {
+  "opening": [
+   "The grove is closed. I have announced it to everyone who reached the grove.",
+   "Your ranger and hound are driving people into it.",
+   "They were supposed to drive hunters away.",
+   "The thorns are choking the trees as well.",
+   "I know. Every time I loosen them, the axes come back.",
+   "The paths out are full of people you meant to protect.",
+   "I saw them. The thorns do not distinguish a hunter from a child anymore."
+  ],
+  "kind": [
+   "Let the forest breathe. I will keep hunters away without trapping everyone inside.",
+   "Words vanish when winter comes and axes return.",
+   "Then judge me by what I do after today, not by the people before me.",
+   "The grove has waited too long for a promise it can trust.",
+   "Give it a chance to hear one that is kept.",
+   "If you pass, carry the forest’s warning beyond these roots.",
+   "Let me clear a path before anyone else gets hurt.",
+   "Clear one. If the hunters use it, I will close it myself."
+  ],
+  "taunt": [
+   "I got past your ranger, your hound, and your stone guardian. Your border has holes.",
+   "Each one tested you. None was meant to replace me.",
+   "Then stop testing and show me what the sovereign can do.",
+   "I could carve that confidence into a warning sign. The trees would hate it.",
+   "Try catching me before you start carving.",
+   "Very well. The grove itself will witness the answer.",
+   "You call this ruling? Even the brambles ignore you.",
+   "I planted them. That is the part I have to answer for."
+  ],
+  "roast": [
+   "A king of thorns? Congratulations on ruling a very aggressive hedge.",
+   "This grove predates every crown you have known.",
+   "And yet it has the same problem: someone in charge who hates visitors.",
+   "My antlers are older than your jokes.",
+   "Then they have had plenty of time to learn how to duck.",
+   "The grove will not laugh when I lower my head.",
+   "Your crown is a hedge that grew around your head.",
+   "I know. It was supposed to be temporary. Nothing here stays temporary."
+  ]
+ },
+ "Crown Revenant": {
+  "opening": [
+   "The crown above has forgotten who lies beneath it. I am here to correct that.",
+   "You woke an entire cemetery to make a point.",
+   "The dead answered their first sovereign.",
+   "The mourner said they didn't get a choice.",
+   "The mourner used to complain at court too. Some habits survived death.",
+   "How long have you been waiting under that crown?",
+   "Long enough to hear each new ruler promise he would remember the dead."
+  ],
+  "kind": [
+   "I will remember what happened here. I will also let these people rest.",
+   "Memory without obedience is an unfamiliar gift from a kingdom.",
+   "The dead deserve names, not another war fought in their name.",
+   "You speak as though forgetting is not inevitable.",
+   "It is not, if the living choose to listen.",
+   "Then show me that choice can hold against an ancient claim.",
+   "I can tell their names. Let the mourners go home.",
+   "Names would be a beginning. I will not confuse it with justice."
+  ],
+  "taunt": [
+   "You had centuries to prepare this comeback, and you opened with a summons?",
+   "Time has not weakened the authority buried with me.",
+   "Authority is doing a poor job of keeping your court together.",
+   "The cryptguard still stands. The bishop still chants.",
+   "And I made it through both. Your next argument had better be stronger.",
+   "I shall make it impossible to ignore.",
+   "Your procession needs a better route; half the guards got lost.",
+   "The dead are very bad at following signs. This will not delay them."
+  ],
+  "roast": [
+   "Your crown spent so long underground it thinks a graveyard is a capital.",
+   "This cemetery holds the kingdom’s first royal blood.",
+   "And a lot of people asking you to stop waking them up.",
+   "You insult the dead in their own hall.",
+   "No, I am insulting the one dead monarch who will not let anyone sleep.",
+   "Then you will learn why the crypt remembers my name.",
+   "That crown has spent more time in a crypt than on a head.",
+   "It was buried with me. The living dug it up to sell. They started this argument."
+  ]
+ },
+ "Thornmaze Warden": {
+  "opening": [
+   "You have reached the court. The maze recorded every wrong turn.",
+   "It moved the walls while I was walking.",
+   "The walls are permitted to assist the trial.",
+   "The spearman and prowler attacked me together.",
+   "The court calls that a practical examination. I did not write the rules.",
+   "Who wrote rules that let walls move during a trial?",
+   "A judge who never walked the maze. I inherited the rulebook and its complaints."
+  ],
+  "kind": [
+   "Open the paths. People deserve a choice before they are judged.",
+   "Without the trials, the old court loses its purpose.",
+   "A purpose that hurts everyone passing through deserves to change.",
+   "The hedges have followed these orders longer than I have.",
+   "Then start with one order they can follow toward freedom.",
+   "Beat me, then tell the gardeners they can finally change the rules.",
+   "Call off the court. People are trapped in there.",
+   "If I open the gates now, the other judges will seal them from outside."
+  ],
+  "taunt": [
+   "Your maze sent a spearman and a prowler. I was expecting a better welcome.",
+   "They held the outer court. I command what waits inside.",
+   "Good. I was worried the best part had already ended.",
+   "Confidence turns quickly to confusion among these walls.",
+   "I brought a map and enough patience to correct it.",
+   "Let us see which one lasts longer.",
+   "I'll win your exam and grade the examiners afterward.",
+   "The examiners will complain. That may be the first useful grade they receive."
+  ],
+  "roast": [
+   "Your court is a hedge that learned legal jargon and got carried away.",
+   "The labyrinth has guarded royal law for generations.",
+   "It also misplaced its own exit. Impressive work, counselor.",
+   "Every path has a purpose.",
+   "Yes: making travelers wish they had packed pruning shears.",
+   "Then bring your wit into the heart of the maze.",
+   "Your court is a hedge with a desk and delusions.",
+   "The desk is oak. It is the only part of this institution that does its job."
+  ]
+ },
+ "Throne Ascendant": {
+  "opening": [
+   "The regent fell. The throne has decided to handle this personally.",
+   "You're a chair. That's going to be difficult.",
+   "I am every royal command this kingdom obeyed.",
+   "And none of the people who had to obey it.",
+   "People change their minds. The throne remembers who was in charge.",
+   "Who gets to sit on you now?",
+   "No one. That is precisely why I am standing up."
+  ],
+  "kind": [
+   "The people can decide their own future. Let the throne be a memory.",
+   "Memory breaks. A living hand can change its mind.",
+   "That is why it can learn. A crown that cannot listen cannot lead.",
+   "You would trust a fragile kingdom to imperfect voices?",
+   "I would trust them with their own lives.",
+   "Then defend that faith. I have inherited a great many bad arguments.",
+   "The kingdom can make choices without a throne.",
+   "It can. That is the part the throne was built to prevent."
+  ],
+  "taunt": [
+   "You needed five regions of guards to avoid one conversation?",
+   "They were the kingdom’s strength, gathered to my will.",
+   "They are gone. Now it is just you and the person who got here.",
+   "I contain every royal claim that came before me.",
+   "Then you contain a remarkable number of bad decisions.",
+   "Come closer. I will show you how history answers.",
+   "A chair challenging me to a duel is a new low for this court.",
+   "The court has known lower. You are standing on its carpet."
+  ],
+  "roast": [
+   "The final ruler is furniture with an attitude. That tracks.",
+   "I am the living will of the crown.",
+   "So a chair developed an ego before it developed legs.",
+   "My authority reaches every corner of Crownhold.",
+   "Wonderful. Then everyone can hear how badly this is going for you.",
+   "I will silence that mouth and make it part of the court record.",
+   "Even your upholstery looks like it wants a different ruler.",
+   "The upholstery remembers the last one. It has survived worse insults."
+  ]
+ },
+ "Ashen Throne Warden": {
+  "opening": [
+   "The throne is broken. Its last order is still burning inside my armor.",
+   "People took the fortress apart to build homes.",
+   "They took the stone. Nobody canceled my watch.",
+   "There isn't a throne left to guard.",
+   "I am aware. I stand in the rain where it used to be.",
+   "Then why are you still holding that sword?",
+   "Nobody gave the order to put it down. I have been hoping someone would."
+  ],
+  "kind": [
+   "You were made to protect a place. Let the people make it safe again.",
+   "I remember only the order to stand when all others fell.",
+   "You can stand with them instead of against them.",
+   "No one has ever offered a ruin a new purpose.",
+   "Then listen to what is rising outside these walls.",
+   "I will listen after I know you can carry its weight.",
+   "Your watch can end. Those homes need a guard.",
+   "An order to protect something living. I almost remember how that feels."
+  ],
+  "taunt": [
+   "A fortress fell, and somehow its security system still thinks it is employed.",
+   "The throne may be gone. I still know how to fight.",
+   "Good. I did not walk through rubble for a quiet debate.",
+   "Every blow I take heats the old armor further.",
+   "Then I will finish before you become a furnace.",
+   "Try. The ashes remember every defender before me.",
+   "The rain will rust you before I do.",
+   "It has been trying. I am faster at standing still."
+  ],
+  "roast": [
+   "Your king is gone, your castle is rubble, and you are guarding a pile of warm bricks.",
+   "I guard the throne’s final command.",
+   "A command from a chair that no longer exists. Impressive career planning.",
+   "The fire beneath this armor is not a joke.",
+   "Neither is leaving people homeless for a dead landlord.",
+   "Then meet the fire and see which story survives.",
+   "You guard a puddle where a chair used to be.",
+   "I know exactly where it stood. That is the problem."
+  ]
+ },
+ "Roadshade Mimic": {
+  "opening": [
+   "Welcome! Directions, supplies, and absolutely no questions about the bag.",
+   "The bag has teeth.",
+   "It is a very secure bag.",
+   "Travelers went missing after your bargains.",
+   "Only the ones who didn't read the terms. The terms are inside the bag.",
+   "Does the bag bite everybody?",
+   "Only people who ask about the bag. Unfortunately, that is everybody."
+  ],
+  "kind": [
+   "Let the travelers go. There is enough on the road without feeding on them.",
+   "Kindness is a currency I have never learned to keep.",
+   "You can learn. Start by opening the path behind you.",
+   "And lose the finest business location in the kingdom?",
+   "A safe road is worth more than any bargain you made here.",
+   "Fine. Let us see whether kindness survives a bill with teeth.",
+   "Let the travelers out and I will put away the weapon.",
+   "That is a difficult inventory request. I will consider the weapon first."
+  ],
+  "taunt": [
+   "I have seen better disguises in a school play.",
+   "And yet you walked close enough to admire mine.",
+   "I walked close enough to end your little shop.",
+   "Bold customers are always the most profitable.",
+   "Try charging me. See how the transaction goes.",
+   "With pleasure. No refunds once the teeth come out.",
+   "Your scam needs a better sign.",
+   "The sign works. You read it and walked right over."
+  ],
+  "roast": [
+   "You are a backpack with a mouth pretending to understand economics.",
+   "I have excellent margins.",
+   "Yes, mostly where your disguise is splitting at the seams.",
+   "You are being very rude to a local business.",
+   "A local business that eats its customers deserves a terrible review.",
+   "You may post it from inside the inventory.",
+   "Your bag has more teeth than your sales pitch has terms.",
+   "The terms are inside. Stop making me explain the joke."
+  ]
+ },
+ "Lucien Redeemed": {
+  "opening": [
+   "Welcome to the court. The garden is open and the duel has witnesses.",
+   "You put 'nobody gets locked in' on the invitation.",
+   "People asked. More than one person, actually.",
+   "Good. They should see you keep your word.",
+   "They will. I would also like them to see me land one clean hit.",
+   "Are the witnesses here to keep you honest?",
+   "Mostly. One is here because he heard there would be biscuits."
+  ],
+  "kind": [
+   "We can show them strength without cruelty. I trust you to remember why we rebuilt.",
+   "You make trust sound far less terrifying than I find it.",
+   "You have practiced. I have seen you listen when it was difficult.",
+   "Then I will fight well and stop when the duel is done.",
+   "That is all I ask. Let them see who you chose to become.",
+   "Very well. For once, I would like to be remembered accurately.",
+   "We can settle this without hurting each other.",
+   "We can. But a careful spar tells me more than another promise."
+  ],
+  "taunt": [
+   "The old Lucien would have made a speech twice this long.",
+   "The new Lucien trained while you were talking.",
+   "Good. I was hoping for a challenge instead of a ceremony.",
+   "Then perhaps I shall surprise you. With restraint, naturally.",
+   "You can surprise me by landing a hit first.",
+   "Ah. There is the opponent I was hoping to meet.",
+   "Ready to lose in front of your whole garden?",
+   "I have lost worse things in front of more people. Begin."
+  ],
+  "roast": [
+   "The royal apology tour ends with you challenging me in your own garden?",
+   "It is a supervised duel. There are witnesses and a medical kit.",
+   "So even your dramatic comeback needed a permission slip.",
+   "I had it signed by people whose opinions matter to me.",
+   "That is annoyingly wholesome. Your sword stance still needs work.",
+   "You can give that criticism while trying to get through it.",
+   "That invitation sounded like a king asking permission to show off.",
+   "It was. I am trying to ask permission before doing things now."
+  ]
+ },
+ "Peacemaker Sentinel": {
+  "opening": [
+   "This refuge is open to everyone. This door still has an entrance exam.",
+   "We built an academy so people could learn without being judged first.",
+   "And I am here to stop the next polite tyrant from taking it.",
+   "Then judge what I do, not what I say.",
+   "That's the exam. The lecture was optional. I see you skipped it.",
+   "Who takes the exam if they only want shelter?",
+   "No one. That rule was mine. I think I have enforced it badly."
+  ],
+  "kind": [
+   "I want this place safe for the people who have nowhere else to go.",
+   "Compassion can be a shelter. It can also hide a failure to act.",
+   "Then I will act when it matters and listen when someone needs room.",
+   "A difficult balance for any ruler or teacher.",
+   "That is why we practice it together.",
+   "Then show me the accord can survive a real challenge.",
+   "Let them through while you test me.",
+   "Agreed. You have already answered the first question."
+  ],
+  "taunt": [
+   "For a peacekeeper, you picked a fairly aggressive entrance exam.",
+   "Mercy without strength is an invitation to the cruel.",
+   "Then let us find out how strong your principles really are.",
+   "I was built to outlast speeches. Yours is not an exception.",
+   "Good. I brought more than words.",
+   "The examination begins. I hope your confidence studied.",
+   "I will pass before you finish the instructions.",
+   "You interrupted the instructions. That is not the same thing."
+  ],
+  "roast": [
+   "Did someone give the academy a walking lecture with shoulder armor?",
+   "My instructions are concise and necessary.",
+   "You have blocked one door for five minutes. Even Timmy would call this a long speech.",
+   "I am not programmed to appreciate that comparison.",
+   "Then you can learn. This is an academy, after all.",
+   "Lesson one: do not mistake patience for hesitation.",
+   "Your entrance exam has one question and a giant sword.",
+   "The sword was issued. I wrote the question myself."
+  ]
+ }
+};
   const baseStartLevel=window.startLevel;
   const reduceMotion=()=>window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

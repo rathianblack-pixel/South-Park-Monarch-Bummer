@@ -1,7 +1,3 @@
-House resource location
-
-- interior-dialogue.js: Place the live coin and health chips directly in the house scene instead of the bottom button row.
-- interior-dialogue.css: Position the chips at the upper middle of the room, clear of the player sprite and controls.
-- index.html: Refresh the changed script and stylesheet versions.
-
-Extract over the latest build after house-player-position.zip.
+- Reduced the bird display width from 34–46px to 25–34px.
+- Added the marked merchant canopy as a perch. The route cycles blacksmith → merchant → house → merchant → blacksmith; it does not perch at the cathedral.
+- Adjusted flight height and perch coordinates to match the marked village image.

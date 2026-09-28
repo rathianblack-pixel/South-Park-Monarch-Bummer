@@ -5,16 +5,16 @@
   const assets=scenes.flatMap(name=>[`${root}${name}.png`,`${root}${name}-night.png`]);
   assets.forEach(src=>window.ensureSceneImage?.(src));
   const thanks=[
-    name=>`The mayor thanks ${name} for saving the square. She asks the crowd to wait until morning before arguing about who pays for repairs.`,
-    name=>`The blacksmith shakes ${name}'s hand, then asks for the damaged armor. Apparently gratitude and inspection share a schedule.`,
-    name=>`The priest thanks ${name}. The choir starts a hymn; he quietly asks them to let the wounded sit down first.`,
-    name=>`The merchant reopens the stall for ${name}. The prices stay the same. The free water is his idea of a grand gesture.`,
-    name=>`A villager thanks ${name} for driving off the raider. The goose tries to take credit until someone mentions the actual fight.`,
-    name=>`The guard salutes ${name}, then admits the village drill never covered a monster coming in through the vegetable cart.`,
-    name=>`The children chant ${name}'s name. Their parents ask them to stop only because the injured are trying to sleep.`,
-    name=>`An exhausted carpenter thanks ${name} for saving his house. He immediately measures the broken gate and says he can manage that part.`,
-    name=>`The council offers ${name} a title. Nobody agrees on its spelling, so the village settles on another round of supper.`,
-    name=>`The village thanks ${name} at the reopened bridge. For one evening, nobody tries to collect a toll on the way home.`
+    name=>`“${name}, you saved the square,” says a villager. “Is it safe?” asks another. “The attacker left.” “That is not what I asked.”`,
+    name=>`The blacksmith claps for ${name}. “You were on beat,” he says. “With the sword?” “No, with my clapping. Your sword needs work.”`,
+    name=>`The priest checks ${name} for wounds. “Can you please do that after we cheer?” asks a guard. “You cheer,” says the priest. “I'll keep the hero standing.”`,
+    name=>`“You saved my stall,” the merchant tells ${name}. “I owe you.” “A discount?” “I owe you a sincere thank-you. Do not negotiate the sincerity.”`,
+    name=>`The villagers thank ${name}. A goose honks over them. “You did nothing,” says the baker. The goose stamps the ground twice and leaves offended.`,
+    name=>`A guard salutes ${name}. “The village is secure.” Someone points at the broken gate. “The village is temporarily shaped like a secure village,” he corrects.`,
+    name=>`The children chant ${name}'s name. An adult joins in, realizes he is alone on the next verse, and pretends to be calling everyone to dinner.`,
+    name=>`“${name} stood between us and that thing,” says a villager. “I was behind a barrel,” says another. “You held it?” “I supported it emotionally.”`,
+    name=>`The crowd offers ${name} a heroic title. Three people argue over spelling. “Can we save the coronation for after the repairs?” asks the priest.`,
+    name=>`“Quiet road tonight,” a guard tells ${name}. The whole village turns toward him. “What?” “You said it out loud,” says the blacksmith. “Go fix that.”`
   ];
   const raid={active:false,backdrop:null,previousHub:0,previousStage:0,visits:Number(state.meta?.villageRaidVisits||0),lastRaidVisit:Number(state.meta?.villageRaidLastVisit??-100),announcing:false};
   window.villageRaid=raid;

@@ -3,33 +3,983 @@
 'use strict';
 const $=s=>document.querySelector(s),room=$('#interior'),game=$('.game');if(!room||!game||!window.openFacility)return;
 const LINES={
- cathedral:{
-  greet:["Oh. You're alive. I owe the bell-ringer three coins.","Welcome in. Wipe your boots. The floor is older than both of us.","Please tell me that noise is your armor.","The candle went out when you came in. It does that now.","I prayed for a quiet day. You heard me, didn't you?","You can sit down. It isn't a test.","A guard left a curse here. If it's yours, take it home.","We have water, bandages, and a broom you keep avoiding."],
-  talk:["The reliquary is missing again. Bring back the box, not a theory.","I asked the guards to stop saluting the bell. They said it outranks them.","Someone left a goose at confession. I have no idea what it confessed.","The gravekeeper wants quieter funerals. I told him to talk to the mourners.","I feed travelers on Thursdays. Apparently today is now Thursday.","A villager asked if prayer fixes a roof. I said no. He asked me twice more.","Barnaby asked me to bless his toll ledger. I blessed the bridge instead.","Timmy's cemetery has a guest list. Nobody remembers signing it."],
-  service:["Sit. You're bleeding on the hymn book.","Healing first. Tell me the heroic version afterward.","The prayer is free. The stronger stuff uses supplies.","Hold still. The light isn't chasing you.","I can remove the curse. I can't remove your bad decisions.","If you're healthy, please don't invent an injury.","You brought half the road in on your boots. And one ailment.","Pick what you need. I have other patients and one clean towel."],
-  quest:["The board has jobs. Yes, the goose petition counts.","Read the request before you grab the reward.","The kitchen needs help. It used the word 'urgent' twice.","Someone needs a grave fixed. Please ask which one.","A few names are missing on purpose. Respect that.","The villagers wrote these. I only corrected the spelling.","Finish a job and tell me. I'm not psychic.","The bell needs repair again. It knows why."]},
- blacksmith:{
-  greet:["You're back. Put the weapon down before you explain.","That rattle better be your armor.","I can fix the dent. I can't explain it to the metal.","Don't lean on the anvil. It's winning an argument with fire.","You kept all your fingers. Good. My forms have no spare column.","Come in. The forge is hot and the apprentice is hiding.","Who hit your shield with a door? Never mind. I know.","I smelled burnt steel. Then I saw you."],
-  talk:["The guards keep holding shields backward. I charge them for both sides.","I made Barnaby's shield. He asked if it could collect tolls.","The fortress ordered ceremonial hinges. Doors still need to open.","Your dents tell a story. It isn't flattering, but it ends with you alive.","The apprentice wants a legendary blade. He hasn't made a decent nail.","I repair tools too. Farmers are less likely to name them.","Timmy asked for a coffin with a lock on the inside. I declined.","I made the gate. Nobody notices it until it sticks."],
-  upgrade:["Put it here. If it bites, I charge extra.","More damage, same handle. Try keeping hold of it.","I can improve the focus. Keep the sparks off my beard.","The materials are ready. Your coins look nervous.","You want a sharper edge? Stop using it to open crates.","This upgrade won't teach aim. That's still your problem.","Give me a minute. Those sparks have somewhere to be.","It's stronger now. Please don't test it on my door."],
-  armor:["Turn around. Your back plate gave up three miles ago.","This seam is being held together by optimism.","Stand still. I'm measuring the armor, not your ego.","A bone and some coins. Yes, the bone is necessary.","This will stop more damage. It won't make you clever.","Your straps survived? I owe the apprentice a coin.","I can add a plate without turning you into a cupboard.","Wait for the rivet to cool. That wasn't a dare."],
-  quest:["These jobs need materials. A dramatic story isn't a material.","Somebody broke the gate again. Take a guess.","I wrote the rewards down. Don't haggle with the chalk.","The forge needs supplies. The village needs everything else.","Bring the broken thing here. Describing the noise won't help.","Yes, this one pays. No, not in swords.","The guards submitted a repair request in triplicate.","Finish a job and I'll inspect it. Briefly."]},
- merchant:{
-  greet:["Welcome. Please don't drink anything before paying.","A returning customer. I'll act normal about it.","The shop is open. That crate isn't.","Prices are on the tags. My handwriting is negotiable.","You look like you made a shopping list mid-fight.","Come in. I moved the breakables away from you.","Coins or no coins, you can look. Hands behind your back.","I restocked at dawn. The boxes filed a complaint."],
-  talk:["A goose tried to pay with a royal decree. I kept the decree.","The blacksmith calls my prices theater. I sell his nails.","I sold a map to the maze. The map came back alone.","A customer asked for a potion of good judgment. Sold him water.","The fortress keeps ordering candles. That's a worrying quantity.","I mark dangerous items clearly. They still sell first.","A safe road means repeat customers. I prefer repeat customers.","The ledger says trade is up. The roads disagree."],
-  shop:["Buy medicine before the dramatic injury, please.","Spellbooks on the left. Things you can chew on the right.","No, heroic promises aren't legal currency.","That shelf has supplies. The other shelf has regrets.","The antidotes are labeled. I've learned why that matters.","Everything survived shipping. Barely.","I can recommend an item. I can't make you use it.","Please pay before testing the magic."],
-  quest:["The board has deliveries. None go to the maze without a map.","A missing crate is bad for business. Find it.","The reward is written down. I learned my lesson.","Some customers need help more than they need my sales pitch.","These jobs came in with the caravans.","Bring proof. I have been paid in rumors before.","One request says 'urgent.' It was written yesterday.","Complete a job and tell me before the gossip does."]},
- home:{thought:["Home. The chair survived without me.","I should rest before the armor starts complaining aloud.","Quiet. That's suspicious. Nice, but suspicious.","I own a lot of gear and one good chair.","The trophies look tidier than the fights did.","I could sort my supplies. I could also sit down.","The armor doll stands straighter than I do.","I left as a hero. I came back needing a nap."]}
+ "cathedral": {
+  "greet": [
+   "Oh. You're alive. The bell-ringer owes me three coins.",
+   "Wipe your boots. That floor survived two kings and one extremely wet goose.",
+   "Please tell me the rattling is your armor and not another cursed jar.",
+   "A candle went out when you walked in. I'm charging the candle for being dramatic.",
+   "I prayed for a quiet morning. You arrived before the amen.",
+   "Sit if you need to. The bench won't ask where you've been.",
+   "A guard left a curse here. If you recognize it, please collect it.",
+   "We've got water, bandages, and one broom everyone pretends not to see."
+  ],
+  "talk": [
+   "No. And before you ask, the box full of teeth was not the reliquary.",
+   "They say it outranks them. I said a bell can't give orders.",
+   "I did not hear a goose's confession.",
+   "He asked me to make the funerals quieter.",
+   "Yes. Someone told them it was Thursday. It's Tuesday.",
+   "No.",
+   "He says the toll figures need divine protection.",
+   "He claims everyone signed in before entering."
+  ],
+  "service": [
+   "Sit down. You're bleeding on the hymn book.",
+   "Healing first. Lie about how it happened afterward.",
+   "Prayer is free. Supplies aren't. The bandages keep sending invoices.",
+   "Hold still. The light isn't trying to catch you.",
+   "I can lift the curse. The decision that earned it is beyond my training.",
+   "You're healthy. Please don't invent a symptom to avoid the village.",
+   "You brought mud, two thorns, and an ailment. Which one hurts?",
+   "Pick what you need. I have one clean towel and three people asking for it."
+  ],
+  "quest": [
+   "The board has work. Yes, somebody filed a complaint against the goose.",
+   "Read the request. Last week someone delivered five mushrooms to a funeral.",
+   "The kitchen says urgent. It also says that when the soup is cold.",
+   "A grave needs fixing. Please check the name before you start digging.",
+   "Some requests have no names. The people still need help.",
+   "I corrected the spelling. I left the accusations exactly as written.",
+   "Finish a job and tell me. I cannot hear a completed quest through a wall.",
+   "The bell needs repair again. It knows what it did."
+  ]
+ },
+ "blacksmith": {
+  "greet": [
+   "You're back. Put the weapon down before you tell me it did that itself.",
+   "That rattle had better be armor. I don't sell replacement knees.",
+   "I can fix the dent. You can explain how a door won the fight.",
+   "Don't lean on the anvil. It's already holding up the apprentice's career.",
+   "All your fingers are here. Good. The forms only have ten boxes.",
+   "Come in. The forge is hot, and the apprentice is pretending to be busy.",
+   "Who hit your shield with a door? Actually, let me guess who lost.",
+   "I smelled burnt steel. Then you walked in. That answered one question."
+  ],
+  "talk": [
+   "I carved HOLD HERE beside the handle.",
+   "He wanted a coin slot cut through the center.",
+   "There's a royal crest on the side nobody sees.",
+   "Left shoulder says stairs. Right hip says more stairs.",
+   "He's named it. Hasn't forged it.",
+   "Every day. Their tools actually get used.",
+   "He says visitors keep opening it.",
+   "Guards hang packs off the latch."
+  ],
+  "upgrade": [
+   "Put it here. If it bites me, the price goes up.",
+   "More damage, same handle. Please keep hold of the handle.",
+   "I can improve the focus. Keep those sparks away from my beard.",
+   "Materials are ready. Your coin purse sounds less confident.",
+   "A sharper edge won't make a crate a worthy opponent.",
+   "This upgrade improves damage. Your aim is still your own problem.",
+   "Give me a minute. The metal has to stop arguing with the heat.",
+   "It's stronger. Test it outside. The door did nothing to you."
+  ],
+  "armor": [
+   "Turn around. The back plate quit before you did.",
+   "That seam is held together by fear of disappointing me.",
+   "Stand still. I'm measuring the armor. Your ego won't fit the calipers.",
+   "One bone and some coins. No, I won't tell you whose bone.",
+   "This stops more damage. It won't stop you walking into traps.",
+   "Your straps survived? I owe the apprentice an apology and a coin.",
+   "I can add a plate. You can still fit through the door.",
+   "The rivet is hot. You heard the word hot, yes?"
+  ],
+  "quest": [
+   "The board wants materials. A dramatic injury is not a material.",
+   "The gate broke again. The guard says it attacked first.",
+   "Rewards are written in chalk. Stop haggling with the chalk.",
+   "The forge needs supplies. The village needs the forge. It's a stupid circle.",
+   "Bring the broken thing here. A sound impression doesn't help me.",
+   "Yes, the job pays. No, I can't pay you in swords.",
+   "The guards filed three repair requests for the same dent.",
+   "Finish a job, then bring proof I can actually hold."
+  ]
+ },
+ "merchant": {
+  "greet": [
+   "Welcome. Pay before you test whether the bottle is drinkable.",
+   "You're back. I practiced looking surprised. How was that?",
+   "The shop is open. That crate is not. We're both happier this way.",
+   "Prices are on the tags. My handwriting is bad, not negotiable.",
+   "You look like you wrote your shopping list during a fight.",
+   "Come in. I moved the breakables behind the things you can afford.",
+   "You can look without coins. You cannot juggle without coins.",
+   "I restocked at dawn. The boxes filed a complaint about the road."
+  ],
+  "talk": [
+   "It put a stamped decree on the counter and took my lunch.",
+   "Only while buying nails from me.",
+   "A ranger returned one tied to an arrow.",
+   "A man asked for good judgment. I gave him water and told him to go home.",
+   "Enough to light the whole road.",
+   "Yes. DO NOT OPEN is our most popular label.",
+   "No. And yes, I care about the drivers too.",
+   "My ledger says excellent."
+  ],
+  "shop": [
+   "Buy medicine before the heroic injury for once.",
+   "Spellbooks left. Edible things right. Do not confuse them.",
+   "Your promise to pay me later has been declined by the ledger.",
+   "Useful supplies here. Unexplained noises on the other shelf.",
+   "I labeled the antidotes after a customer drank the demonstration sample.",
+   "Everything survived shipping. The driver wants that claim in writing.",
+   "I can recommend an item. I cannot make you remember to use it.",
+   "Pay before trying the magic. Last time the shelf tried you back."
+  ],
+  "quest": [
+   "Deliveries are on the board. The maze order includes a map and an apology.",
+   "One crate is missing. The driver returned with only the excuse.",
+   "The reward is written down. We are done arguing about the decimal point.",
+   "Some customers need help more than another sales pitch. I know, shocking.",
+   "These jobs came with the caravans. The wagons were less demanding.",
+   "Bring proof. I once paid a man for a rumor he invented outside.",
+   "It says urgent. The ink is dry, so it can wait for you to read it.",
+   "Finish a job and tell me before gossip tries to claim the commission."
+  ]
+ },
+ "home": {
+  "thought": [
+   "Home. Nobody stole the chair. Low standards, good news.",
+   "I should rest before the armor files a complaint.",
+   "Quiet. If the floor starts talking, I'm leaving.",
+   "I own twelve weapons and one chair that doesn't wobble.",
+   "Those trophies can dust themselves. I earned that much.",
+   "I could sort my supplies. I could also sit here and not die.",
+   "The armor doll stands straighter than I do. Show-off.",
+   "I left looking heroic. I returned needing soup."
+  ]
+ }
 };
+/* Each topic matches the same index in LINES[type].talk. The opening and five
+   follow-ups keep the player's response tied to what that NPC actually said. */
+const TALK_EXCHANGES={
+ "cathedral": [
+  [
+   "Father, did anybody find that reliquary thing?",
+   [
+    "player",
+    "You said it was holy stuff."
+   ],
+   [
+    "npc",
+    "I said it contained holy relics."
+   ],
+   [
+    "player",
+    "Teeth can be holy."
+   ],
+   [
+    "npc",
+    "Not those teeth."
+   ],
+   [
+    "player",
+    "How do you know?"
+   ],
+   [
+    "npc",
+    "Because one of them still had a gold filling."
+   ],
+   [
+    "player",
+    "Maybe he was a rich saint."
+   ],
+   [
+    "npc",
+    "There are no rich saints."
+   ],
+   [
+    "player",
+    "That doesn't sound right."
+   ],
+   [
+    "npc",
+    "It isn't. But I'm tired and the reliquary is still missing."
+   ],
+   [
+    "player",
+    "Okay, so what am I looking for?"
+   ],
+   [
+    "npc",
+    "Small wooden box. Silver cross. Very old. Extremely sacred. Ideally containing zero unidentified human teeth."
+   ],
+   [
+    "player",
+    "That's gonna narrow it down a lot."
+   ],
+   [
+    "npc",
+    "God willing."
+   ]
+  ],
+  [
+   "Why are the guards saluting the bell?",
+   [
+    "player",
+    "Can it?"
+   ],
+   [
+    "npc",
+    "No. It can make noise. There's a difference."
+   ],
+   [
+    "player",
+    "Their captain makes noise."
+   ],
+   [
+    "npc",
+    "I realize that. I did not say it to his face."
+   ],
+   [
+    "player",
+    "Maybe the bell should be captain."
+   ],
+   [
+    "npc",
+    "It has attended every watch and never asked for a raise."
+   ],
+   [
+    "player",
+    "You've thought about this."
+   ],
+   [
+    "npc",
+    "I live beneath it. I have a lot of time between rings."
+   ]
+  ],
+  [
+   "Father, somebody said you heard a goose's confession.",
+   [
+    "player",
+    "So there wasn't a goose?"
+   ],
+   [
+    "npc",
+    "Oh, there was absolutely a goose."
+   ],
+   [
+    "player",
+    "In the confession booth?"
+   ],
+   [
+    "npc",
+    "For twenty minutes."
+   ],
+   [
+    "player",
+    "What did it confess?"
+   ],
+   [
+    "npc",
+    "Honking."
+   ],
+   [
+    "player",
+    "That's it?"
+   ],
+   [
+    "npc",
+    "Honking, biting, more honking. Then it became aggressive when I prescribed three Hail Marys."
+   ],
+   [
+    "player",
+    "Maybe it's Protestant."
+   ],
+   [
+    "npc",
+    "Don't start."
+   ],
+   [
+    "player",
+    "Did you forgive it?"
+   ],
+   [
+    "npc",
+    "It stole the collection plate."
+   ],
+   [
+    "player",
+    "So no?"
+   ],
+   [
+    "npc",
+    "Forgiveness is between the goose and God now."
+   ],
+   [
+    "player",
+    "Because of the stealing?"
+   ],
+   [
+    "npc",
+    "Because I'm not chasing that bastard again."
+   ]
+  ],
+  [
+   "How is Oddo doing?",
+   [
+    "player",
+    "Aren't funerals usually quiet?"
+   ],
+   [
+    "npc",
+    "One nephew brought a trumpet. He said his uncle loved music."
+   ],
+   [
+    "player",
+    "Did his uncle?"
+   ],
+   [
+    "npc",
+    "His uncle left a written request for silence."
+   ],
+   [
+    "player",
+    "Did you tell the nephew?"
+   ],
+   [
+    "npc",
+    "Yes. Oddo wanted the trumpet buried next to him."
+   ],
+   [
+    "player",
+    "Did you do it?"
+   ],
+   [
+    "npc",
+    "No. The cemetery has enough things coming back."
+   ]
+  ],
+  [
+   "Still feeding travelers?",
+   [
+    "player",
+    "Just tell them."
+   ],
+   [
+    "npc",
+    "I did. They asked whether the soup was already made."
+   ],
+   [
+    "player",
+    "Was it?"
+   ],
+   [
+    "npc",
+    "Yes. I wasn't going to throw it away to prove a calendar right."
+   ],
+   [
+    "player",
+    "Fair enough."
+   ],
+   [
+    "npc",
+    "Good. You can wash the bowls."
+   ],
+   [
+    "player",
+    "I didn't volunteer."
+   ],
+   [
+    "npc",
+    "Neither did Tuesday."
+   ]
+  ],
+  [
+   "Father, can prayer actually fix the church roof?",
+   [
+    "player",
+    "Wow. That was fast."
+   ],
+   [
+    "npc",
+    "I've had this conversation three times today."
+   ],
+   [
+    "player",
+    "But you're a priest."
+   ],
+   [
+    "npc",
+    "Yes."
+   ],
+   [
+    "player",
+    "And prayer is your whole thing."
+   ],
+   [
+    "npc",
+    "Prayer is not roofing."
+   ],
+   [
+    "player",
+    "Have you tried?"
+   ],
+   [
+    "npc",
+    "Of course I've tried! I stood right there, prayed for ten minutes, and then a piece of ceiling hit me."
+   ],
+   [
+    "player",
+    "Maybe that was God's answer."
+   ],
+   [
+    "npc",
+    "Then God wants us to buy shingles."
+   ],
+   [
+    "player",
+    "What about the guy with the ladder?"
+   ],
+   [
+    "npc",
+    "He refuses to climb up because he says God will protect the church."
+   ],
+   [
+    "player",
+    "Didn't God just throw the ceiling at you?"
+   ],
+   [
+    "npc",
+    "That's what I fucking told him."
+   ],
+   [
+    "player",
+    "So... ladder?"
+   ],
+   [
+    "npc",
+    "Ladder."
+   ]
+  ],
+  [
+   "Why did Barnaby want his ledger blessed?",
+   [
+    "player",
+    "From thieves?"
+   ],
+   [
+    "npc",
+    "From anyone who can add."
+   ],
+   [
+    "player",
+    "Could you bless it?"
+   ],
+   [
+    "npc",
+    "I could bless a brick. That wouldn't make it honest."
+   ],
+   [
+    "player",
+    "What did you bless?"
+   ],
+   [
+    "npc",
+    "The bridge. People actually need that."
+   ],
+   [
+    "player",
+    "Did Barnaby mind?"
+   ],
+   [
+    "npc",
+    "He asked me to pay a toll on the way back."
+   ]
+  ],
+  [
+   "What's Timmy's cemetery guest list?",
+   [
+    "player",
+    "Even the dead?"
+   ],
+   [
+    "npc",
+    "He copied their names off the stones."
+   ],
+   [
+    "player",
+    "How can you tell?"
+   ],
+   [
+    "npc",
+    "One form says 'Mr. Skeleton.'"
+   ],
+   [
+    "player",
+    "Subtle."
+   ],
+   [
+    "npc",
+    "Don't sign anything near that crypt."
+   ],
+   [
+    "player",
+    "Why?"
+   ],
+   [
+    "npc",
+    "He has a blank line reserved for the living."
+   ]
+  ]
+ ],
+ "blacksmith": [
+  [
+   "Still teaching guards how to hold shields?",
+   [
+    "player",
+    "Did it work?"
+   ],
+   [
+    "npc",
+    "One of them tried reading it from the front."
+   ],
+   [
+    "player",
+    "Through the shield?"
+   ],
+   [
+    "npc",
+    "Yes. While holding it backward."
+   ],
+   [
+    "player",
+    "How are they alive?"
+   ],
+   [
+    "npc",
+    "The armor is thick. I made that too."
+   ],
+   [
+    "player",
+    "That sounds exhausting."
+   ],
+   [
+    "npc",
+    "I have considered putting handles on both sides."
+   ]
+  ],
+  [
+   "Did Barnaby order his shield here?",
+   [
+    "player",
+    "Where a sword would go?"
+   ],
+   [
+    "npc",
+    "I mentioned that. He asked for a smaller slot."
+   ],
+   [
+    "player",
+    "Small enough for coins?"
+   ],
+   [
+    "npc",
+    "Small enough for nothing. He called it secure."
+   ],
+   [
+    "player",
+    "Did you build it?"
+   ],
+   [
+    "npc",
+    "No. I make shields, not invitations to get stabbed."
+   ]
+  ],
+  [
+   "What's ceremonial about a fortress hinge?",
+   [
+    "player",
+    "Does it work better?"
+   ],
+   [
+    "npc",
+    "It squeaks like a regular hinge."
+   ],
+   [
+    "player",
+    "Then why buy it?"
+   ],
+   [
+    "npc",
+    "The quartermaster says the door deserves dignity."
+   ],
+   [
+    "player",
+    "The door?"
+   ],
+   [
+    "npc",
+    "The crown. The door's apparently just renting it."
+   ]
+  ],
+  [
+   "Can you tell where these dents came from?",
+   [
+    "player",
+    "Tactical roll."
+   ],
+   [
+    "npc",
+    "Down eleven steps?"
+   ],
+   [
+    "player",
+    "I landed on the twelfth."
+   ],
+   [
+    "npc",
+    "The helmet says you fought a door."
+   ],
+   [
+    "player",
+    "It was locked."
+   ],
+   [
+    "npc",
+    "Doors do that. I can repair the armor, not your story."
+   ]
+  ],
+  [
+   "How's the apprentice's legendary sword?",
+   [
+    "player",
+    "What's it called?"
+   ],
+   [
+    "npc",
+    "The Final Judgment of a Thousand Suns."
+   ],
+   [
+    "player",
+    "How's his metalwork?"
+   ],
+   [
+    "npc",
+    "He bent three nails making a fourth."
+   ],
+   [
+    "player",
+    "Start with a legendary nail."
+   ],
+   [
+    "npc",
+    "Don't. He'll spend another week naming it."
+   ]
+  ],
+  [
+   "Do farmers bring you much work?",
+   [
+    "player",
+    "Nobody names the tools?"
+   ],
+   [
+    "npc",
+    "One did. The Earth-Sundering Spade of Turnips."
+   ],
+   [
+    "player",
+    "Did it earth-sunder?"
+   ],
+   [
+    "npc",
+    "It broke on a carrot."
+   ],
+   [
+    "player",
+    "Tough carrot."
+   ],
+   [
+    "npc",
+    "He asked me to forge armor for it. The carrot."
+   ]
+  ],
+  [
+   "Did Timmy order an inside lock for his coffin?",
+   [
+    "player",
+    "Couldn't he use a sign?"
+   ],
+   [
+    "npc",
+    "His sign says ENTER AT YOUR PERIL."
+   ],
+   [
+    "player",
+    "That's an invitation."
+   ],
+   [
+    "npc",
+    "I told him. He requested a scarier font."
+   ],
+   [
+    "player",
+    "Did you make the lock?"
+   ],
+   [
+    "npc",
+    "No. I have enough trouble with customers who breathe."
+   ]
+  ],
+  [
+   "Why does the village gate keep sticking?",
+   [
+    "player",
+    "Tell them to stop."
+   ],
+   [
+    "npc",
+    "I put up a sign. They hung a pack on it."
+   ],
+   [
+    "player",
+    "Make a hook."
+   ],
+   [
+    "npc",
+    "I made three. They said the hooks looked too official."
+   ],
+   [
+    "player",
+    "What's next?"
+   ],
+   [
+    "npc",
+    "A hook shaped like a guard captain. Maybe they'll salute it."
+   ]
+  ]
+ ],
+ "merchant": [
+  [
+   "Did the goose try to pay with a royal decree?",
+   [
+    "player",
+    "That's theft."
+   ],
+   [
+    "npc",
+    "It had a stamp. Apparently that's taxation."
+   ],
+   [
+    "player",
+    "Why keep the decree?"
+   ],
+   [
+    "npc",
+    "If it returns, I want evidence it owes me a sandwich."
+   ],
+   [
+    "player",
+    "You'd invoice a goose?"
+   ],
+   [
+    "npc",
+    "I'd invoice anybody. Collection is the hard part."
+   ]
+  ],
+  [
+   "Does the blacksmith complain about your prices?",
+   [
+    "player",
+    "He called the prices theater."
+   ],
+   [
+    "npc",
+    "Then he should stop attending the matinee."
+   ],
+   [
+    "player",
+    "Do you charge him more?"
+   ],
+   [
+    "npc",
+    "Only when he demands a better seat."
+   ],
+   [
+    "player",
+    "This is a shop."
+   ],
+   [
+    "npc",
+    "Tell him. He keeps asking for an intermission."
+   ]
+  ],
+  [
+   "How's your maze map selling?",
+   [
+    "player",
+    "Where was the ranger?"
+   ],
+   [
+    "npc",
+    "That was the problem. The note said YOUR NORTH IS LYING."
+   ],
+   [
+    "player",
+    "Was it?"
+   ],
+   [
+    "npc",
+    "Rain made the ink run. North moved into a pond."
+   ],
+   [
+    "player",
+    "Refund him."
+   ],
+   [
+    "npc",
+    "I offered. Another arrow came back saying FIX THE MAP."
+   ]
+  ],
+  [
+   "Do you sell anything for bad decisions?",
+   [
+    "player",
+    "Did he?"
+   ],
+   [
+    "npc",
+    "He bought another bottle for his horse."
+   ],
+   [
+    "player",
+    "Why the horse?"
+   ],
+   [
+    "npc",
+    "Apparently it wanted to enter the maze."
+   ],
+   [
+    "player",
+    "The horse needs the water more."
+   ],
+   [
+    "npc",
+    "That's what I told him. He asked for a barrel."
+   ]
+  ],
+  [
+   "Why so many fortress candles?",
+   [
+    "player",
+    "Maybe a ceremony?"
+   ],
+   [
+    "npc",
+    "Then why did they order fireproof curtains?"
+   ],
+   [
+    "player",
+    "That sounds sensible."
+   ],
+   [
+    "npc",
+    "They canceled the bucket order to afford them."
+   ],
+   [
+    "player",
+    "I take it back."
+   ],
+   [
+    "npc",
+    "I'm keeping my own bucket."
+   ]
+  ],
+  [
+   "Is the dangerous shelf marked?",
+   [
+    "player",
+    "What happens if I open one?"
+   ],
+   [
+    "npc",
+    "Last customer hasn't come back to explain."
+   ],
+   [
+    "player",
+    "Maybe he moved away."
+   ],
+   [
+    "npc",
+    "His boots are still here."
+   ],
+   [
+    "player",
+    "Why don't you check?"
+   ],
+   [
+    "npc",
+    "I can read labels. That's why I still have boots."
+   ]
+  ],
+  [
+   "Are the caravan roads safe?",
+   [
+    "player",
+    "I was going to ask about sales."
+   ],
+   [
+    "npc",
+    "Dead customers don't return. Neither do frightened ones."
+   ],
+   [
+    "player",
+    "Still a business answer."
+   ],
+   [
+    "npc",
+    "It can be two things. I know their names."
+   ],
+   [
+    "player",
+    "Then help protect them."
+   ],
+   [
+    "npc",
+    "I paid the guards. Now I'd like them to meet a cart."
+   ]
+  ],
+  [
+   "How's business?",
+   [
+    "player",
+    "Your shelves say otherwise."
+   ],
+   [
+    "npc",
+    "Only one crate arrived. It contained another ledger."
+   ],
+   [
+    "player",
+    "Why order that?"
+   ],
+   [
+    "npc",
+    "To track the missing crates. Don't say it."
+   ],
+   [
+    "player",
+    "Order supplies instead."
+   ],
+   [
+    "npc",
+    "I knew you'd say it. The first ledger says so."
+   ]
+  ]
+ ]
+};
+
 const names={cathedral:'Priest',blacksmith:'Blacksmith',merchant:'Merchant',home:'Your thoughts'};
 const labels={cathedral:[['Talk','talk'],['Services','service'],['Quests','quest'],['Leave','leave']],blacksmith:[['Talk','talk'],['Upgrade '+(state.gear==='magic'?'Magic':'Weapon'),'upgrade'],['Upgrade Armor','armor'],['Quests','quest'],['Leave','leave']],merchant:[['Talk','talk'],['Shop','shop'],['Quests','quest'],['Leave','leave']],home:[['Rest','rest'],['Codex','codex'],['Settings','settings'],['Leave','leave']]};
-const spoken={talk:'Have you got a minute? I promise this is shorter than the last royal decree.',service:'I need your help. The practical kind, with a price if necessary.',quest:'What is on the board today, and how much of it is on fire?',shop:'Show me what you have. Start with the things that will not bite.',upgrade:'Can you make this hit harder without making it harder to hold?',armor:'Can you reinforce this before the next enemy finds that loose seam?',rest:'I am going to sleep until the armor stops rattling in my head.',doll:'Let me see which armor looks ready for another bad decision.',trophies:'I want to look at the trophies. From a safe distance.',codex:'I should read the notes before I forget what nearly killed me.',settings:'I want to adjust the way battles feel.'};
+const spoken={service:"I need help. Yes, the kind that costs money. Let's hear the damage.",quest:"What's on the board? Please say the goose isn't hiring again.",shop:"What have you got that won't bite me after I pay for it?",upgrade:"Can this hit harder? I promise to use the handle this time.",armor:"Can you fix this seam before the next monster notices it?",rest:"I'm going to sleep until my armor and I stop making the same noise.",codex:"I should read my notes before I meet that thing again and call it a goose.",settings:"I should change the battle settings before blaming the buttons again."};
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const reduceMotion=()=>window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
-function pick(type,topic){
+function pick(type,topic,withIndex=false){
  const lines=LINES[type]?.[topic]||[];if(!lines.length)return '';
  state.meta=state.meta||{};const recent=state.meta.interiorDialogueRecent=state.meta.interiorDialogueRecent||{},key=`${type}:${topic}`,used=Array.isArray(recent[key])?recent[key]:[];
- const available=lines.map((_,i)=>i).filter(i=>!used.includes(i));const pool=available.length?available:lines.map((_,i)=>i);const index=pool[Math.floor(Math.random()*pool.length)];recent[key]=available.length?[...used,index]:[index];save();return lines[index];
+ const available=lines.map((_,i)=>i).filter(i=>!used.includes(i));const pool=available.length?available:lines.map((_,i)=>i);const index=pool[Math.floor(Math.random()*pool.length)];recent[key]=available.length?[...used,index]:[index];save();return withIndex?{line:lines[index],index}:lines[index];
 }
 function sourceAction(action,index){const panel=$('#interiorContent');let target=[...panel?.querySelectorAll('[data-fixed-action]')||[]].find(b=>b.dataset.fixedAction===action&&(index===undefined||Number(b.dataset.fixedIndex)===index));if(target)target.click();return !!target}
 let scene=null,inside=false,seenThisEntry=false,timer=null,full='',typed=true,next=null,view='main',suspendedUntil=0,questPage=0,departing=false,leaveTimer=null;
@@ -113,8 +1063,18 @@ function openCategory(type,action){
  if(action==='codex'){next=null;typed=true;mainMenu();sourceAction('codex');return}
  if(!sourceAction(action)){mainMenu();return}showPanel();
 }
+function playTalkFollowups(type,lines,index=0){
+ if(index>=lines.length){mainMenu();return}
+ const [speaker,line]=lines[index];say(speaker,line,()=>playTalkFollowups(type,lines,index+1),type);
+}
 function choose(type,action){
  if(action==='leave'){sourceAction('leave');return}
+ if(action==='talk'&&type!=='home'){
+   const selected=pick(type,'talk',true),[opener,...followups]=TALK_EXCHANGES[type]?.[selected.index]||[];
+   if(!opener){mainMenu();return}
+   say('player',opener,()=>say('npc',selected.line,()=>playTalkFollowups(type,followups),type),type);
+   return;
+ }
  const playerLine=spoken[action]||'I would like to take a look.';
  if(type==='home'){
    say('player',playerLine,()=>{if(action==='rest')say('player','A little sleep might make the next terrible decision feel better.',()=>openCategory(type,action),type);
@@ -124,8 +1084,7 @@ function choose(type,action){
  say('player',playerLine,()=>{
    const line=pick(type,action);
    say('npc',line,()=>{
-     if(action==='talk')say('player',type==='cathedral'?'That sounds like a long week.':type==='blacksmith'?'I think that was advice.':'I am not buying that story.',()=>mainMenu(),type);
-     else openCategory(type,action);
+     openCategory(type,action);
    },type);
  },type);
 }

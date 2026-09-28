@@ -291,40 +291,40 @@
 
   /* ---------- story-arcs ---------- */
   const STORY_ARCS=[
-    {area:'Placenta Creek',resolution:'Barnaby’s ledgers return the food to Placenta Creek. The villagers celebrate with supper, then argue over who must repair the bridge toll sign.',beats:[
-      ['Missing Supper','Placenta Creek is missing its supper. A slime trail leads from the empty storehouse; the mayor calls it a tax issue because that sounds less embarrassing.'],
-      ['The Road Has Feathers','The Angry Goose blocks the road beside the missing carts. A guard says the bird has no authority, then asks it for permission to pass.'],
-      ['A Very Loose Tongue','A drunk peasant says Barnaby paid him in turnips to keep travelers away. He then asks you to forget the statement until he remembers where he put the turnips.'],
-      ['Crest in the Trash','The rabid raccoon guards stolen provisions stamped with Barnaby’s crest. His claim that he is merely protecting the road now has a supply chain.'],
-      ['Sir Barnaby’s Brilliant Plan','Barnaby hired trouble, then charged the hungry village for protection from it. He calls the arrangement civic service. The ledgers call it theft.']
+    {area:'Placenta Creek',resolution:'With Sir Barnaby gone, the stolen food rolls back into town. The villagers celebrate by blaming the goose for everything that still goes wrong.',beats:[
+      ['Missing Supper','Sacks of food have been disappearing from Placenta Creek. The first trail ends in slime, bite marks, and one villager insisting this is “probably taxes.”'],
+      ['The Road Has Feathers','An Angry Goose controls the road where the missing supplies vanished. This is starting to look less like random theft and more like organized nuisance.'],
+      ['A Very Loose Tongue','A drunk peasant mutters that “Barnaby pays in turnips for chaos” before immediately denying he said anything useful.'],
+      ['Crest in the Trash','A rabid raccoon has been raiding a stash marked with Sir Barnaby’s crest. The knight is not just nearby; he has been feeding the trouble.'],
+      ['Sir Barnaby’s Brilliant Plan','Sir Barnaby finally admits he stirred up the roads to make the village desperate enough to accept his “protection.” Unfortunately for him, you arrived without a subscription.']
     ]},
-    {area:'Mild Inconvenience',resolution:'The snares come down, and the creatures return to the forest. A goblin requests a permit to be helpful; the ranger has no form for that.',beats:[
-      ['Illegal Hunting Season','A goblin poacher has placed snares along the forest edge. He calls them wildlife management; the wildlife has filed its objection by leaving.'],
-      ['The Dead Keep Hunting','A Zombie Wolf bears the same black bramble as the traps. Whatever cursed the grove is spreading beyond the boundary the ranger marked.'],
-      ['Fear Tax','A Bullying Sprite collects a fear tax on Gloomfang’s behalf. It has no receipts and becomes very defensive when asked what the tax funds.'],
-      ['Marked by the Same Curse','The Cursed Timberwolf carries the bramble scar deeper into the woods. Its tracks lead to Gloomfang’s den, past traps meant to keep everybody out.'],
-      ['Gloomfang’s Den','Gloomfang drove both hunters and animals toward the road to keep the grove empty. The forest is safe only in the narrowest, loneliest sense.']
+    {area:'Mild Inconvenience',resolution:'The forest settles after Gloomfang falls. Traps stop appearing overnight, and the surviving goblins abruptly discover a passion for legal conservation.',beats:[
+      ['Illegal Hunting Season','A goblin poacher has filled the forest edge with traps. Animals are fleeing deeper into the woods, where something worse is waiting.'],
+      ['The Dead Keep Hunting','A Zombie Wolf carries the same black bramble marks found on the poacher’s traps. Whatever is wrong with this forest spreads through teeth and roots.'],
+      ['Fear Tax','A Bullying Sprite boasts that Gloomfang collects a “fear tax” from anything small enough to intimidate. It also claims this is a legitimate business.'],
+      ['Marked by the Same Curse','The Cursed Timberwolf bears the same bramble scar. The trail now points directly toward Gloomfang’s den.'],
+      ['Gloomfang’s Den','Gloomfang has been driving creatures toward the roads so the forest stays empty around its cursed territory. The inconvenience has become extremely personal.']
     ]},
-    {area:'Grave Mistake',resolution:'Timmy’s summons ends. The dead return to rest, and Oddo updates the cemetery hours without asking any monarch to approve them.',beats:[
-      ['The Graves Are Clocking Out','The cemetery bell keeps summoning skeletons out of their graves. The gravekeeper has posted quiet hours. The bell appears not to read.'],
-      ['Crypt Ventilation Failure','A Moldy Mummy leaves a crypt opened from the inside. The keeper insists the lock was inspected yesterday, then asks you to inspect it from a distance.'],
-      ['Necromancy Internship','A Necromancer Apprentice says Timmy promised a court position and practical training. The position is unpaid; the practice is raising unpaid subjects.'],
-      ['Royal Burial Orders','A Grave Wraith carries Timmy’s burial writ. The summons is deliberate. Its small print describes involuntary court attendance as a privilege.'],
-      ['Timmy’s Eternal Fan Club','Timmy has turned the cemetery into a court whose subjects cannot walk out of his speeches. The dead deserve rest, whether or not the king finishes his address.']
+    {area:'Grave Mistake',resolution:'The cemetery bells finally ring forward again. Several ghosts complain that peace and quiet is “weirdly loud,” then go back to being dead.',beats:[
+      ['The Graves Are Clocking Out','Skeletons are leaving their graves because the cemetery bell keeps ringing at the wrong hour. Nobody admits to touching it.'],
+      ['Crypt Ventilation Failure','A Moldy Mummy crawls out of a freshly opened crypt. The smell confirms that somebody has been opening things best left closed.'],
+      ['Necromancy Internship','A Necromancer Apprentice blurts out that Lich King Timmy promised “hands-on experience” and “excellent exposure.” The exposure is mostly corpses.'],
+      ['Royal Burial Orders','A Grave Wraith carries a burial writ stamped with Timmy’s seal. The dead are being summoned on purpose, not merely having a bad week.'],
+      ['Timmy’s Eternal Fan Club','Lich King Timmy is raising the cemetery to build an eternal court that cannot leave his speeches early. This explains several things and excuses none of them.']
     ]},
-    {area:'Questionable Decisions',resolution:'The Minotaur opens the exits. The signs still disagree, but travelers can now leave long enough to complain about them.',beats:[
-      ['The Entrance Regrets You','The maze entrance has a rune puzzle and a sign saying WELCOME, SORRY. The sign gives no directions, just the signature of whoever felt responsible.'],
-      ['Corridors With Opinions','The walls change when nobody looks. A note on the floor says the exit is left, then corrects itself twice in the same handwriting.'],
-      ['The Builder Is Panicking','The Minotaur’s route plan shows five exits and six apologies. Half the routes have been crossed out as too confrontational.'],
-      ['Apologetic Traps','The last traps have safety notices written by the person who set them. They still hurt. The Minotaur has prioritized the notices over removing the traps.'],
-      ['Scheduled Confrontation','At the center, the Minotaur has prepared a battle plan and a breathing exercise. He misplaced the plan while rehearsing the exercise.']
+    {area:'Questionable Decisions',resolution:'The maze stops rearranging itself every thirty seconds. The signs remain contradictory, because apparently that part was a design choice.',beats:[
+      ['The Entrance Regrets You','The maze opens with a rune puzzle and a sign reading: “WELCOME. SORRY.” Something inside is already second-guessing your arrival.'],
+      ['Corridors With Opinions','Walls shift behind you. Notes in the corners read like somebody arguing with themselves about where the exit should be.'],
+      ['The Builder Is Panicking','A crumpled route plan is signed by the Minotaur. Half the paths are crossed out and labeled “too confrontational.”'],
+      ['Apologetic Traps','The final traps have warning signs, safety notes, and one tiny apology. The Minotaur knows you are coming and is not emotionally prepared.'],
+      ['Scheduled Confrontation','The Minotaur with Anxiety is waiting at the center of the maze with a battle plan, a breathing exercise, and absolutely no desire to use either.']
     ]},
-    {area:'Dread Fortress',resolution:'Lucien’s guards lower their weapons. The servants unlock the halls, and the kingdom waits to see whether the next decision includes the people who paid for this place.',beats:[
-      ['The Gate Is Still Employed','A Daedric Knight bars the gate under Lucien’s order. He cannot produce the order because the gate is locked from the other side.'],
-      ['Stone Witness','The Gargoyle has watched servants locked inside and petitioners locked out. It remembers every face, which is more than the royal ledger does.'],
-      ['Burned Ledgers','The Dark Sorcerer burns tribute ledgers. The surviving pages show food and steel taken from every region while Lucien called the shortages loyalty.'],
-      ['Last Door Before the Throne','The Throne Warden still holds the last door. Its orders are clear; its exhausted stance suggests it has begun questioning who they protect.'],
-      ['Monarch Lucien','Lucien waits beside a throne paid for by five hungry regions. The ledgers have reached his hall before you. He cannot pretend they were lost in transit.']
+    {area:'Dread Fortress',resolution:'The fortress goes quiet after Lucien’s defeat. Soldiers lower their weapons, servants open the locked halls, and the throne waits for whatever terrible decision comes next.',beats:[
+      ['The Gate Is Still Employed','A Daedric Knight refuses entry because Monarch Lucien’s order says the gate must remain dramatic at all times.'],
+      ['Stone Witness','A Gargoyle reveals the fortress has been locking people out as quickly as it locks servants in. Lucien is retreating toward the throne room.'],
+      ['Burned Ledgers','A Dark Sorcerer is destroying tribute records. The surviving pages show Lucien draining every region to keep the fortress supplied.'],
+      ['Last Door Before the Throne','The Throne Warden is the final loyal guard. Even it looks tired of standing between Lucien and consequences.'],
+      ['Monarch Lucien','Lucien waits beside the throne, surrounded by the kingdom’s stolen wealth and the confidence of someone who has never heard the word “accountability.”']
     ]}
   ];
 
@@ -406,68 +406,68 @@
 
   /* ---------- world-events / choice-memory ---------- */
   const EXTRA_EVENTS=[
-    {id:'wounded-traveler-choice',title:'A Wounded Traveler',minHub:0,weight:15,once:true,dialog:'A wounded traveler has wrapped a receipt around an injured arm. The ink has transferred but the bandage has not helped.',options:[
+    {id:'wounded-traveler-choice',title:'A Wounded Traveler',minHub:0,weight:15,once:true,dialog:"A traveler wraps a receipt around a bleeding arm. ‘Does that work?’ ‘The shop won't refund the bandage without it.’ ‘That's not a bandage.’ ‘I know. I'm keeping the receipt clean.’",options:[
       {label:'Help them · 10 coins',outcome:'You pay for medicine and get them back on their feet. They promise they will remember this.',reward:[{type:'coins',amount:-10}],setFlags:['helpedTraveler']},
       {label:'Ignore them',outcome:'You keep walking. The traveler watches you leave and says nothing.',reward:[],setFlags:['ignoredTraveler']},
       {label:'Rob them',outcome:'You take a purse that contains twelve coins and one deeply disappointed look.',reward:[{type:'coins',amount:12}],setFlags:['robbedTraveler']}
     ]},
-    {id:'traveler-package',title:'A Package With Your Name On It',minHub:1,weight:30,once:true,requiresFlags:['helpedTraveler'],delayFromFlag:['helpedTraveler',2],dialog:'A courier catches up holding a parcel from the traveler you helped. He asks you to sign for it because the last recipient refused to believe him.',options:[
+    {id:'traveler-package',title:'A Package With Your Name On It',minHub:1,weight:30,once:true,requiresFlags:['helpedTraveler'],delayFromFlag:['helpedTraveler',2],dialog:"A courier hands you a parcel. ‘From the traveler you helped.’ ‘Is there a bill?’ ‘They said you'd ask.’ ‘And?’ ‘No bill. I looked twice.’",options:[
       {label:'Open the package',outcome:'Inside are coins, medicine, and a note that simply says: “You did not have to do that.”',reward:[{type:'coins',amount:14},{type:'drumstick',amount:1}],setFlags:['travelerRepaid']},
       {label:'Donate it forward',outcome:'You keep the medicine and send the coins to the next village. The courier looks annoyingly inspired.',reward:[{type:'drumstick',amount:1}],setFlags:['paidKindnessForward']}
     ]},
-    {id:'merchant-cousin',title:'The Merchant’s Cousin',minHub:1,weight:32,once:true,requiresFlags:['robbedTraveler'],delayFromFlag:['robbedTraveler',2],dialog:'A merchant recognizes the description his cousin gave of the robber. He tries to sound calm while checking whether his own purse is still there.',options:[
+    {id:'merchant-cousin',title:'The Merchant’s Cousin',minHub:1,weight:32,once:true,requiresFlags:['robbedTraveler'],delayFromFlag:['robbedTraveler',2],dialog:"A merchant blocks the road. ‘You robbed my cousin.’ ‘How do you know it was me?’ ‘She drew your face on every receipt.’ ‘That's excessive.’ ‘She sells paper.’",options:[
       {label:'Pay them back · 10 coins',outcome:'The merchant takes the money, decides you are “medium terrible,” and lets the matter go.',reward:[{type:'coins',amount:-10}],setFlags:['madeTravelerAmends']},
       {label:'Deny everything',outcome:'The merchant writes down your face with impressive accuracy.',reward:[],setFlags:['deniedTravelerRobbery']},
       {label:'Leave before this becomes paperwork',outcome:'You leave. The merchant adds “runs from paperwork” to the description.',reward:[]}
     ]},
-    {id:'escaped-bandit',title:'A Bandit Who Has Reconsidered Banditry',minHub:1,weight:12,once:true,dialog:'A former bandit puts both hands up before you draw a weapon. He says he has quit, then asks whether quitting requires paperwork.',options:[
+    {id:'escaped-bandit',title:'A Bandit Who Has Reconsidered Banditry',minHub:1,weight:12,once:true,dialog:"A bandit emerges with both hands up. ‘I quit.’ ‘When?’ ‘About two seconds after I saw you.’ ‘That's not a career change.’ ‘It is if I survive the notice period.’",options:[
       {label:'Let them go',outcome:'The bandit disappears into the trees, promising to owe you one favor and zero crimes.',reward:[],setFlags:['sparedRoadBandit']},
       {label:'Turn them in',outcome:'A patrol pays a small bounty and complains that the paperwork is heavier than the bandit.',reward:[{type:'coins',amount:10}],setFlags:['capturedRoadBandit']},
       {label:'Take their map',outcome:'You confiscate a marked route showing a hidden supply stash.',reward:[{type:'leather',amount:1},{type:'coins',amount:4}],setFlags:['tookBanditMap']}
     ]},
-    {id:'bandit-repayment',title:'An Extremely Awkward Rescue',minHub:2,weight:28,once:true,requiresFlags:['sparedRoadBandit'],delayFromFlag:['sparedRoadBandit',2],dialog:'The former bandit appears just as a broken cart blocks the road. “I said I owed you one. This counts. Do not make it emotional.”',options:[
+    {id:'bandit-repayment',title:'An Extremely Awkward Rescue',minHub:2,weight:28,once:true,requiresFlags:['sparedRoadBandit'],delayFromFlag:['sparedRoadBandit',2],dialog:"The former bandit helps lift a broken cart. ‘I owed you.’ ‘Thank you.’ ‘Don't make it sentimental.’ ‘You're helping a stranger.’ ‘It was a very threatening cart.’",options:[
       {label:'Accept the hidden supplies',outcome:'They hand over a bundle of demon steel and vanish before you can say thanks.',reward:[{type:'steel',amount:1},{type:'coins',amount:5}],setFlags:['banditDebtPaid']},
       {label:'Ask for information instead',outcome:'They point out a safer route and mention that the next area is being watched.',reward:[{type:'hp',amount:4}],setFlags:['banditIntel']}
     ]},
-    {id:'lost-merchant',title:'A Merchant Holding the Map Upside Down',minHub:0,weight:13,once:true,dialog:'A merchant has held the map upside down long enough to accuse the kingdom of moving north.',options:[
+    {id:'lost-merchant',title:'A Merchant Holding the Map Upside Down',minHub:0,weight:13,once:true,dialog:"A merchant holds his map upside down. ‘North is wrong.’ You rotate it. ‘I was checking if you knew.’ ‘You were walking south.’ ‘I was checking the other side.’",options:[
       {label:'Guide them to the road',outcome:'You point them in the correct direction. They promise to mention your name to other traders.',reward:[{type:'coins',amount:3}],setFlags:['helpedMerchantRoad']},
       {label:'Charge a navigation fee',outcome:'They pay five coins, then rotate the map and realize what happened.',reward:[{type:'coins',amount:5}],setFlags:['chargedMerchantToll']},
       {label:'Point dramatically in a random direction',outcome:'The merchant thanks you and walks directly toward a swamp.',reward:[],setFlags:['misdirectedMerchant']}
     ]},
-    {id:'merchant-thanks',title:'Roadside Trade Credit',minHub:1,weight:25,once:true,requiresFlags:['helpedMerchantRoad'],delayFromFlag:['helpedMerchantRoad',2],dialog:'A trader recognizes your name from the lost merchant. “Apparently you are good at maps. Here, take the useful part of that reputation.”',options:[
+    {id:'merchant-thanks',title:'Roadside Trade Credit',minHub:1,weight:25,once:true,requiresFlags:['helpedMerchantRoad'],delayFromFlag:['helpedMerchantRoad',2],dialog:"A trader recognizes you. ‘You helped my friend with his map.’ ‘Did he get home?’ ‘Eventually.’ ‘Where did he go?’ ‘He followed the creek upstream until it stopped pretending to be a road.’",options:[
       {label:'Accept the thank-you',outcome:'The trader hands you coins and a strip of leather.',reward:[{type:'coins',amount:8},{type:'leather',amount:1}],setFlags:['merchantRoadRepaid']},
       {label:'Ask them to help someone else',outcome:'They keep the coins but hand you a small medical ration for the road.',reward:[{type:'drumstick',amount:1}],setFlags:['merchantPaidForward']}
     ]},
-    {id:'broken-shrine',title:'A Broken Roadside Shrine',minHub:1,weight:10,once:true,dialog:'A roadside shrine has fallen. Three coins sit beside a note asking anyone who finds them to fix the shrine first.',options:[
+    {id:'broken-shrine',title:'A Broken Roadside Shrine',minHub:1,weight:10,once:true,dialog:"A shrine lies on its side. A note says PLEASE DO NOT TAKE THE THREE COINS. ‘Who wrote this?’ you ask. A crow lands on the sign and stares at your hand.",options:[
       {label:'Repair the shrine',outcome:'You prop the shrine upright. Nothing supernatural happens, which is honestly reassuring.',reward:[{type:'hp',amount:4}],setFlags:['repairedShrine']},
       {label:'Take the coins',outcome:'You take the coins. A nearby crow watches you with the authority of a judge.',reward:[{type:'coins',amount:3}],setFlags:['robbedShrine']},
       {label:'Leave it alone',outcome:'You respect the extremely clear note.',reward:[]}
     ]},
-    {id:'shrine-rumor',title:'The Crow Has Witnesses',minHub:2,weight:27,once:true,requiresFlags:['robbedShrine'],delayFromFlag:['robbedShrine',2],dialog:'A pilgrim points at you. “A crow described someone exactly like you stealing shrine coins.” The crow is standing beside them.',options:[
+    {id:'shrine-rumor',title:'The Crow Has Witnesses',minHub:2,weight:27,once:true,requiresFlags:['robbedShrine'],delayFromFlag:['robbedShrine',2],dialog:"A pilgrim points at you. ‘That crow says you stole the shrine coins.’ ‘The crow speaks?’ The bird caws. ‘You heard it.’ ‘I heard a bird.’ ‘A very specific bird.’",options:[
       {label:'Return five coins',outcome:'The pilgrim accepts the repayment. The crow continues judging you, but with less paperwork.',reward:[{type:'coins',amount:-5}],setFlags:['repaidShrine']},
       {label:'Question the reliability of bird testimony',outcome:'The pilgrim admits this is a fair legal point. The crow does not.',reward:[],setFlags:['arguedWithCrowLaw']}
     ]},
-    {id:'screaming-forest',title:'Screaming From the Trees',minHub:1,weight:11,once:false,dialog:'Someone shouts from the forest that they are not in danger. They then ask which direction danger usually comes from.',options:[
+    {id:'screaming-forest',title:'Screaming From the Trees',minHub:1,weight:11,once:false,dialog:"Someone screams from the trees. ‘Are you hurt?’ ‘No, I'm lost!’ ‘Why scream like that?’ ‘Because you answered. Now which way is the road?’",options:[
       {label:'Investigate',outcome:'You find a lost hunter and guide them back to the road. They share a few supplies.',reward:[{type:'leather',amount:1},{type:'coins',amount:3}],setFlags:['helpedLostHunter']},
       {label:'Call out directions from here',outcome:'The screaming stops, then resumes from a slightly better direction.',reward:[]},
       {label:'Pretend you heard nothing',outcome:'The forest accepts your decision without comment. The screaming does not.',reward:[]}
     ]},
-    {id:'bridge-paperwork',title:'Bridge Troll, Administrative Division',minHub:2,weight:10,once:true,dialog:'A troll blocks a bridge barely longer than its desk. It requests a crossing permit and refuses to accept the form it handed you yesterday.',options:[
+    {id:'bridge-paperwork',title:'Bridge Troll, Administrative Division',minHub:2,weight:10,once:true,dialog:"A troll blocks the bridge with a clipboard. ‘Form B-12. Blue ink.’ ‘Why blue?’ ‘Red makes me look angry.’ ‘You have a club.’ ‘That's for people who bring black.’",options:[
       {label:'Pay the filing fee · 4 coins',outcome:'The troll stamps a leaf, calls it official, and waves you through.',reward:[{type:'coins',amount:-4}],setFlags:['paidBridgePermit']},
       {label:'Tell a terrible joke',outcome:'The troll laughs so hard it forgets the paperwork and gives you a bone it was using as a pen.',reward:[{type:'bones',amount:1}],setFlags:['madeTrollLaugh']},
       {label:'Forge Form B-12',outcome:'You invent a form. The troll respects the confidence more than the handwriting.',reward:[{type:'coins',amount:2}],setFlags:['forgedBridgePermit']}
     ]},
-    {id:'abandoned-camp',title:'The Abandoned Camp',minHub:2,weight:9,once:true,dialog:'A deserted camp has a warm fire and a journal from Timmy’s former apprentice. The last page is a resignation letter written in a hurry.',options:[
+    {id:'abandoned-camp',title:'The Abandoned Camp',minHub:2,weight:9,once:true,dialog:"A warm fire sits beside a journal. TIMMY. TOO MANY SKELETONS. NEVER ACCEPT AN INTERNSHIP FROM A KING. The last page says: ASK ABOUT LUNCH BEFORE SIGNING.",options:[
       {label:'Read the journal',outcome:'The notes confirm the cemetery trouble is organized from deeper inside Grave Mistake.',reward:[{type:'coins',amount:2}],setFlags:['learnedTimmyRumor']},
       {label:'Take the supplies',outcome:'You salvage medicine and leave the journal where it is.',reward:[{type:'drumstick',amount:1}],setFlags:['tookCampSupplies']},
       {label:'Put out the fire and leave',outcome:'At least nobody will burn down the cemetery. Again.',reward:[]}
     ]},
-    {id:'fortress-deserter',title:'A Fortress Deserter',minHub:4,weight:18,once:true,dialog:'A fortress soldier has removed every piece of identifying armor except the extremely identifiable fortress boots.',options:[
+    {id:'fortress-deserter',title:'A Fortress Deserter',minHub:4,weight:18,once:true,dialog:"A soldier hides every piece of royal armor except the boots. ‘You recognize me?’ ‘There's a crown on each toe.’ ‘I was hoping you'd look at my face.’",options:[
       {label:'Let them escape',outcome:'They whisper a warning about the throne room and disappear down the road.',reward:[{type:'coins',amount:4}],setFlags:['sparedFortressDeserter']},
       {label:'Ask for supplies',outcome:'They hand over demon steel in exchange for pretending this conversation never happened.',reward:[{type:'steel',amount:1}],setFlags:['tradedWithDeserter']},
       {label:'Send them back',outcome:'They stare at you for a long time, then walk back toward the fortress very, very slowly.',reward:[],setFlags:['returnedDeserter']}
     ]},
-    {id:'deserter-warning',title:'A Message Scratched Into the Road',minHub:4,weight:35,once:true,requiresFlags:['sparedFortressDeserter'],delayFromFlag:['sparedFortressDeserter',1],dialog:'A chalk mark uses the same symbol the deserter showed you. Under it: “WARDEN WATCHES THE DAIS. LUCIEN WATCHES THE THRONE.”',options:[
+    {id:'deserter-warning',title:'A Message Scratched Into the Road',minHub:4,weight:35,once:true,requiresFlags:['sparedFortressDeserter'],delayFromFlag:['sparedFortressDeserter',1],dialog:"A chalk mark repeats the deserter's sign: WARDEN WATCHES THE DAIS. LUCIEN WATCHES THE THRONE. Beneath it someone has added: ‘I watched the stairs. Nobody thanked me.’",options:[
       {label:'Memorize the warning',outcome:'The message will not change your damage numbers, but it makes the final approach feel considerably less blind.',reward:[{type:'hp',amount:5}],setFlags:['deserterWarningReceived']},
       {label:'Erase the message',outcome:'You wipe it away so the fortress cannot learn who left it.',reward:[{type:'coins',amount:3}],setFlags:['protectedDeserterIdentity']}
     ]}

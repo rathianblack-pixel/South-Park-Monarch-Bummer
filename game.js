@@ -397,44 +397,44 @@ function openCodex(tab='Monsters',index=0){let entries=CODEX[tab]||CODEX.Enemies
 
 const OVERWORLD_EVENT_CHANCE=[.28,.24,.20,.16,.12];
 const OVERWORLD_EVENTS=[
- {id:'stuck-cart',title:'A Merchant’s Stuck Cart',minHub:0,weight:18,once:false,dialog:'A merchant’s cart is stuck in a ditch. He says the wheel was fine before the kingdom started neglecting roads.',options:[
+ {id:'stuck-cart',title:'A Merchant’s Stuck Cart',minHub:0,weight:18,once:false,dialog:"A merchant stands beside a cart buried to its axle. ‘Help me push?’ ‘What happened to the wheel?’ ‘We're discussing the cart. Please don't involve the wheel.’",options:[
   {label:'Help push the cart',outcome:'The cart comes free. The merchant pays you six coins, then asks whether you could avoid calling it a miracle near the priest.',reward:[{type:'coins',amount:6}]},
   {label:'Check the spilled cargo',outcome:'You find usable leather beneath the spilled cargo. The merchant insists he meant to sell it later.',reward:[{type:'leather',amount:1}]},
   {label:'Keep walking',outcome:'The merchant continues arguing with the wheel.',reward:[]}]},
- {id:'suspicious-tree',title:'The Suspicious Tree',minHub:0,weight:10,once:true,dialog:'A tree asks you a riddle about leaves. It looks alarmed when you answer before it finishes.',options:[
+ {id:'suspicious-tree',title:'The Suspicious Tree',minHub:0,weight:10,once:true,dialog:"A tree bends across the road. ‘Answer my riddle.’ ‘You're a tree.’ ‘And you're a person talking to a tree. We both have problems.’",options:[
   {label:'Answer its riddle',outcome:'The tree accepts your answer and drops a potion. It asks you not to tell the other trees how easy that was.',reward:[{type:'potion',amount:1}]},
   {label:'Take a branch',outcome:'The tree groans, but the branch is sturdy enough to be useful.',reward:[{type:'leather',amount:1},{type:'coins',amount:3}]},
   {label:'Apologize and leave',outcome:'The tree resumes pretending to be scenery.',reward:[]}]},
- {id:'lost-skeleton',title:'Lost Skeleton',minHub:0,weight:13,once:false,dialog:'A skeleton searches for its arm. It points at the wrong grave with the hand it still has.',options:[
+ {id:'lost-skeleton',title:'Lost Skeleton',minHub:0,weight:13,once:false,dialog:"A skeleton points to its missing arm. You lift a bone from the road. It shakes its head. ‘How can you tell?’ The skeleton points to the hand. Six fingers. ‘Fair.’",options:[
   {label:'Return the arm',outcome:'You return the arm. The skeleton gives you a thumbs-up, notices the hand is backward, and adjusts it.',reward:[{type:'bones',amount:2}]},
   {label:'Search the nearby grave',outcome:'You find a few coins beside a very offended-looking tombstone.',reward:[{type:'coins',amount:5}]},
   {label:'Leave it to keep looking',outcome:'The skeleton begins checking its ribs.',reward:[]}]},
- {id:'cursed-picnic',title:'Cursed Picnic',minHub:1,weight:8,once:true,dialog:'A picnic is laid out in the empty forest. One sandwich uses your name, then denies speaking when you turn around.',options:[
-  {label:'Eat the least suspicious sandwich',outcome:'It tastes like victory and only a little bit of grave dirt.',reward:[{type:'coins',amount:8}]},
+ {id:'cursed-picnic',title:'Cursed Picnic',minHub:1,weight:8,once:true,dialog:"A sandwich whispers your name. ‘Who made you?’ The picnic blanket hisses, ‘Don't ask the sandwiches.’ ‘I asked you.’ The blanket goes quiet.",options:[
+  {label:'Eat the least suspicious sandwich',outcome:'The sandwich tastes like ham and a very old secret. You finish chewing before asking what the filling was.',reward:[{type:'coins',amount:8}]},
   {label:'Burn the picnic',outcome:'The curse retreats into the smoke, leaving behind a useful cleansing charm.',reward:[{type:'cursebreaker',amount:1}]},
   {label:'Walk around it',outcome:'The sandwiches whisper insults as you pass.',reward:[]}]},
- {id:'hero-tax',title:'Hero Tax',minHub:0,weight:15,once:false,dialog:'A villager offers to register you as an official hero for three coins. The form is a blank leaf.',options:[
-  {label:'Pay the tax',outcome:'The villager stamps your imaginary hero permit.',reward:[{type:'coins',amount:-3},{type:'quest',text:'The villagers now recognize your questionable heroism.'}]},
+ {id:'hero-tax',title:'Hero Tax',minHub:0,weight:15,once:false,dialog:"A villager holds up a leaf marked HERO PERMIT. ‘Three coins.’ ‘Who approved this?’ ‘I wrote HERO on it.’ ‘Is that your entire government?’ ‘So far.’",options:[
+  {label:'Pay the tax',outcome:'The villager stamps a blank page. “You are now licensed to be heroic.” You ask where the stamp came from. He walks away.',reward:[{type:'coins',amount:-3},{type:'quest',text:'The villagers now recognize your questionable heroism.'}]},
   {label:'Negotiate loudly',outcome:'The villager backs down and hands you a small apology fee.',reward:[{type:'coins',amount:4}]},
   {label:'Refuse and leave',outcome:'The tax collector writes down your name incorrectly.',reward:[]}]},
- {id:'fake-boss',title:'Fake Boss',minHub:1,weight:9,once:false,dialog:'A tiny monster in a paper crown blocks the path. It asks you to wait while it finds the music for its entrance.',options:[
-  {label:'Challenge the “boss”',outcome:'The tiny monarch flees and drops something valuable while escaping.',reward:[{type:'steel',amount:1}]},
+ {id:'fake-boss',title:'Fake Boss',minHub:1,weight:9,once:false,dialog:"A tiny monster straightens a paper crown. ‘Wait for the music.’ ‘What music?’ It hums four notes and starts over. ‘That. I still need the ending.’",options:[
+  {label:'Challenge the “boss”',outcome:'“This was a warning fight,” it shouts while fleeing. It drops a useful piece of metal and refuses to come back for it.',reward:[{type:'steel',amount:1}]},
   {label:'Expose the costume',outcome:'The fake boss sighs and pays you to forget this happened.',reward:[{type:'coins',amount:9}]},
   {label:'Respect the title',outcome:'The tiny boss grants you passage and a suspicious bow.',reward:[]}]},
- {id:'emotional-chest',title:'Emotional Chest',minHub:2,weight:7,once:true,dialog:'A chest asks you not to open it in front of the others. There are no other chests nearby.',options:[
-  {label:'Comfort the chest',outcome:'The chest opens when it feels emotionally ready.',reward:[{type:'coins',amount:7},{type:'potion',amount:1}]},
+ {id:'emotional-chest',title:'Emotional Chest',minHub:2,weight:7,once:true,dialog:"A chest says, ‘Don't open me in front of the others.’ ‘What others?’ ‘The barrels.’ ‘They're barrels.’ ‘And you are judging me in front of them.’",options:[
+  {label:'Comfort the chest',outcome:'The chest finally opens. “You waited.” You ask if that was the test. “No, but it was nice.”',reward:[{type:'coins',amount:7},{type:'potion',amount:1}]},
   {label:'Force it open',outcome:'The lock breaks loudly, revealing a rare cleansing item.',reward:[{type:'cursebreaker',amount:1}]},
   {label:'Leave it alone',outcome:'The chest thanks you for respecting its boundaries.',reward:[]}]},
- {id:'goblin-market',title:'Traveling Goblin Market',minHub:0,weight:17,once:false,dialog:'A goblin has laid out a roadside market. The blanket extends farther inside the stall than the road allows.',options:[
-  {label:'Buy the cheap potion',outcome:'The potion is cloudy, but the label is encouraging.',reward:[{type:'coins',amount:-4},{type:'potion',amount:1}]},
+ {id:'goblin-market',title:'Traveling Goblin Market',minHub:0,weight:17,once:false,dialog:"A goblin lifts the edge of a blanket. ‘Market's open.’ ‘Where's the stock?’ ‘Under the blanket.’ ‘Can I see it?’ ‘You just did. Look slower.’",options:[
+  {label:'Buy the cheap potion',outcome:'The goblin hands you a cloudy bottle. “Why does the label say probably?” “Because certainly costs more.”',reward:[{type:'coins',amount:-4},{type:'potion',amount:1}]},
   {label:'Trade a story for supplies',outcome:'Your story is judged “acceptable” and earns a useful material.',reward:[{type:'leather',amount:1}]},
   {label:'Decline the suspicious bargains',outcome:'The goblin salutes with a spoon.',reward:[]}]},
- {id:'wounded-adventurer',title:'Wounded Adventurer',minHub:1,weight:12,once:false,dialog:'A wounded adventurer asks for help reaching the next signpost. They refuse to explain why they passed the previous one.',options:[
-  {label:'Help them stand',outcome:'They press a small medicine kit into your hands before limping away.',reward:[{type:'antidote',amount:1}]},
+ {id:'wounded-adventurer',title:'Wounded Adventurer',minHub:1,weight:12,once:false,dialog:"A wounded adventurer points to a signpost. ‘Just get me there.’ ‘Town's closer.’ ‘I can't limp into town in front of everybody.’ ‘You can barely limp here.’ ‘One humiliation at a time.’",options:[
+  {label:'Help them stand',outcome:'At the signpost, they give you a medicine kit. “For later.” You ask if they need it now. “I have made a decision.”',reward:[{type:'antidote',amount:1}]},
   {label:'Search their abandoned pack',outcome:'The pack contains a handful of coins and one usable scrap.',reward:[{type:'coins',amount:4},{type:'leather',amount:1}]},
   {label:'Keep moving',outcome:'The adventurer calls after you, but only to complain about the weather.',reward:[]}]},
- {id:'shortcut-sign',title:'Shortcut Sign',minHub:3,weight:5,once:true,dialog:'A sign promises a shortcut. A second sign says the first sign was written by someone who got lost.',options:[
-  {label:'Take the shortcut',outcome:'The shortcut is real enough and leads to a hidden supply cache.',reward:[{type:'steel',amount:1},{type:'coins',amount:5}]},
+ {id:'shortcut-sign',title:'Shortcut Sign',minHub:3,weight:5,once:true,dialog:"One sign says SHORTCUT. Another says DON'T TRUST THAT SIGN. A passerby says, ‘I wrote the second one.’ ‘Why?’ ‘I wrote the first one yesterday.’",options:[
+  {label:'Take the shortcut',outcome:'The shortcut works. Someone hid supplies at the end with a note: “I warned you because I wanted these.”',reward:[{type:'steel',amount:1},{type:'coins',amount:5}]},
   {label:'Follow the long road',outcome:'The long road is boring, reliable, and free of suspicious arrows.',reward:[{type:'hp',amount:3}]},
   {label:'Turn both signs around',outcome:'The road is now equally confusing in both directions.',reward:[]}]}
 ];
@@ -678,7 +678,7 @@ const COMBAT_CARD_ART={"sword":"Textures/UI/Combat/sword.png","bow":"Textures/UI
 
 (function(){
  const overlay=document.querySelector('#introExperience'),video=document.querySelector('#introVideo'),dialogue=document.querySelector('#introDialogue'),text=document.querySelector('#introDialogueText'),next=document.querySelector('#introContinue'),skip=document.querySelector('#introSkip');
- const lines=['I am Lucien. Sovereign of Scorn. Master of the Midnight Flame.','The herald asked me to pause between titles. He has since been reassigned.','For a century, people have tried to defy me. The successful ones are difficult to interview.','Now the stars insist another savior is coming.','My guards gave me a description. Mostly of the trousers.','If you reach this throne, you may try to end the darkness.','If you fail, the herald wants your skull on the mantel.','I told him we already have enough skulls. He says yours will fit.'];
+ const lines=["I am Lucien. Sovereign of Scorn. Master of the Midnight Flame.", "My herald says I should shorten the title. I told him to shorten the heralding.", "He asked whether he was still employed. That depends on how this introduction goes.", "Another savior is coming, they say. The guards brought me a sketch.", "They drew your trousers in considerable detail. One guard insisted it was important.", "I asked for your face. He said he was behind you when you passed the gate.", "Reach this throne and tell me what you intend to save. I may even listen.", "If you fail, the herald wants your skull on the mantel. I told him that shelf is full.", "He measured the wall next to it. Please do not make him feel useful."];
  let index=0,typing=false,timer=0,resumeMusic=false;
  function soundtrackIsOn(){return document.querySelector('#musicToggle')?.getAttribute('aria-pressed')==='true'}
  function setSoundtrack(on){const b=document.querySelector('#musicToggle');if(b&&soundtrackIsOn()!==on)b.click()}
@@ -2395,51 +2395,51 @@ window.getNgPlusVisuals=window.getNgPlusVisuals||function(){
   window.NGPLUS_CODEX_ENTRIES=window.NGPLUS_CODEX_ENTRIES||[];if(!window.NGPLUS_CODEX_ENTRIES.find(x=>x[0]==='Legacy Echo'))window.NGPLUS_CODEX_ENTRIES.push(['Legacy Echo','A hostile reconstruction of the hero who created the current timeline. It inherits the appearance of the previous completed run.']);
 
   const ngEvents=[
-    {id:'ng-king-tax-goose',title:'The Royal Goose Audit',minHub:0,weight:14,once:false,ngOnly:true,routeKeys:['male-king'],dialog:'A goose in a tiny crown blocks the road with a tax ledger and absolutely no legal authority.',options:[
+    {id:'ng-king-tax-goose',title:'The Royal Goose Audit',minHub:0,weight:14,once:false,ngOnly:true,routeKeys:['male-king'],dialog:"A crowned goose slaps a ledger onto the road. ‘You aren't a tax officer.’ It stamps your boot. ‘That isn't an answer.’ It stamps the other boot.",options:[
       {label:'Recognize the office',outcome:'The goose stamps the page and looks extremely satisfied.',reward:[{type:'coins',amount:7}]},
       {label:'Confiscate the fake ledger',outcome:'The paper is surprisingly valuable as crafting stock.',reward:[{type:'leather',amount:1}]},
       {label:'Order the goose home',outcome:'It honks something that sounds like an appeal.',reward:[]}]},
-    {id:'ng-king-petition',title:'A Petition About Petitions',minHub:2,weight:10,once:true,ngOnly:true,routeKeys:['male-king'],dialog:'Three villagers request a formal limit on how many formal requests may formally be requested.',options:[
+    {id:'ng-king-petition',title:'A Petition About Petitions',minHub:2,weight:10,once:true,ngOnly:true,routeKeys:['male-king'],dialog:"Three villagers bring a petition to limit petitions. ‘Doesn't this one count?’ They confer. ‘This one is a petition about petitions.’ ‘That's what I said.’ ‘We need another meeting.’",options:[
       {label:'Approve the limit',outcome:'The kingdom celebrates by filing significantly fewer forms.',reward:[{type:'coins',amount:12}]},
       {label:'Create a new form for complaints',outcome:'This was probably the wrong lesson.',reward:[{type:'steel',amount:1}]},
       {label:'Walk away slowly',outcome:'The petition follows you by courier.',reward:[]}]},
-    {id:'ng-destroy-salvage',title:'Republic Salvage Crew',minHub:0,weight:14,once:false,ngOnly:true,routeKeys:['male-destroy'],dialog:'A citizen crew is dismantling an old royal checkpoint and arguing about who gets the decorative spikes.',options:[
+    {id:'ng-destroy-salvage',title:'Republic Salvage Crew',minHub:0,weight:14,once:false,ngOnly:true,routeKeys:['male-destroy'],dialog:"Workers dismantle a royal checkpoint. ‘Who gets the spikes?’ ‘Whoever can carry them without impaling a neighbor.’ ‘That's a rule now?’ ‘It's the first good one we've had.’",options:[
       {label:'Help strip the metal',outcome:'The crew shares the best salvage with you.',reward:[{type:'steel',amount:1}]},
       {label:'Save the old sign for history',outcome:'A collector pays you for the relic.',reward:[{type:'coins',amount:9}]},
       {label:'Let democracy decide',outcome:'The argument becomes a committee.',reward:[]}]},
-    {id:'ng-destroy-debate',title:'Roadside Constitutional Crisis',minHub:3,weight:9,once:true,ngOnly:true,routeKeys:['male-destroy'],dialog:'Two councils have produced contradictory road signs and both insist theirs is legally binding.',options:[
+    {id:'ng-destroy-debate',title:'Roadside Constitutional Crisis',minHub:3,weight:9,once:true,ngOnly:true,routeKeys:['male-destroy'],dialog:"Two councils stand beside opposite road signs. ‘Which way to the village?’ Both point at their signatures. ‘I asked for directions.’ ‘And we provided the lawful versions.’",options:[
       {label:'Merge the rules',outcome:'Nobody is fully happy, which apparently means compromise worked.',reward:[{type:'coins',amount:11}]},
       {label:'Replace both signs',outcome:'The new sign simply says “Use common sense.”',reward:[{type:'leather',amount:1}]},
       {label:'Take the unsigned path',outcome:'It is shorter and somehow less political.',reward:[{type:'hp',amount:3}]}]},
-    {id:'ng-empty-campfire',title:'The Campfire That Knows You',minHub:0,weight:14,once:false,ngOnly:true,routeKeys:['male-empty'],dialog:'Travelers recognize you from six mutually contradictory versions of the same story.',options:[
+    {id:'ng-empty-campfire',title:'The Campfire That Knows You',minHub:0,weight:14,once:false,ngOnly:true,routeKeys:['male-empty'],dialog:"A traveler says you fought a dragon. Another says you married it. ‘Who started this?’ Both point at the bard. ‘I said there was a lizard,’ the bard mutters. ‘Nobody buys songs about lizards.’",options:[
       {label:'Tell the embarrassing version',outcome:'The camp likes you considerably more afterward.',reward:[{type:'coins',amount:8}]},
       {label:'Trade road tips',outcome:'A hunter gives you useful supplies.',reward:[{type:'leather',amount:1}]},
       {label:'Remain mysterious',outcome:'Your legend becomes less accurate and much more impressive.',reward:[]}]},
-    {id:'ng-empty-mapmaker',title:'Mapmaker in Distress',minHub:3,weight:10,once:true,ngOnly:true,routeKeys:['male-empty'],dialog:'A mapmaker claims Questionable Decisions physically rearranged itself just to insult him.',options:[
+    {id:'ng-empty-mapmaker',title:'Mapmaker in Distress',minHub:3,weight:10,once:true,ngOnly:true,routeKeys:['male-empty'],dialog:"A mapmaker spreads three maps of the same corridor. ‘Which one is right?’ ‘They all were when I drew them.’ ‘What's the red mark?’ ‘The exact spot I stopped believing in north.’",options:[
       {label:'Help chart the route',outcome:'You find a valuable cache while marking the correct path.',reward:[{type:'coins',amount:13},{type:'steel',amount:1}]},
       {label:'Add a warning doodle',outcome:'Future travelers may not understand it, but they will remember it.',reward:[{type:'coins',amount:7}]},
       {label:'Tell him to follow the sun',outcome:'He looks at the underground maze entrance and sighs.',reward:[]}]},
-    {id:'ng-stay-roses',title:'Lucien’s Extremely Serious Rose Delivery',minHub:0,weight:14,once:false,ngOnly:true,routeKeys:['female-stay'],dialog:'A nervous courier is carrying roses from Lucien and insists the arrangement is “politically neutral.”',options:[
+    {id:'ng-stay-roses',title:'Lucien’s Extremely Serious Rose Delivery',minHub:0,weight:14,once:false,ngOnly:true,routeKeys:['female-stay'],dialog:"A courier hands you roses from Lucien. ‘He says they're politically neutral.’ ‘Why are you sweating?’ ‘I wrote the card.’ ‘What does it say?’ ‘Please don't ask me in public.’",options:[
       {label:'Accept the roses',outcome:'The courier visibly relaxes. The flowers smell suspiciously expensive.',reward:[{type:'hp',amount:4}]},
       {label:'Send a teasing reply',outcome:'The courier laughs and gives you the unused delivery fee.',reward:[{type:'coins',amount:8}]},
       {label:'Redirect them to the memorial garden',outcome:'The gesture quietly means more than expected.',reward:[{type:'bones',amount:1}]}]},
-    {id:'ng-stay-court',title:'Court Etiquette Emergency',minHub:4,weight:10,once:true,ngOnly:true,routeKeys:['female-stay'],dialog:'A visiting noble has challenged Lucien to a duel over the correct fork for soup.',options:[
+    {id:'ng-stay-court',title:'Court Etiquette Emergency',minHub:4,weight:10,once:true,ngOnly:true,routeKeys:['female-stay'],dialog:"A noble challenges Lucien over a soup fork. ‘Why is there a fork in the soup?’ you ask. The noble calls for silence. Lucien looks into the bowl. ‘That's a very good question.’",options:[
       {label:'Cancel the duel',outcome:'The court survives another evening of civilization.',reward:[{type:'coins',amount:12}]},
       {label:'Replace all forks with spoons',outcome:'A surprisingly elegant compromise.',reward:[{type:'steel',amount:1}]},
       {label:'Let Lucien explain etiquette',outcome:'This takes three hours.',reward:[]}]},
-    {id:'ng-travel-caravan',title:'Caravan of Copycats',minHub:1,weight:14,once:false,ngOnly:true,routeKeys:['female-travel'],dialog:'A group of adventurers has copied your traveling style, including several decisions you regret.',options:[
+    {id:'ng-travel-caravan',title:'Caravan of Copycats',minHub:1,weight:14,once:false,ngOnly:true,routeKeys:['female-travel'],dialog:"A caravan copies your cloak, your stance, and yesterday's wrong turn. ‘That was a mistake.’ One traveler writes it down. ‘Mistake,’ she repeats. ‘Advanced maneuver. Got it.’",options:[
       {label:'Teach them the safer version',outcome:'They trade supplies for the lesson.',reward:[{type:'leather',amount:1},{type:'coins',amount:5}]},
       {label:'Lean into the legend',outcome:'They pay for a dramatic retelling around the fire.',reward:[{type:'coins',amount:12}]},
       {label:'Pretend not to be you',outcome:'Lucien ruins the disguise immediately.',reward:[]}]},
-    {id:'ng-travel-lucien',title:'Lucien Found a Shortcut',minHub:3,weight:10,once:true,ngOnly:true,routeKeys:['female-travel'],dialog:'Lucien is extremely confident that a narrow glowing tunnel is a shortcut. It is never good when he is this confident.',options:[
+    {id:'ng-travel-lucien',title:'Lucien Found a Shortcut',minHub:3,weight:10,once:true,ngOnly:true,routeKeys:['female-travel'],dialog:"Lucien points at a glowing tunnel. ‘Shortcut.’ ‘How do you know?’ ‘I have decided to know.’ ‘Has anyone tried it?’ ‘I'm hoping to count us as the first.’",options:[
       {label:'Take the shortcut',outcome:'Against all reason, it works and leads to a hidden supply chest.',reward:[{type:'steel',amount:1},{type:'coins',amount:8}]},
       {label:'Take the normal road',outcome:'You arrive safely and gain the satisfaction of being correct.',reward:[{type:'hp',amount:4}]},
       {label:'Make Lucien test it first',outcome:'He returns covered in glitter and refuses to discuss it.',reward:[]}]},
-    {id:'ng-friends-student',title:'Runaway Academy Student',minHub:0,weight:14,once:false,ngOnly:true,routeKeys:['female-friends'],dialog:'A refuge student skipped diplomacy class to test a homemade monster whistle.',options:[
+    {id:'ng-friends-student',title:'Runaway Academy Student',minHub:0,weight:14,once:false,ngOnly:true,routeKeys:['female-friends'],dialog:"A student blows a homemade monster whistle. ‘What does it summon?’ ‘That's the lesson I skipped.’ A growl comes from the hedge. ‘Should we run?’ ‘That was the other lesson.’",options:[
       {label:'Walk them back to class',outcome:'The instructors reward your patience.',reward:[{type:'coins',amount:8}]},
       {label:'Inspect the whistle',outcome:'It is terrible, but the materials are useful.',reward:[{type:'bones',amount:1}]},
       {label:'Ask what it summons',outcome:'Something answers from the forest. The student runs.',reward:[]}]},
-    {id:'ng-friends-archive',title:'The Missing Archive Page',minHub:2,weight:10,once:true,ngOnly:true,routeKeys:['female-friends'],dialog:'A page describing one of your old choices has vanished from the refuge archive.',options:[
+    {id:'ng-friends-archive',title:'The Missing Archive Page',minHub:2,weight:10,once:true,ngOnly:true,routeKeys:['female-friends'],dialog:"An archivist says a page about your past has vanished. ‘Who took it?’ ‘That's why I called you.’ ‘Do you at least know what's on it?’ ‘We would if the page were here.’",options:[
       {label:'Restore the honest version',outcome:'The archive keeps the messy truth instead of the flattering legend.',reward:[{type:'coins',amount:10}]},
       {label:'Leave a note for future readers',outcome:'A scholar gives you a rare supply for the annotation.',reward:[{type:'steel',amount:1}]},
       {label:'Let the mystery remain',outcome:'The missing page becomes a very popular research topic.',reward:[]}]}
