@@ -1,0 +1,5 @@
+Sword contact correction
+- alive-systems.js: Sword lunge now travels from the player to a point inside the enemy bounds, based on current fighter positions and field width. Sword trail and landing dust remain.
+- alive-systems.css: Player sprite temporarily draws over enemy during the lunge/contact, then returns to normal layering.
+- index.html: Refreshes script/style cache keys. Includes the prior combat-pose index changes.
+- No texture or combat damage rules changed. Apply over the earlier combat pose, no-Equipment, and sword trail patches.

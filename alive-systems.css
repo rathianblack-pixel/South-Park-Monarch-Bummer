@@ -9,7 +9,7 @@
 .alive-motion-shell.alive-player-magic{animation:alivePlayerMagic var(--alive-action-ms,950ms) cubic-bezier(.2,.75,.22,1) both}
 .alive-motion-shell.alive-player-guard{animation:alivePlayerGuard .42s cubic-bezier(.2,.75,.22,1) both}
 .alive-motion-shell.alive-guard-hold{transform:translate(12px,8px) rotate(2deg) scale(.97)}
-@keyframes alivePlayerSword{0%{transform:translateX(0) rotate(0)}18%{transform:translateX(18px) rotate(2deg) scale(.98)}54%{transform:translateX(calc(var(--alive-lunge,-150px)*.7)) rotate(-3deg) scale(1.03)}88%{transform:translateX(var(--alive-lunge,-150px)) rotate(-5deg) scale(1.05)}93%{transform:translateX(calc(var(--alive-lunge,-150px)*.82)) rotate(2deg)}100%{transform:translateX(0) rotate(0)}}
+@keyframes alivePlayerSword{0%{transform:translateX(0) rotate(0)}18%{transform:translateX(18px) rotate(2deg) scale(.98)}48%{transform:translateX(calc(var(--alive-lunge,-150px)*.7)) rotate(-3deg) scale(1.03)}68%,72%{transform:translateX(var(--alive-lunge,-150px)) rotate(-5deg) scale(1.05)}100%{transform:translateX(0) rotate(0)}}
 @keyframes alivePlayerBow{0%{transform:translateX(0) rotate(0)}28%{transform:translate(20px,3px) rotate(3deg) scale(.98)}72%{transform:translate(10px,0) rotate(1deg)}88%{transform:translate(-8px,-2px) rotate(-2deg) scale(1.02)}100%{transform:translateX(0) rotate(0)}}
 @keyframes alivePlayerMagic{0%{transform:translateX(0) rotate(0)}24%{transform:translate(18px,8px) rotate(3deg) scale(.97)}62%{transform:translate(10px,3px) rotate(1deg) scale(1.01);filter:brightness(1.08)}88%{transform:translate(var(--alive-lunge,-34px),-3px) rotate(-2deg) scale(1.05);filter:brightness(1.28)}100%{transform:translateX(0) rotate(0);filter:none}}
 @keyframes alivePlayerGuard{0%{transform:translate(0,0) rotate(0)}100%{transform:translate(12px,8px) rotate(2deg) scale(.97)}}
@@ -158,3 +158,15 @@
 #enemyArt.crownhold-pair .crownhold-pair-sprites>.monster-sprite:first-child{left:0!important;bottom:0!important;width:72%!important;height:100%!important;z-index:2}
 #enemyArt.crownhold-pair .crownhold-pair-sprites>.monster-sprite:nth-child(2){left:27%!important;bottom:-9%!important;width:72%!important;height:100%!important;z-index:1}
 #map .hud .controls #legacyBtn,#village .hud .controls #legacyBtn{white-space:nowrap}
+
+/* Two subtle armor silhouettes during the sword dash and a small grounded landing puff. */
+.alive-sword-afterimage{position:absolute;z-index:9;object-fit:contain;object-position:center bottom;pointer-events:none;opacity:.27;filter:blur(3px) saturate(.7);animation:aliveSwordGhost .15s ease-out forwards}
+.alive-sword-afterimage.legacy-facing{transform:scaleX(-1)}
+@keyframes aliveSwordGhost{from{opacity:.27}to{opacity:0}}
+.alive-sword-dust{position:absolute;z-index:11;width:30px;height:10px;pointer-events:none;transform:translate(-50%,-50%);border-radius:50%;background:#d7bd86a8;box-shadow:-13px 2px 0 -2px #c6aa76a0,11px -1px 0 -3px #ead3a2ae;animation:aliveSwordDust .42s ease-out forwards}
+.alive-sword-dust.landing{width:42px;height:12px;box-shadow:-19px 3px 0 -3px #c6aa76a0,17px 0 0 -3px #ead3a2ae}
+@keyframes aliveSwordDust{from{opacity:.75;scale:.55}to{opacity:0;scale:1.65;translate:0 -9px}}
+@media(prefers-reduced-motion:reduce){.alive-sword-afterimage,.alive-sword-dust{display:none!important}}
+
+/* Sword reaches over the target at contact; only the active lunge takes this layer. */
+.combat .battle-field .fighter.player.alive-sword-contact{z-index:15!important}

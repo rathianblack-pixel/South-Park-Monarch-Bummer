@@ -58,12 +58,37 @@ function refreshHouseCharacter(){
   img.src=injured?armor.damaged:armor.normal;
   img.hidden=false;
 }
-function combatArmorSrc(){let sources=combatArmorSources();let max=Number(state.maxHp)||1;return combat&&Number(combat.playerHp)<=max*.25?sources.damaged:sources.normal}
-function refreshCombatPlayerSprite(){if(!$('#combat')?.classList.contains('active')||!$('#playerArt'))return;let img=$('#playerArt .base-layer');if(!img)return;let sources=combatArmorSources(),wanted=combatArmorSrc();if(wanted===sources.damaged&&img.dataset.damagedFailed==='1'){if(img.dataset.requestedSrc!==sources.normal){img.dataset.requestedSrc=sources.normal;img.src=sources.normal}return}if(img.dataset.requestedSrc===wanted)return;img.dataset.requestedSrc=wanted;img.dataset.normalSrc=sources.normal;img.dataset.damagedSrc=sources.damaged;img.onerror=()=>{if(img.dataset.requestedSrc===img.dataset.damagedSrc)img.dataset.damagedFailed='1';img.onerror=null;img.dataset.requestedSrc=img.dataset.normalSrc;img.src=img.dataset.normalSrc};img.src=wanted}
+// Combat-only poses use the saved armor index; other screens keep their regular sprites.
+function combatPoseSrc(){
+ const gender=state.gender==='female'?'female':'male';
+ const index=Math.max(0,Math.min(12,Number(state.armorSets?.[gender]||0)));
+ const armor=['a01','a02','a03','a04','a05','choir','forge','bargain','road','village','grave','maze','throne'][index];
+ const kind=state.gear==='magic'?({fire:'fi',water:'w',light:'l'}[state.affinity]):({sword:'s',bow:'b'}[state.gear]);
+ return kind?`Textures/Player/Combat/${gender==='female'?'f':'m'}-${armor}-${kind}.png`:'';
+}
+function combatArmorSrc(){let sources=combatArmorSources();let max=Number(state.maxHp)||1;return combat&&Number(combat.playerHp)<=max*.25?sources.damaged:(combatPoseSrc()||sources.normal)}
+function refreshCombatPlayerSprite(){
+ if(!$('#combat')?.classList.contains('active')||!$('#playerArt'))return;
+ const img=$('#playerArt .base-layer');if(!img)return;
+ const sources=combatArmorSources(),wanted=combatArmorSrc(),doll=img.parentElement;
+ if(img.dataset.requestedSrc===wanted)return;
+ img.dataset.requestedSrc=wanted;
+ doll.classList.toggle('combat-class-pose',wanted===combatPoseSrc());
+ img.onerror=()=>{
+  const failed=img.dataset.requestedSrc;
+  doll.classList.remove('combat-class-pose');img.onerror=null;
+  img.dataset.requestedSrc=sources.normal;img.src=sources.normal;
+  if(failed===sources.damaged)img.dataset.damagedFailed='1';
+ };
+ if(wanted===sources.damaged&&img.dataset.damagedFailed==='1'){
+  doll.classList.remove('combat-class-pose');img.onerror=null;img.dataset.requestedSrc=sources.normal;img.src=sources.normal;return;
+ }
+ img.src=wanted;
+}
 function selectedGearAsset(){return state.gear==='sword'?'Iron Sword':state.gear==='bow'?'Wooden Bow':`${state.affinity[0].toUpperCase()+state.affinity.slice(1)} Focus`}
 function layerStyle(key,slot){let b=ASSET_META[key]||[0,0,480,480];let t=slot==='gear'?[255,218,150,170]:[0,0,480,480];let sx=t[2]/b[2],sy=t[3]/b[3],tx=t[0]-b[0]*sx,ty=t[1]-b[1]*sy;return `transform:translate(${tx/4.8}%,${ty/4.8}%) scale(${sx},${sy});transform-origin:0 0`}
 function layeredImg(key,slot,cls='wear'){return `<img class="${cls}" style="${layerStyle(key,slot)}" src="${asset(key)}" alt="">`}
-function svgDoll(combatMode=false){ensureProgress();let normal=asset(equippedArmorName()),armor=combatMode?combatArmorSrc():normal;let fallback=combatMode?` data-requested-src="${esc(armor)}" data-normal-src="${esc(normal)}" data-damaged-src="${esc(combatArmorSources().damaged)}" onerror="if(this.dataset.requestedSrc===this.dataset.damagedSrc)this.dataset.damagedFailed='1';this.onerror=null;this.dataset.requestedSrc=this.dataset.normalSrc;this.src=this.dataset.normalSrc"`:'';return `<div class="layered-doll" role="img" aria-label="${esc(state.gender)} full armor set"><img class="base-layer" src="${esc(armor)}"${fallback} alt="">${layeredImg(selectedGearAsset(),'gear','gear-layer')}</div>`}
+function svgDoll(combatMode=false){ensureProgress();let normal=asset(equippedArmorName()),armor=combatMode?combatArmorSrc():normal;let pose=combatMode&&armor===combatPoseSrc();let fallback=combatMode?` data-requested-src="${esc(armor)}" data-normal-src="${esc(normal)}" data-damaged-src="${esc(combatArmorSources().damaged)}" onerror="if(this.dataset.requestedSrc===this.dataset.damagedSrc)this.dataset.damagedFailed='1';this.parentElement.classList.remove('combat-class-pose');this.onerror=null;this.dataset.requestedSrc=this.dataset.normalSrc;this.src=this.dataset.normalSrc"`:'';return `<div class="layered-doll${pose?' combat-class-pose':''}" role="img" aria-label="${esc(state.gender)} full armor set"><img class="base-layer" src="${esc(armor)}"${fallback} alt="">${combatMode?'':layeredImg(selectedGearAsset(),'gear','gear-layer')}</div>`}
 
 const CLASS_COMBAT_STATS={
  sword:{hp:36,damage:11,accuracy:.95,defense:.08,ratings:[5,4,3,4,0]},

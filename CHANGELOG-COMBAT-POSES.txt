@@ -1,0 +1,4 @@
+Combat class armor poses (latest-build(1).zip)
+- game.js: Combat-only sprite lookup by gender, equipped armor index, and sword/bow/fire/water/light class. Existing armor-specific damaged sprite remains active at or below 25% HP. Missing pose or damaged files fall back to existing armor art. Other screens keep their previous sprites.
+- index.html: Show the right-facing combat pose without the legacy mirror and hide the separate equipment overlay only while a combat pose is displayed. Refresh game.js cache key.
+- No textures are included. Put the 130 supplied PNG files from Combat.zip directly in Textures/Player/Combat/ in your latest game build.

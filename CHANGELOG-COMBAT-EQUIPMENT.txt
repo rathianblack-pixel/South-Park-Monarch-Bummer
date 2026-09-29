@@ -1,0 +1,1 @@
+game.js: Removed the separate Equipment image from combat rendering, including damaged combat sprites. Healthy combat poses still use Textures/Player/Combat; injured combat sprites still use existing Textures/Player/Armor damaged art. Noncombat displays and existing weapon effects remain unchanged. Apply over the previous combat armor pose patch.

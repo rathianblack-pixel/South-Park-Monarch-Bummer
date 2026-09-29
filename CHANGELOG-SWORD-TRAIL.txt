@@ -1,0 +1,5 @@
+Sword attack motion trail
+- alive-systems.js: Adds short-lived combat sprite afterimages during forward lunge and return; clears them on enemy impact; adds launch and landing dust; cancels timers on new action.
+- alive-systems.css: Adjusts sword lunge to give return motion time and styles afterimages/dust.
+- index.html: Refreshes alive-systems JS/CSS cache keys. Based on the previous combat pose index.html patch.
+- Bow, magic, enemy combat actions, gameplay damage, and other screens are unchanged.

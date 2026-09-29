@@ -72,6 +72,7 @@
 
   function clearActorMotion(shell){
     if(!shell)return;
+    shell.__swordTrailCleanup?.();
     [...shell.classList].forEach(c=>{if(c.startsWith('alive-player-')||c.startsWith('alive-enemy-')||c.startsWith('alive-death-')||c.startsWith('alive-heavy-')||c==='alive-guard-hold')shell.classList.remove(c)});
     shell.style.removeProperty('--alive-lunge');
     shell.style.removeProperty('--alive-action-ms');
@@ -116,14 +117,58 @@
     setTimeout(()=>el.remove(),Math.round(330*speedScale()));
   }
 
+  // Sample the real armor sprite as the actor moves; ghosts stay behind in field space.
+  // Timers are tied to this one attack and cleared on a new action or scene change.
+  function swordTrail(shell,total){
+    const actor=document.querySelector('#playerArt'),layer=ensureCameraLayer();
+    const sprite=actor?.querySelector('.layered-doll .base-layer');
+    if(!actor||!layer||!sprite)return;
+    let ghosts=[],timers=[],intervals=[],phase='windup';
+    const later=(fn,ms)=>{const id=setTimeout(fn,ms);timers.push(id)};
+    const pulse=(fn,ms)=>{const id=setInterval(fn,ms);intervals.push(id);return id};
+    const stop=id=>{clearInterval(id);intervals=intervals.filter(x=>x!==id)};
+    const clearGhosts=()=>{ghosts.forEach(x=>x.remove());ghosts=[]};
+    const ghost=()=>{
+      if(!document.querySelector('#combat')?.classList.contains('active')||!sprite.isConnected)return;
+      const box=actor.getBoundingClientRect(),space=layer.getBoundingClientRect();
+      const img=document.createElement('img');img.className='alive-sword-afterimage';
+      img.src=sprite.currentSrc||sprite.src;img.alt='';img.setAttribute('aria-hidden','true');
+      img.style.left=(box.left-space.left)+'px';img.style.top=(box.top-space.top)+'px';
+      img.style.width=box.width+'px';img.style.height=box.height+'px';
+      // The original damaged armor art retains the legacy mirror.
+      if(!actor.querySelector('.combat-class-pose'))img.classList.add('legacy-facing');
+      layer.appendChild(img);ghosts.push(img);
+      if(ghosts.length>2)ghosts.shift().remove();
+      later(()=>{img.remove();ghosts=ghosts.filter(x=>x!==img)},Math.min(145,total*.18));
+    };
+    const dust=(landing)=>{
+      const box=actor.getBoundingClientRect(),space=layer.getBoundingClientRect();
+      const el=document.createElement('span');el.className='alive-sword-dust'+(landing?' landing':'');
+      el.style.left=(box.left-space.left+box.width*.47)+'px';
+      el.style.top=(box.bottom-space.top-box.height*.06)+'px';
+      layer.appendChild(el);later(()=>el.remove(),550);
+    };
+    const impact=()=>{if(phase!=='forward')return;phase='impact';stop(forward);clearGhosts()};
+    const cleanup=()=>{intervals.forEach(clearInterval);timers.forEach(clearTimeout);clearGhosts();layer.querySelectorAll('.alive-sword-dust').forEach(x=>x.remove());actor.classList.remove('alive-sword-contact');shell.__swordTrailCleanup=null;shell.__swordTrailImpact=null};
+    shell.__swordTrailCleanup=cleanup;shell.__swordTrailImpact=impact;
+    later(()=>{phase='forward';actor.classList.add('alive-sword-contact');dust(false)},total*.20);
+    const forward=pulse(()=>{if(phase==='forward')ghost()},Math.max(26,total*.039));
+    later(impact,total*.68);
+    later(()=>{phase='return';actor.classList.remove('alive-sword-contact')},total*.735);
+    const back=pulse(()=>{if(phase==='return')ghost()},Math.max(35,total*.048));
+    later(()=>{stop(back);clearGhosts();dust(true)},total*.955);
+    later(cleanup,total+520);
+  }
+
   function animatePlayerAction(kind,noticeMs){
     ensureCombatMotion();
     const shell=ensureActorShell(document.querySelector('#playerArt'));
     if(!shell||reduceMotion())return;
     clearActorMotion(shell);
-    const total=Math.max(350,Math.round(noticeMs*1.11));
+    const total=Math.max(350,Math.round(noticeMs*(kind==='sword'?1.32:1.11)));
     shell.style.setProperty('--alive-action-ms',total+'ms');
-    if(kind==='sword')shell.style.setProperty('--alive-lunge',(-Math.min(190,actorDistance()*.48))+'px');
+    if(kind==='sword')swordTrail(shell,total);
+    if(kind==='sword'){const player=document.querySelector('#playerArt')?.getBoundingClientRect(),enemy=document.querySelector('#enemyArt')?.getBoundingClientRect(),field=document.querySelector('#combat .battle-field')?.getBoundingClientRect();const contact=player&&enemy?(enemy.left+enemy.width*.30)-(player.left+player.width*.62):actorDistance()*.85;shell.style.setProperty('--alive-lunge',(-Math.max(70,Math.min(contact,(field?.width||900)*.72)))+'px')}
     if(kind==='magic')shell.style.setProperty('--alive-lunge','-34px');
     if(kind==='spell')shell.style.setProperty('--alive-lunge','-12px');
     const cls=kind==='sword'?'alive-player-sword':kind==='bow'?'alive-player-bow':(kind==='magic'||kind==='spell')?'alive-player-magic':'alive-player-guard';
@@ -217,6 +262,7 @@
     if(!target||!amount)return;
     const isEnemy=target.id==='enemyArt';
     const heavy=!isEnemy&&['heavy','charge'].includes(combat?.intentType);
+    if(isEnemy&&!options.status)document.querySelector('#playerArt .alive-motion-shell')?.__swordTrailImpact?.();
     recoilActor(target,{heavy,guarded:!!options.guarded});
     if(heavy&&!options.guarded)camera('heavy',280);
     if(isEnemy&&combat?.boss&&combat.enemyHp<=0)camera('boss-final',650);
